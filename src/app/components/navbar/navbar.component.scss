@@ -20,7 +20,7 @@
   right: 0;
   position: absolute;
   z-index: -1;
-  transition: all 1000ms;
+  transition: all 800ms;
 }
 
 .showNavbarBg.navbar::after {
@@ -73,15 +73,6 @@
 
   .navbar-collapse {
     margin-right: 30px;
-  }
-}
-
-@keyframes fade-in {
-  from {
-    filter: opacity(0%);
-  }
-  to {
-    filter: opacity(100%);
   }
 }
 

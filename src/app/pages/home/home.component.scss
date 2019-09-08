@@ -48,13 +48,33 @@
   display: flex;
   align-items: center;
   text-shadow: 0 0 20px black;
-  
+
   .logo {
-      height: 100px;
+    height: 100px;
+    animation: fade-in-delay 2000ms;
+  }
+
+  h1 {
+    animation: fade-in-delay 2500ms;
   }
 
   p {
-      margin-bottom: 0;
+    margin-bottom: 0;
+    animation: fade-in-delay 3000ms;
+  }
+}
+
+@keyframes fade-in-delay {
+  0% {
+    filter: opacity(0%);
+  }
+
+  33% {
+    filter: opacity(0%);
+  }
+
+  100% {
+    filter: opacity(100%);
   }
 }
 
@@ -64,5 +84,5 @@
 }
 
 .card {
-    transform: translateY(-75px);
+  transform: translateY(-75px);
 }
