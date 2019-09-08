@@ -1,0 +1,156 @@
+.logo {
+  height: 60px;
+  margin-right: -30px;
+}
+
+.navbar {
+  transition: max-height 300ms ease-in-out;
+  overflow: hidden;
+  max-height: 80px;
+  padding: 0.25rem 1.5rem;
+}
+
+.navbar.expanded {
+  max-height: 500px;
+}
+
+.navbar-collapse {
+  transition: max-height 300ms;
+  max-height: 500px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.navbar-collapse:not(.show) {
+  max-height: 100;
+  display: block;
+}
+
+.nav-item {
+  margin-right: 15px;
+  margin-left: 15px;
+  animation-duration: 1500ms;
+  font-size: 1.2em;
+}
+
+.nav-item .active {
+  font-weight: 700;
+}
+
+@media (max-width: 991px) {
+  .show .nav-item {
+    animation-name: fade-in-mobile;
+  }
+}
+
+@media (min-width: 992px) {
+  .nav-item {
+    animation-name: fade-in;
+  }
+
+  .navbar-collapse {
+    margin-right: 30px;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    filter: opacity(0%);
+  }
+  to {
+    filter: opacity(100%);
+  }
+}
+
+@keyframes fade-in-mobile {
+  from {
+    filter: opacity(0%);
+  }
+  to {
+    filter: opacity(100%);
+  }
+}
+
+.navbar-toggler,
+.nav-item {
+  background: rgba(0, 0, 0, 0);
+  transition: all 300ms ease-in-out;
+}
+
+.navbar-toggler:hover,
+.nav-item:hover,
+.navbar-toggler:focus,
+.nav-item:focus {
+  background: rgba(0, 0, 0, 0.05);
+  transform: scale(1.2);
+}
+
+.navbar-toggler {
+  border: none;
+  padding: 0.5rem 0.5rem;
+  outline: none;
+  margin-top: 10px;
+  border-radius: 50%;
+}
+
+.navbar-icon {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  display: inline-block;
+}
+
+.navbar-icon .animated-icon {
+  top: 18.5px;
+  left: 5px;
+}
+
+.navbar-icon .animated-icon,
+.navbar-icon .animated-icon:before,
+.navbar-icon .animated-icon:after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 28px;
+  background: #666;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.navbar-icon .animated-icon:before,
+.navbar-icon .animated-icon:after {
+  background: inherit;
+}
+
+.navbar-icon .animated-icon:before {
+  top: -8px;
+  right: 0;
+}
+
+.navbar-icon .animated-icon:after {
+  top: 8px;
+  right: 0;
+}
+
+.navbar-icon.anim .animated-icon {
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.navbar-icon.anim .animated-icon:before {
+  top: 0;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.navbar-icon.anim .animated-icon:after {
+  top: 0;
+  -webkit-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
