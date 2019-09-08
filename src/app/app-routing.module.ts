@@ -50,7 +50,7 @@ const routes: Routes = [
     component: BlogDetailComponent
   },
   {
-    path: '*',
+    path: '**',
     component: NotFoundComponent
   }
 ];
