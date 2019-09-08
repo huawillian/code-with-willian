@@ -1,1 +1,67 @@
-<p>home works!</p>
+<div #bgImg class="bg-img parallax"> </div>
+<div class="bg-filter"> </div>
+
+<div class="jumbotron jumbotron-fluid mb-0 pt-5 pb-5">
+    <div class="container text-center mb-5">
+        <img class="logo" src="assets/Logo.svg" alt="">
+        <h1>Code With Willian</h1>
+        <p>Your one stop shop for engineering <br> and curiosity</p>
+    </div>
+</div>
+
+<div class="content">
+    <div class="container">
+        <div class="card shadow text-left">
+            <div class="card-header text-center">
+                Today's Coding Toy Problem
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">Treasure Island</h4>
+                <p class="card-text">You bought an ancient map of the surrounding islands and the locations of the
+                    hidden treasures on each of those islands. However, you only have enough supplies to travel to and
+                    from one of these islands. Your goals is to find the island with the most amount of treasure. </p>
+                <p> The map is a 2 dimensional matrix where each item can either be 'W', 'L', or 'T', which stands for
+                    water, landmass, and buried treasure respectively. A cluster of landmasses is considered an island
+                    if they are connected to each other by being immediately adjacent to each other or through other
+                    connected land masses. Buried treasure are also landmasses. The output should be a list of the
+                    indexes representing the island with the most connected treasures.
+                </p>
+                <div *ngIf="!codingExpanded" class="text-right">
+                    <button class="btn btn-primary mr-2" (click)="expandCode()">Show More</button>
+                </div>
+                <div class="collapse" [ngClass]="{'show': codingExpanded}">
+                    <hr>
+                    <p> <b>Example</b></p>
+                    <div class="d-flex flex-wrap text-center">
+                        <div class="col-md-6">
+                            <p> Input </p>
+                            <pre>
+    [[ 'L', 'L', 'O', 'O'],
+      [ 'T', 'L', 'O', 'T'],
+      [ 'L', 'O', 'O', 'L'],
+      [ 'L', 'O', 'T', 'L']]
+                            </pre>
+                        </div>
+                        <div class="col-md-6">
+                            <p> Output </p>
+                            <pre>
+    [[1, 3],
+    [2, 3],
+    [3, 2],
+    [3, 3]]
+                            </pre>
+                        </div>
+                    </div>
+                    <p> <b>Reason</b> </p>
+                    <p> There are only 3 treasures in this island: [1, 0], [1, 3], and [3, 2]. The first treasure is not
+                        connected to any other treasures through landmasses. The second and third treasures are connected by
+                        landmasses: [2, 3] and [3, 3].</p>
+                    <div class="text-right">
+                        <button class="btn btn-secondary mr-2">Show Hint</button>
+                        <button class="btn btn-primary">See Solution</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

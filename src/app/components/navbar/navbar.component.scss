@@ -10,6 +10,29 @@
   padding: 0.25rem 1.5rem;
 }
 
+.navbar::after {
+  content: "";
+  background: url("/assets/prism.jpg");
+  opacity: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  transition: all 1000ms;
+}
+
+.showNavbarBg.navbar::after {
+  opacity: 0.99;
+}
+
+@media (max-width: 991px) {
+  .navbar.expanded::after {
+    opacity: 0.99;
+  }
+}
+
 .navbar.expanded {
   max-height: 500px;
 }
@@ -73,7 +96,8 @@
 
 .navbar-toggler,
 .nav-item {
-  background: rgba(0, 0, 0, 0);
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0);
   transition: all 300ms ease-in-out;
 }
 
@@ -81,7 +105,7 @@
 .nav-item:hover,
 .navbar-toggler:focus,
 .nav-item:focus {
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.05);
   transform: scale(1.2);
 }
 
@@ -115,7 +139,7 @@
   position: absolute;
   height: 3px;
   width: 28px;
-  background: #666;
+  background: rgba(255, 255, 255, 0.8);
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }

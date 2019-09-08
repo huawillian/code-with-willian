@@ -1,4 +1,5 @@
-<nav [ngClass]="{'expanded': expanded}" class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+<nav [ngClass]="{'expanded': expanded, 'shadow-lg': showNavbarBg, 'showNavbarBg': showNavbarBg}"
+    class="navbar navbar-expand-lg navbar-dark fixed-top">
     <a routerLink="/">
         <img class="logo" src="assets/Logo Word.svg" alt="Logo">
     </a>
