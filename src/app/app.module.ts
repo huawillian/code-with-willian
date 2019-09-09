@@ -17,6 +17,7 @@ import { CodeDetailComponent } from './pages/code-detail/code-detail.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ResumeBannerComponent } from './components/resume-banner/resume-banner.component';
+import { LazyLoadDirective } from './directives/lazy-load.directive';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ResumeBannerComponent } from './components/resume-banner/resume-banner.
     CodeDetailComponent,
     NotFoundComponent,
     FooterComponent,
-    ResumeBannerComponent
+    ResumeBannerComponent,
+    LazyLoadDirective
   ],
   imports: [
     BrowserModule,

@@ -8,3 +8,15 @@
     filter: opacity(100%);
   }
 }
+
+[appLazyLoad] {
+  transition: filter 1000ms ease-out 300ms;
+}
+
+[appLazyLoad]:not(.seen) {
+  filter: opacity(0%);
+}
+
+[appLazyLoad].seen {
+  filter: opacity(100%);
+}
