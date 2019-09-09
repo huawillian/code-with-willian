@@ -3,7 +3,8 @@
   color: rgba(255, 255, 255, 0.8);
 
   p {
-      padding: 0 5%;
+    padding: 0 5%;
+    color: rgba(255, 255, 255, 0.5);
   }
 }
 
@@ -20,22 +21,30 @@
 .linkedin img {
   width: 25px;
   height: 25px;
-  margin-top: 15px;
+  margin-top: 14px;
 }
 
-.github img, .soundcloud img {
+.github img,
+.soundcloud img {
   width: 30px;
   height: 30px;
   margin-top: 12.5px;
 }
 
 .sitemap {
-    background: rgba(255, 255, 255, 0.05);
-    word-break: break-word;
+  background: rgba(255, 255, 255, 0.05);
+  word-break: break-word;
 }
 
 .sitemap a {
-    margin: 5px 18px;
-    color: rgba(255, 255, 255, 0.8);
-    display: inline-block;
+  margin-right: 60px;
+  color: rgba(255, 255, 255, 0.8);
+  display: inline-block;
+}
+
+@media (max-width: 767px) {
+  .sitemap a {
+    display: block;
+    margin: 15px 0;
+  }
 }

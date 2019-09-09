@@ -12,3 +12,22 @@
     -webkit-appearance: none;
   }
 }
+
+.close-container {
+  float: right;
+  height: 0;
+}
+
+.close-container button {
+  position: absolute;
+  right: 20px;
+  margin-top: -40px;
+  border-radius: 50%;
+  height: 55px;
+  width: 55px;
+  border: none;
+}
+
+.close-container img {
+  height: 25px;
+}

@@ -1,4 +1,9 @@
-<div class="resume-banner pt-5 pb-5">
+<div *ngIf="show" class="resume-banner pt-5 pb-5">
+    <div class="close-container">
+        <button (click)="closeResumeBanner()" class="btn btn-outline-secondary">
+            <img src="/assets/close.svg" alt="close">
+        </button>
+    </div>
     <div class="container">
         <h3>LIKE WHAT YOU SEE?</h3>
         <p>Thanks for checking out my website! I'm always looking for new ways to improve myself by

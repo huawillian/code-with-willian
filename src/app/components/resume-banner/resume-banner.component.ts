@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./resume-banner.component.scss']
 })
 export class ResumeBannerComponent implements OnInit {
+  public show: boolean = true;
 
   constructor() { }
 
   ngOnInit() {
+    
   }
 
+  public closeResumeBanner() {
+    this.show = false;
+  }
 }
