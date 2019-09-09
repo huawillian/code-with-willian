@@ -1,0 +1,14 @@
+.resume-banner {
+  // background: url("/assets/email-pattern.png");
+  background: rgba(50, 50, 50, 0.9);
+  color: rgba(255, 255, 255, 0.8);
+
+  a:not(.btn) {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: underline;
+  }
+
+  .btn {
+    -webkit-appearance: none;
+  }
+}

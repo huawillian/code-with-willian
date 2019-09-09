@@ -16,6 +16,7 @@ import { BlogDetailComponent } from './pages/blog-detail/blog-detail.component';
 import { CodeDetailComponent } from './pages/code-detail/code-detail.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ResumeBannerComponent } from './components/resume-banner/resume-banner.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { FooterComponent } from './components/footer/footer.component';
     BlogDetailComponent,
     CodeDetailComponent,
     NotFoundComponent,
-    FooterComponent
+    FooterComponent,
+    ResumeBannerComponent
   ],
   imports: [
     BrowserModule,
