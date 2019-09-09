@@ -1,6 +1,6 @@
-<div *ngIf="show" class="resume-banner pt-5 pb-5">
+<div [ngClass]="{'show': show}" class="resume-banner pt-5 pb-5">
     <div class="close-container">
-        <button (click)="closeResumeBanner()" class="btn btn-outline-secondary">
+        <button *ngIf="show" (click)="closeResumeBanner()" class="btn btn-outline-secondary">
             <img src="/assets/close.svg" alt="close">
         </button>
     </div>

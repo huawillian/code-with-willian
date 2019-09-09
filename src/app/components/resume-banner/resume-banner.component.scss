@@ -2,6 +2,7 @@
   // background: url("/assets/email-pattern.png");
   background: rgba(50, 50, 50, 0.9);
   color: rgba(255, 255, 255, 0.8);
+  overflow: hidden;
 
   a:not(.btn) {
     color: rgba(255, 255, 255, 0.8);
@@ -20,7 +21,7 @@
 
 .close-container button {
   position: absolute;
-  right: 20px;
+  right: 15px;
   margin-top: -40px;
   border-radius: 50%;
   height: 55px;
@@ -30,4 +31,15 @@
 
 .close-container img {
   height: 25px;
+}
+
+.resume-banner.show {
+  max-height: 500px;
+}
+
+.resume-banner:not(.show) {
+  transition: all 500ms ease-in-out;
+  max-height: 0;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
