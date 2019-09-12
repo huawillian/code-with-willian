@@ -1,0 +1,127 @@
+.bg-img {
+  background-image: url("/assets/contact-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 150vh;
+  width: 100vw;
+  z-index: -2;
+  will-change: transform;
+}
+
+.bg-filter {
+  top: -80px;
+  left: 0;
+  height: 150vh;
+  width: 100vw;
+  z-index: -1;
+  position: fixed;
+  background: rgba(30, 30, 30, 0.8)
+}
+
+.parallax::after {
+  /* Display and position the pseudo-element */
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  /* Move the pseudo-element back away from the camera,
+     * then scale it back up to fill the viewport.
+     * Because the pseudo-element is further away, it appears to move more slowly, like in real life. */
+  transform: translateZ(-1px) scale(1.5);
+  /* Force the background image to fill the whole element. */
+  background-size: 100%;
+  /* Keep the image from overlapping sibling elements. */
+  z-index: -1;
+}
+
+.jumbotron {
+  background: transparent;
+  color: white;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  text-shadow: 0 0 20px black;
+
+  .profile-img {
+    border-radius: 50%;
+    border: rgba(255, 255, 255, 0.5) solid 4px;
+    height: 300px;
+    width: 300px;
+    animation: fade-in-delay 2500ms;
+  }
+
+  h1 {
+    animation: fade-in-delay 3000ms;
+    font-family: "Orbitron", sans-serif;
+  }
+
+  .contacts {
+    width: 300px;
+  }
+
+  .contact-item {
+    text-align: left;
+    min-width: 250px;
+    color: rgba(255, 255, 255, 0.8);
+    border-color: rgba(255, 255, 255, 0.8);
+    border-radius: 40px;
+    padding: 5px 20px;
+    animation: fade-in-delay 4000ms;
+
+    img {
+      height: 20px;
+      margin-top: -3px;
+      margin-right: 25px;
+    }
+  }
+
+  p {
+    margin-bottom: 0;
+    animation: fade-in-delay 3500ms;
+    font-family: "Orbitron", sans-serif;
+    letter-spacing: 0.05em;
+  }
+}
+
+@keyframes fade-in-delay {
+  0% {
+    filter: opacity(0%);
+  }
+
+  33% {
+    filter: opacity(0%);
+  }
+
+  100% {
+    filter: opacity(100%);
+  }
+}
+
+.copied-alert {
+  position: fixed;
+  bottom: 0;
+  transform: translateX(-50%);
+  left: 50%;
+  z-index: 1000;
+  animation: fade-in 3000ms ease-in reverse;
+
+  .close {
+    margin-top: -3px;
+  }
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  margin-top: 10px;
+}
