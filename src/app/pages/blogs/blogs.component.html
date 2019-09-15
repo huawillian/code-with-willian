@@ -1,1 +1,38 @@
-<p>blogs works!</p>
+<div #bgImg class="bg-img parallax"> </div>
+<div class="bg-filter"> </div>
+
+<div class="jumbotron jumbotron-fluid mb-0 pt-3 pb-3">
+    <div class="container text-center">
+        <h1>Blog</h1>
+        <div class="filter-btn-container mt-3">
+            <button [ngClass]="{'active': filterCriteria === 'All'}" [disabled]="animate" class="btn btn-secondary-outline"
+                (click)="filter($event)">All</button>
+            <button [ngClass]="{'active': filterCriteria === 'Tech'}" [disabled]="animate" class="btn btn-secondary-outline"
+                (click)="filter($event)">Tech</button>
+            <button [ngClass]="{'active': filterCriteria === 'Music'}" [disabled]="animate" class="btn btn-secondary-outline"
+                (click)="filter($event)">Music</button>
+            <button [ngClass]="{'active': filterCriteria === 'Games'}" [disabled]="animate" class="btn btn-secondary-outline"
+                (click)="filter($event)">Games</button>
+            <button [ngClass]="{'active': filterCriteria === 'Other'}" [disabled]="animate" class="btn btn-secondary-outline"
+                (click)="filter($event)">Other</button>
+        </div>
+    </div>
+</div>
+
+<div class="content pt-4 pb-4">
+    <div class="container d-flex flex-wrap items">
+        <div [ngClass]="{'show': item.show, 'anim': animate}" *ngFor="let item of items"
+            class="col-lg-4 col-md-6 col-sm-12 p-0 item-container">
+            <a [routerLink]="item.link" class="item-link text-center">
+                <div class="item">
+                    <img src="{{item.thumbnail}}" class="shadow" alt="..." tabindex="0">
+                    <div class="item-filter"></div>
+                    <div class="item-content d-flex justify-content-center align-items-center flex-column p-4">
+                        <h2 class="item-header">{{item.title}}</h2>
+                        <p class="pl-3 pr-3">{{item.description}}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

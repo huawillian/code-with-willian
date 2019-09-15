@@ -1,0 +1,205 @@
+.bg-img {
+  background-image: url("/assets/blog-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 150vh;
+  width: 100vw;
+  z-index: -2;
+  will-change: transform;
+}
+
+.bg-filter {
+  top: -80px;
+  left: 0;
+  height: 150vh;
+  width: 100vw;
+  z-index: -1;
+  position: fixed;
+  background: rgba(30, 30, 30, 0.8);
+}
+
+.parallax::after {
+  /* Display and position the pseudo-element */
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  /* Move the pseudo-element back away from the camera,
+     * then scale it back up to fill the viewport.
+     * Because the pseudo-element is further away, it appears to move more slowly, like in real life. */
+  transform: translateZ(-1px) scale(1.5);
+  /* Force the background image to fill the whole element. */
+  background-size: 100%;
+  /* Keep the image from overlapping sibling elements. */
+  z-index: -1;
+}
+
+.jumbotron {
+  background: transparent;
+  color: white;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  text-shadow: 0 0 20px black;
+
+  .logo {
+    height: 100px;
+    animation: fade-in-delay 2000ms;
+  }
+
+  h1 {
+    animation: fade-in-delay 2500ms;
+    font-family: "Orbitron", sans-serif;
+  }
+}
+
+@keyframes fade-in-delay {
+  0% {
+    filter: opacity(0%);
+  }
+
+  33% {
+    filter: opacity(0%);
+  }
+
+  100% {
+    filter: opacity(100%);
+  }
+}
+
+.content {
+  background: rgba(255, 255, 255, 0.85);
+  min-height: 300px;
+}
+
+.transition {
+  transition: all 500ms;
+}
+
+.filter-btn-container {
+  animation: fade-in-delay 3000ms;
+
+  .btn {
+    background: transparent !important;
+    margin: 5px 15px;
+    padding: 5px 20px;
+    border-radius: 20px;
+    border: #ff5722 solid 1px;
+    color: #ff5722;
+    transition: all 300ms;
+    box-shadow: none;
+  }
+
+  .btn:focus,
+  .btn:hover,
+  .btn.active {
+    background: #ff5722 !important;
+    border: rgba(255, 255, 255, 0.8) solid 1px;
+    color: rgba(255, 255, 255, 0.8);
+    box-shadow: none;
+  }
+
+  .btn.active {
+    box-shadow: 0 0 0 0.2rem #ff572266;
+  }
+}
+
+.item {
+  position: relative;
+}
+
+.item:before {
+  content: " ";
+  display: block;
+  width: 100%;
+  padding-top: 100%;
+}
+
+.item img,
+.item .item-content,
+.item .item-filter {
+  border-radius: 5px;
+  position: absolute;
+  top: 7.5px;
+  left: 7.5px;
+  bottom: 7.5px;
+  right: 7.5px;
+  width: calc(100% - 15px);
+  height: calc(100% - 15px);
+}
+
+.item-link {
+  color: rgba(255, 255, 255, 0.8);
+
+  .item {
+    transform: scale(1);
+    transition: all 500ms;
+  }
+
+  .item-filter {
+    background-color: rgba(50, 50, 50, 0.9);
+    transition: all 500ms;
+  }
+
+  .item-header {
+    transform: scale(1) translateY(50%);
+    transition: all 500ms 500ms;
+  }
+
+  p {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1000ms;
+  }
+}
+
+.item-link:hover,
+.item-link:focus {
+  .item {
+    transform: scale(1.05);
+  }
+
+  .item-filter {
+    background-color: rgba(255, 87, 34, 0.95);
+  }
+
+  .item-header {
+    transform: scale(0.8) translateY(0);
+    transition: all 500ms;
+  }
+
+  p {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 1000ms 500ms;
+  }
+}
+
+.items {
+  animation: fade-in-delay 3500ms;
+}
+
+.item-container.anim {
+  transition: all 600ms;
+  transition-timing-function: ease-in-out;
+  z-index: 1;
+}
+
+.item-container:not(.anim) {
+  &.show {
+    transform: scale(1);
+    display: block;
+  }
+
+  &:not(.show) {
+    transform: scale(0);
+    display: none;
+  }
+}

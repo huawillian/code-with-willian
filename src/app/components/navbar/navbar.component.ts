@@ -37,7 +37,7 @@ export class NavbarComponent implements OnInit {
   handleScroll() {
     if (this.isRaf) {
       this.expanded = false;
-      this.showNavbarBg = window.scrollY > 100;
+      this.showNavbarBg = window.scrollY > 50;
       this.isRaf = false;
     }
   }
