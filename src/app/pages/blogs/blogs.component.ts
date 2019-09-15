@@ -10,7 +10,7 @@ export class BlogsComponent implements OnInit {
   @ViewChild('bgImg', { static: true }) bgImg;
   private scrollSubscription: Subscription;
   private isRaf = false;
-  public filterCriteria: string = 'All';
+  public filterCriteria: string;
   public items = [
     {
       thumbnail: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/SRI_International_Building.jpg/220px-SRI_International_Building.jpg',
@@ -58,6 +58,8 @@ export class BlogsComponent implements OnInit {
         window.requestAnimationFrame(this.handleScroll.bind(this));
       }
     });
+
+    this.filter('All');
   }
 
   handleScroll() {
@@ -71,10 +73,9 @@ export class BlogsComponent implements OnInit {
     this.scrollSubscription.unsubscribe();
   }
 
-  public filter(event) {
-    const newFilterCriteria = event.target.innerText;
-    if (newFilterCriteria !== this.filterCriteria) {
-      this.filterCriteria = newFilterCriteria;
+  public filter(tagName) {
+    if (tagName !== this.filterCriteria) {
+      this.filterCriteria = tagName;
 
 
       const nodes = this.elementRef.nativeElement.querySelectorAll('.item-container');
@@ -182,6 +183,10 @@ export class BlogsComponent implements OnInit {
           node.style.opacity = '';
         });
       }, 600);
+
+      setTimeout(() => {
+        this.elementRef.nativeElement.querySelector('.item-container.show .item-link').focus({ preventScroll: true });
+      }, 1000);
     }
   }
 }

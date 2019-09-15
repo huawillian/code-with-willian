@@ -162,6 +162,7 @@
 
 .item-link:hover,
 .item-link:focus {
+  outline: none;
   .item {
     transform: scale(1.05);
   }

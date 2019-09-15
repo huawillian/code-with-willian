@@ -6,15 +6,15 @@
         <h1>Blog</h1>
         <div class="filter-btn-container mt-3">
             <button [ngClass]="{'active': filterCriteria === 'All'}" [disabled]="animate" class="btn btn-secondary-outline"
-                (click)="filter($event)">All</button>
+                (click)="filter('All')">All</button>
             <button [ngClass]="{'active': filterCriteria === 'Tech'}" [disabled]="animate" class="btn btn-secondary-outline"
-                (click)="filter($event)">Tech</button>
+                (click)="filter('Tech')">Tech</button>
             <button [ngClass]="{'active': filterCriteria === 'Music'}" [disabled]="animate" class="btn btn-secondary-outline"
-                (click)="filter($event)">Music</button>
+                (click)="filter('Music')">Music</button>
             <button [ngClass]="{'active': filterCriteria === 'Games'}" [disabled]="animate" class="btn btn-secondary-outline"
-                (click)="filter($event)">Games</button>
+                (click)="filter('Games')">Games</button>
             <button [ngClass]="{'active': filterCriteria === 'Other'}" [disabled]="animate" class="btn btn-secondary-outline"
-                (click)="filter($event)">Other</button>
+                (click)="filter('Other')">Other</button>
         </div>
     </div>
 </div>
