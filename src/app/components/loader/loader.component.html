@@ -1,0 +1,24 @@
+<div class="splash" *ngIf="!hide"
+    [ngClass]="{'fade-out': fadeOut, 'fade-in': fadeIn, 'text-only': !showLogo, 'anim': animate && smil}"
+    #splash>
+    <svg class="splash-logo" viewBox="0.0 0.0 384.0 384.0" fill="none" stroke="none" stroke-linecap="square"
+        stroke-miterlimit="10">
+        <path fill="#000000" fill-opacity="0.0" d="m192.0 24.0l-144.0 91.0l0 154.0l144.0 91.0l144.0 -91.0l0 -154.0z"
+            fill-rule="evenodd" />
+        <path class="splash-border" stroke="#efefef" stroke-width="24.0" stroke-linejoin="round" stroke-linecap="butt"
+            d="m192.0 24.0l-144.0 91.0l0 154.0l144.0 91.0l144.0 -91.0l0 -154.0z" fill-rule="evenodd" />
+        <path class="splash-1" fill="#efefef"
+            d="m188.96004 88.0l19.039963 19.219673l-57.279327 58.20501l57.119873 58.312775l-18.719284 19.221466l-76.24134 -77.53424z"
+            fill-rule="evenodd" />
+        <path class="splash-2" fill="#efefef"
+            d="m195.91988 141.04108l-19.039948 19.219666l57.279327 58.205017l-57.11989 58.312775l18.7193 19.221466l76.24133 -77.53424z"
+            fill-rule="evenodd" #splash2 />
+    </svg>
+
+    <div class="splash-loading">
+        <img class="splash-loading-text" src="/assets/Loading.png" alt="Loading">
+        <img class="dot-1" src="/assets/dot.png" alt="">
+        <img class="dot-2" src="/assets/dot.png" alt="">
+        <img class="dot-3" src="/assets/dot.png" alt="">
+    </div>
+</div>

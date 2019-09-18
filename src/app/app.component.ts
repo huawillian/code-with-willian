@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { IntersectionService } from './services/intersection.service';
 
 @Component({
@@ -6,12 +6,17 @@ import { IntersectionService } from './services/intersection.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   title = 'code-with-willian';
+  @ViewChild('loader', { static: true }) loaderRef;
 
   constructor(private intersectionService: IntersectionService) { }
 
   ngOnInit(): void {
     this.intersectionService.init();
+  }
+
+  ngAfterViewInit(): void {
+    this.loaderRef.initLoader();
   }
 }

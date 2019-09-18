@@ -20,3 +20,8 @@
 [appLazyLoad].seen {
   filter: opacity(100%);
 }
+
+body:not(.loaded) {
+  overflow: hidden;
+  background: rgb(50, 50, 50);
+}

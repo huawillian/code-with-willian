@@ -18,6 +18,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ResumeBannerComponent } from './components/resume-banner/resume-banner.component';
 import { LazyLoadDirective } from './directives/lazy-load.directive';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { LazyLoadDirective } from './directives/lazy-load.directive';
     NotFoundComponent,
     FooterComponent,
     ResumeBannerComponent,
-    LazyLoadDirective
+    LazyLoadDirective,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
