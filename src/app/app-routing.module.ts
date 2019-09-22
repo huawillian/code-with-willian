@@ -10,44 +10,71 @@ import { CodeDetailComponent } from './pages/code-detail/code-detail.component';
 import { ProjectDetailComponent } from './pages/project-detail/project-detail.component';
 import { BlogDetailComponent } from './pages/blog-detail/blog-detail.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-
+import { DefaultResolverService } from './services/default-resolver.service';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    resolve: {
+      data: DefaultResolverService
+    }
   },
   {
     path: 'about',
-    component: AboutComponent
+    component: AboutComponent,
+    resolve: {
+      data: DefaultResolverService
+    }
   },
   {
     path: 'code',
-    component: CodeComponent
+    component: CodeComponent,
+    resolve: {
+      data: DefaultResolverService
+    }
   },
   {
     path: 'projects',
-    component: ProjectsComponent
+    component: ProjectsComponent,
+    resolve: {
+      data: DefaultResolverService
+    }
   },
   {
     path: 'blog',
-    component: BlogsComponent
+    component: BlogsComponent,
+    resolve: {
+      data: DefaultResolverService
+    }
   }, 
   {
     path: 'contact',
-    component: ContactComponent
+    component: ContactComponent,
+    resolve: {
+      data: DefaultResolverService
+    }
   },
   {
     path: 'code/:id',
-    component: CodeDetailComponent
+    component: CodeDetailComponent,
+    resolve: {
+      data: DefaultResolverService
+    }
   },
   {
     path: 'projects/:id',
-    component: ProjectDetailComponent
+    component: ProjectDetailComponent,
+    resolve: {
+      data: DefaultResolverService
+    }
   },
   {
     path: 'blog/:id',
-    component: BlogDetailComponent
+    component: BlogDetailComponent,
+    resolve: {
+      data: DefaultResolverService
+    }
   },
   {
     path: '**',

@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { IntersectionService } from './services/intersection.service';
+import { LoaderService, LoaderType } from './components/loader/services/loader.service';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +11,16 @@ export class AppComponent implements OnInit, AfterViewInit {
   title = 'code-with-willian';
   @ViewChild('loader', { static: true }) loaderRef;
 
-  constructor(private intersectionService: IntersectionService) { }
+  constructor(private intersectionService: IntersectionService, private loaderService: LoaderService) { }
 
   ngOnInit(): void {
     this.intersectionService.init();
   }
 
   ngAfterViewInit(): void {
-    this.loaderRef.initLoader();
+    this.loaderService.updateLoader({
+      type: LoaderType.Init,
+      animate: true
+    });
   }
 }

@@ -8,11 +8,12 @@
   right: 0;
   z-index: 9999;
   opacity: 1;
-  transition: all 1000ms ease-in-out;
+  transition: all 1000ms ease-in-out 0ms;
 }
 
 .splash.fade-out {
   opacity: 0;
+  transition: all 500ms ease-in-out 500ms;
 }
 
 .splash.fade-in {

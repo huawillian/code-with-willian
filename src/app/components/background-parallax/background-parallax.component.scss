@@ -9,7 +9,7 @@
   width: 100vw;
   will-change: transform;
   z-index: -2;
-  transition: opacity 1000ms linear 300ms;
+  transition: opacity 500ms linear;
   opacity: 0;
 }
 
@@ -29,7 +29,7 @@
   z-index: -1;
   position: fixed;
   background: rgba(30, 30, 30, 0.8);
-  transition: background 1000ms linear 300ms;
+  transition: background 300ms linear;
 }
 
 .parallax::after {

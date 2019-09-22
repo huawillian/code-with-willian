@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { LoaderService, LoaderType } from './services/loader.service';
 
 @Component({
   selector: 'app-loader',
@@ -13,18 +14,34 @@ export class LoaderComponent implements OnInit {
   smil = false;
   hide = false;
   fadeIn = false;
+  init = false;
 
-  constructor() { }
+  constructor(private loaderService: LoaderService) { }
 
   ngOnInit(): void {
     this.smil = window['Modernizr'].smil;
+
+    this.loaderService.updates.subscribe((config) => {
+      if(config.type === LoaderType.Init) {
+        this.initLoader(config.animate);
+      } else if(this.init === true) {
+        if(config.type === LoaderType.Show) {
+          this.showLoader(config.animate);
+        } else if(config.type === LoaderType.Hide){
+          this.hideLoader(config.animate);
+        }
+      }
+    });
   }
 
   public hideLoader(withFade?: boolean) {
     this.fadeOut = withFade ? true : false;
     this.fadeIn = false;
-    this.toggleScrollLock(false);
-
+    
+    setTimeout(() => {
+      this.toggleScrollLock(false);
+    }, 500);
+    
     setTimeout(() => {
       this.hide = true;
     }, 1000);
@@ -46,6 +63,7 @@ export class LoaderComponent implements OnInit {
 
       setTimeout(() => {
         this.hideLoader(true);
+        this.init = true;
       }, 4300);
 
       setTimeout(() => {
@@ -58,9 +76,11 @@ export class LoaderComponent implements OnInit {
 
       setTimeout(() => {
         this.hideLoader(true);
+        this.init = true;
       }, 2500);
     } else {
       this.hideLoader();
+      this.init = true;
     }
   };
 
