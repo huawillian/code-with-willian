@@ -1,26 +1,23 @@
-<div #bgImg class="bg-img parallax"> </div>
-<div class="bg-filter"> </div>
-
-<div class="jumbotron jumbotron-fluid mb-0 pt-3 pb-3">
-    <div class="container text-center">
-        <h1>Blog</h1>
-        <div class="filter-btn-container mt-3">
+<app-hero-banner>
+    <div class="banner-content">
+        <h1 class="orbitron-font fade-in-delay-sm">Blog</h1>
+        <div class="filter-btn-container mt-3 fade-in-delay-md">
             <button [ngClass]="{'active': filterCriteria === 'All'}" [disabled]="animate" class="btn btn-secondary-outline"
                 (click)="filter('All')">All</button>
             <button [ngClass]="{'active': filterCriteria === 'Tech'}" [disabled]="animate" class="btn btn-secondary-outline"
                 (click)="filter('Tech')">Tech</button>
-            <button [ngClass]="{'active': filterCriteria === 'Music'}" [disabled]="animate" class="btn btn-secondary-outline"
-                (click)="filter('Music')">Music</button>
-            <button [ngClass]="{'active': filterCriteria === 'Games'}" [disabled]="animate" class="btn btn-secondary-outline"
-                (click)="filter('Games')">Games</button>
-            <button [ngClass]="{'active': filterCriteria === 'Other'}" [disabled]="animate" class="btn btn-secondary-outline"
-                (click)="filter('Other')">Other</button>
+            <button [ngClass]="{'active': filterCriteria === 'Music'}" [disabled]="animate"
+                class="btn btn-secondary-outline" (click)="filter('Music')">Music</button>
+            <button [ngClass]="{'active': filterCriteria === 'Games'}" [disabled]="animate"
+                class="btn btn-secondary-outline" (click)="filter('Games')">Games</button>
+            <button [ngClass]="{'active': filterCriteria === 'Other'}" [disabled]="animate"
+                class="btn btn-secondary-outline" (click)="filter('Other')">Other</button>
         </div>
     </div>
-</div>
+</app-hero-banner>
 
 <div class="content pt-4 pb-4">
-    <div class="container d-flex flex-wrap items">
+    <div class="container d-flex flex-wrap items fade-in-delay-lg">
         <div [ngClass]="{'show': item.show, 'anim': animate}" *ngFor="let item of items"
             class="col-lg-4 col-md-6 col-sm-12 p-0 item-container">
             <a [routerLink]="item.link" class="item-link text-center">

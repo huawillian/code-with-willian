@@ -1,47 +1,9 @@
-.jumbotron {
-  background: transparent;
-  color: white;
-  min-height: 600px;
-  display: flex;
-  align-items: center;
-  text-shadow: 0 0 20px black;
-
+.banner-content {
   .logo {
     height: 100px;
-    animation: fade-in-delay 2000ms;
-  }
-
-  h1 {
-    animation: fade-in-delay 2500ms;
-    font-family: 'Orbitron', sans-serif;
   }
 
   p {
-    margin-bottom: 0;
-    animation: fade-in-delay 3000ms;
-    font-family: "Orbitron", sans-serif;
     letter-spacing: 0.05em;
   }
-}
-
-@keyframes fade-in-delay {
-  0% {
-    filter: opacity(0%);
-  }
-
-  33% {
-    filter: opacity(0%);
-  }
-
-  100% {
-    filter: opacity(100%);
-  }
-}
-
-.content {
-  background: #EEE;
-}
-
-.card {
-  transform: translateY(-75px);
 }

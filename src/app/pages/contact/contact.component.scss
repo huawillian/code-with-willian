@@ -1,22 +1,9 @@
-.jumbotron {
-  background: transparent;
-  color: white;
-  min-height: 600px;
-  display: flex;
-  align-items: center;
-  text-shadow: 0 0 20px black;
-
+.banner-content {
   .profile-img {
     border-radius: 50%;
     border: rgba(255, 255, 255, 0.5) solid 4px;
     height: 300px;
     width: 300px;
-    animation: fade-in-delay 2500ms;
-  }
-
-  h1 {
-    animation: fade-in-delay 3000ms;
-    font-family: "Orbitron", sans-serif;
   }
 
   .contacts {
@@ -30,7 +17,6 @@
     border-color: rgba(255, 255, 255, 0.8);
     border-radius: 40px;
     padding: 5px 20px;
-    animation: fade-in-delay 4000ms;
 
     img {
       height: 20px;
@@ -44,20 +30,6 @@
     animation: fade-in-delay 3500ms;
     font-family: "Orbitron", sans-serif;
     letter-spacing: 0.05em;
-  }
-}
-
-@keyframes fade-in-delay {
-  0% {
-    filter: opacity(0%);
-  }
-
-  33% {
-    filter: opacity(0%);
-  }
-
-  100% {
-    filter: opacity(100%);
   }
 }
 

@@ -37,11 +37,6 @@ export class LoaderComponent implements OnInit {
   public hideLoader(withFade?: boolean) {
     this.fadeOut = withFade ? true : false;
     this.fadeIn = false;
-    
-    setTimeout(() => {
-      this.toggleScrollLock(false);
-    }, 500);
-    
     setTimeout(() => {
       this.hide = true;
     }, 1000);
@@ -51,7 +46,6 @@ export class LoaderComponent implements OnInit {
     this.fadeOut = false;
     this.fadeIn = withFade ? true : false;
     this.hide = false;
-    this.toggleScrollLock(true);
   }
 
   public initLoader(animate = true) {
@@ -62,6 +56,7 @@ export class LoaderComponent implements OnInit {
       }, 1000);
 
       setTimeout(() => {
+        this.toggleScrollLock(false);
         this.hideLoader(true);
         this.init = true;
       }, 4300);
@@ -75,10 +70,12 @@ export class LoaderComponent implements OnInit {
       }, 1000);
 
       setTimeout(() => {
+        this.toggleScrollLock(false);
         this.hideLoader(true);
         this.init = true;
       }, 2500);
     } else {
+      this.toggleScrollLock(false);
       this.hideLoader();
       this.init = true;
     }

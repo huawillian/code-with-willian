@@ -1,0 +1,13 @@
+.jumbotron {
+  background: transparent;
+  color: white;
+  display: flex;
+  align-items: center;
+  text-shadow: 1px 1px 20px black;
+  margin: 0 !important;
+}
+
+.jumbotron.full-height {
+  padding: 0 !important;
+  min-height: 90vh;
+}

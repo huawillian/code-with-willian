@@ -9,6 +9,20 @@
   }
 }
 
+@keyframes fade-in-delay {
+  0% {
+    filter: opacity(0%);
+  }
+
+  33% {
+    filter: opacity(0%);
+  }
+
+  100% {
+    filter: opacity(100%);
+  }
+}
+
 [appLazyLoad] {
   transition: filter 1000ms ease-out 300ms;
 }
@@ -24,4 +38,29 @@
 body:not(.loaded) {
   overflow: hidden;
   background: rgb(50, 50, 50);
+}
+
+.orbitron-font {
+  font-family: "Orbitron", sans-serif;
+}
+
+.fade-in-delay-sm {
+  animation: fade-in-delay 2000ms;
+}
+
+.fade-in-delay-md {
+  animation: fade-in-delay 2500ms;
+}
+
+.fade-in-delay-lg {
+  animation: fade-in-delay 3000ms;
+}
+
+.fade-in-delay-xlg {
+  animation: fade-in-delay 4000ms;
+}
+
+.content {
+  background: rgba(255, 255, 255, 0.85);
+  min-height: 300px;
 }

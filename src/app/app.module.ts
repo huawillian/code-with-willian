@@ -20,6 +20,7 @@ import { ResumeBannerComponent } from './components/resume-banner/resume-banner.
 import { LazyLoadDirective } from './directives/lazy-load.directive';
 import { LoaderComponent } from './components/loader/loader.component';
 import { BackgroundParallaxComponent } from './components/background-parallax/background-parallax.component';
+import { HeroBannerComponent } from './components/hero-banner/hero-banner.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { BackgroundParallaxComponent } from './components/background-parallax/ba
     ResumeBannerComponent,
     LazyLoadDirective,
     LoaderComponent,
-    BackgroundParallaxComponent
+    BackgroundParallaxComponent,
+    HeroBannerComponent
   ],
   imports: [
     BrowserModule,
