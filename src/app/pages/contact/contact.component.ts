@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { fromEvent, Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { BackgroundParallaxService } from 'src/app/components/background-parallax/services/background-parallax.service';
 
 @Component({
   selector: 'app-contact',
@@ -7,31 +7,12 @@ import { fromEvent, Subscription } from 'rxjs';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
-  @ViewChild('bgImg', { static: true }) bgImg;
-  private scrollSubscription: Subscription;
-  private isRaf = false;
-
-  constructor() { }
+  constructor(private backgroundParallaxService: BackgroundParallaxService) { }
 
   ngOnInit() {
-    this.handleScroll();
-
-    this.scrollSubscription = fromEvent(window, 'scroll').subscribe(() => {
-      if (!this.isRaf) {
-        this.isRaf = true;
-        window.requestAnimationFrame(this.handleScroll.bind(this));
-      }
+    this.backgroundParallaxService.updateBackground({
+      src: '/assets/contact-bg.jpg',
+      filter: 'rgba(30, 30, 30, 0.8)'
     });
-  }
-
-  handleScroll() {
-    if (this.isRaf) {
-      this.bgImg.nativeElement.style.transform = `translateY(-${window.scrollY / 3}px)`;
-      this.isRaf = false;
-    }
-  }
-
-  ngOnDestroy() {
-    this.scrollSubscription.unsubscribe();
   }
 }

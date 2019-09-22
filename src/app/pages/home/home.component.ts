@@ -1,43 +1,24 @@
-import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
-import { fromEvent, Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { BackgroundParallaxService } from 'src/app/components/background-parallax/services/background-parallax.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, OnDestroy {
-  @ViewChild('bgImg', { static: true }) bgImg;
-  private scrollSubscription: Subscription;
-  private isRaf = false;
-
+export class HomeComponent implements OnInit {
   public codingExpanded: boolean = false;
 
-  constructor() { }
+  constructor(private backgroundParallaxService: BackgroundParallaxService) { }
 
   ngOnInit() {
-    this.handleScroll();
-
-    this.scrollSubscription = fromEvent(window, 'scroll').subscribe(() => {
-      if(!this.isRaf) {
-        this.isRaf = true;
-        window.requestAnimationFrame(this.handleScroll.bind(this));
-      }
+    this.backgroundParallaxService.updateBackground({
+      src: '/assets/dev-bg.jpg',
+      filter: 'rgba(0, 0, 0, 0.7)'
     });
-  }
-
-  handleScroll() {
-    if(this.isRaf) {
-      this.bgImg.nativeElement.style.transform = `translateY(-${window.scrollY / 3}px)`;
-      this.isRaf = false;
-    }
   }
 
   expandCode() {
     this.codingExpanded = true;
-  }
-
-  ngOnDestroy() {
-    this.scrollSubscription.unsubscribe();
   }
 }

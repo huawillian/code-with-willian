@@ -37,8 +37,8 @@ export class LoaderComponent implements OnInit {
     this.toggleScrollLock(true);
   }
 
-  public initLoader() {
-    if (this.smil) {
+  public initLoader(animate = true) {
+    if (this.smil && animate) {
       setTimeout(() => {
         this.showLogo = true;
         this.animate = true;
@@ -51,7 +51,7 @@ export class LoaderComponent implements OnInit {
       setTimeout(() => {
         this.animate = false;
       }, 5000);
-    } else {
+    } else if (animate) {
       setTimeout(() => {
         this.showLogo = true;
       }, 1000);
@@ -59,6 +59,8 @@ export class LoaderComponent implements OnInit {
       setTimeout(() => {
         this.hideLoader(true);
       }, 2500);
+    } else {
+      this.hideLoader();
     }
   };
 

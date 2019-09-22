@@ -19,6 +19,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ResumeBannerComponent } from './components/resume-banner/resume-banner.component';
 import { LazyLoadDirective } from './directives/lazy-load.directive';
 import { LoaderComponent } from './components/loader/loader.component';
+import { BackgroundParallaxComponent } from './components/background-parallax/background-parallax.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { LoaderComponent } from './components/loader/loader.component';
     FooterComponent,
     ResumeBannerComponent,
     LazyLoadDirective,
-    LoaderComponent
+    LoaderComponent,
+    BackgroundParallaxComponent
   ],
   imports: [
     BrowserModule,

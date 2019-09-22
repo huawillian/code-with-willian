@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Subscription, fromEvent } from 'rxjs';
+import { Subscription } from 'rxjs';
+import { BackgroundParallaxService } from 'src/app/components/background-parallax/services/background-parallax.service';
 
 @Component({
   selector: 'app-blogs',
@@ -8,8 +9,6 @@ import { Subscription, fromEvent } from 'rxjs';
 })
 export class BlogsComponent implements OnInit {
   @ViewChild('bgImg', { static: true }) bgImg;
-  private scrollSubscription: Subscription;
-  private isRaf = false;
   public filterCriteria: string;
   public items = [
     {
@@ -47,30 +46,15 @@ export class BlogsComponent implements OnInit {
   ];
   public animate = false;
 
-  constructor(private elementRef: ElementRef) { }
+  constructor(private elementRef: ElementRef, private backgroundParallaxService: BackgroundParallaxService) { }
 
   ngOnInit() {
-    this.handleScroll();
-
-    this.scrollSubscription = fromEvent(window, 'scroll').subscribe(() => {
-      if (!this.isRaf) {
-        this.isRaf = true;
-        window.requestAnimationFrame(this.handleScroll.bind(this));
-      }
+    this.backgroundParallaxService.updateBackground({
+      src: '/assets/blog-bg.jpg',
+      filter: 'rgba(30, 30, 30, 0.8)'
     });
 
     this.filter('All');
-  }
-
-  handleScroll() {
-    if (this.isRaf) {
-      this.bgImg.nativeElement.style.transform = `translateY(-${window.scrollY / 3}px)`;
-      this.isRaf = false;
-    }
-  }
-
-  ngOnDestroy() {
-    this.scrollSubscription.unsubscribe();
   }
 
   public filter(tagName) {
