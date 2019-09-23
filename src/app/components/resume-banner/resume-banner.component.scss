@@ -1,7 +1,7 @@
-@import 'variables';
+@import "variables";
+@import "buttons";
 
 .resume-banner {
-  // background: url("/assets/email-pattern.png");
   background: rgba(50, 50, 50, 0.9);
   color: $white;
   overflow: hidden;
@@ -29,20 +29,26 @@
   height: 55px;
   width: 55px;
   border: none;
+  padding: 0;
 }
 
 .close-container img {
   height: 25px;
-}
-
-.resume-banner.show {
-  max-height: 500px;
+  width: 25px;
+  margin-left: 1px;
 }
 
 .resume-banner:not(.show) {
-  transition: all 500ms ease-in-out;
-  max-height: 0;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  color: $white;
+  animation: collapse 1000ms ease-in-out forwards;
+}
+
+@keyframes collapse {
+  from {
+    max-height: 500px;
+    display: block;
+  }
+  to {
+    max-height: 0;
+    display: none;
+  }
 }

@@ -1,10 +1,10 @@
-<div [ngClass]="{'show': show}" class="resume-banner pt-5 pb-5">
-    <div class="close-container" >
-        <button *ngIf="show" (click)="closeResumeBanner()" class="btn btn-outline-secondary" appLazyLoad>
+<div [ngClass]="{'show': show}" class="resume-banner">
+    <div class="close-container mt-5" >
+        <button *ngIf="show" (click)="closeResumeBanner()" class="btn btn-white" appLazyLoad>
             <img src="/assets/close.svg" alt="close">
         </button>
     </div>
-    <div class="container" appLazyLoad>
+    <div class="container mt-5 mb-5" appLazyLoad>
         <h3>LIKE WHAT YOU SEE?</h3>
         <p>Thanks for checking out my website! I'm always looking for new ways to improve myself by
             taking on challenging tasks and roles. If you have an exciting opportunity, I would definitely love to hear
