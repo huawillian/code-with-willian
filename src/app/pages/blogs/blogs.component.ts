@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { BackgroundParallaxService } from 'src/app/components/background-parallax/services/background-parallax.service';
 
 @Component({

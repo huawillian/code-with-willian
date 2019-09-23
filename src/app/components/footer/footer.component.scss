@@ -1,11 +1,8 @@
+@import 'variables';
+
 .footer {
   background: url("/assets/prism.jpg");
-  color: rgba(255, 255, 255, 0.8);
-
-  p {
-    padding: 0 5%;
-    color: rgba(255, 255, 255, 0.5);
-  }
+  color: $white-transparent;
 }
 
 .social-icon {
@@ -38,7 +35,7 @@
 
 .sitemap a {
   margin-right: 60px;
-  color: rgba(255, 255, 255, 0.8);
+  color: $white;
   display: inline-block;
 }
 

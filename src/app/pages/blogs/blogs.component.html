@@ -2,16 +2,16 @@
     <div class="banner-content">
         <h1 class="orbitron-font fade-in-delay-sm">Blog</h1>
         <div class="filter-btn-container mt-3 fade-in-delay-md">
-            <button [ngClass]="{'active': filterCriteria === 'All'}" [disabled]="animate" class="btn btn-secondary-outline"
+            <button [ngClass]="{'active': filterCriteria === 'All'}" [disabled]="animate" class="btn btn-cyan"
                 (click)="filter('All')">All</button>
-            <button [ngClass]="{'active': filterCriteria === 'Tech'}" [disabled]="animate" class="btn btn-secondary-outline"
+            <button [ngClass]="{'active': filterCriteria === 'Tech'}" [disabled]="animate" class="btn btn-cyan"
                 (click)="filter('Tech')">Tech</button>
             <button [ngClass]="{'active': filterCriteria === 'Music'}" [disabled]="animate"
-                class="btn btn-secondary-outline" (click)="filter('Music')">Music</button>
+                class="btn btn-cyan" (click)="filter('Music')">Music</button>
             <button [ngClass]="{'active': filterCriteria === 'Games'}" [disabled]="animate"
-                class="btn btn-secondary-outline" (click)="filter('Games')">Games</button>
+                class="btn btn-cyan" (click)="filter('Games')">Games</button>
             <button [ngClass]="{'active': filterCriteria === 'Other'}" [disabled]="animate"
-                class="btn btn-secondary-outline" (click)="filter('Other')">Other</button>
+                class="btn btn-cyan" (click)="filter('Other')">Other</button>
         </div>
     </div>
 </app-hero-banner>

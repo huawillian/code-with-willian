@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'variables';
+@import 'buttons';
 
 @keyframes fade-in {
   from {
@@ -35,9 +37,12 @@
   filter: opacity(100%);
 }
 
+body {
+  background: $dark-gray;
+}
+
 body:not(.loaded) {
   overflow: hidden;
-  background: rgb(50, 50, 50);
 }
 
 .orbitron-font {

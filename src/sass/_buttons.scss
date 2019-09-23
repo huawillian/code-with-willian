@@ -1,0 +1,78 @@
+@import "./variables";
+
+.btn {
+  background: transparent !important;
+  padding: 5px 20px;
+  border-radius: 40px;
+  transition: all 300ms;
+  box-shadow: none;
+  font-weight: 500;
+}
+
+.btn-orange {
+  border: $orange solid 2px;
+  color: $orange;
+}
+
+.btn-green {
+  border: $green solid 2px;
+  color: $green;
+}
+
+.btn-cyan {
+  border: $cyan solid 2px;
+  color: $cyan;
+}
+
+.btn-white {
+  border: $white solid 2px;
+  color: $white;
+}
+
+.btn:focus,
+.btn:hover,
+.btn.active {
+  border: $white solid 2px;
+  color: $white;
+  box-shadow: none;
+}
+
+.btn-orange:focus,
+.btn-orange:hover,
+.btn-orange.active {
+  background: $orange !important;
+}
+
+.btn-green:focus,
+.btn-green:hover,
+.btn-green.active {
+  background: $green !important;
+}
+
+.btn-cyan:focus,
+.btn-cyan:hover,
+.btn-cyan.active {
+  background: $cyan !important;
+}
+
+.btn-white:focus,
+.btn-white:hover,
+.btn-white.active {
+  background: $white-transparent !important;
+}
+
+.btn-orange.active {
+  box-shadow: 0 0 0 0.2rem $orange-transparent;
+}
+
+.btn-green.active {
+  box-shadow: 0 0 0 0.2rem $green-transparent;
+}
+
+.btn-cyan.active {
+  box-shadow: 0 0 0 0.2rem $cyan-transparent;
+}
+
+.btn-white.active {
+  box-shadow: 0 0 0 0.2rem $white-transparent;
+}

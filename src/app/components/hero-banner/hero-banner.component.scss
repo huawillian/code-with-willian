@@ -1,9 +1,11 @@
+@import 'variables';
+
 .jumbotron {
   background: transparent;
   color: white;
   display: flex;
   align-items: center;
-  text-shadow: 1px 1px 20px black;
+  text-shadow: 1px 1px 20px $dark-gray;
   margin: 0 !important;
 }
 
