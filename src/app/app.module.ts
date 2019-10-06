@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,8 @@ import { LazyLoadDirective } from './directives/lazy-load.directive';
 import { LoaderComponent } from './components/loader/loader.component';
 import { BackgroundParallaxComponent } from './components/background-parallax/background-parallax.component';
 import { HeroBannerComponent } from './components/hero-banner/hero-banner.component';
+import { GroupArrayPipe } from './pipes/group-array.pipe';
+import { GridComponent } from './components/grid/grid.component';
 
 @NgModule({
   declarations: [
@@ -41,12 +44,15 @@ import { HeroBannerComponent } from './components/hero-banner/hero-banner.compon
     LazyLoadDirective,
     LoaderComponent,
     BackgroundParallaxComponent,
-    HeroBannerComponent
+    HeroBannerComponent,
+    GroupArrayPipe,
+    GridComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

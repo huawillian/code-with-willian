@@ -1,0 +1,24 @@
+<div class="item-container" *ngIf="items?.length && slots?.length" [ngClass]="gridCssClass">
+    <div *ngFor="let item of items; index as i" class="item"
+        [@fadeAnimation]="{ value: item.show, params: { delay: delay(i)}}"
+        [@itemAnimation]="{value: animate, params: { width: withPx(item.slot, 'width'), height: withPx(item.slot, 'height'), transform: transform(item.slot, item.show) } }">
+        <a [routerLink]="item.link" class="item-link" [ngClass]="{'active': active && item?.slot === 0}" appLazyLoad>
+            <img src="{{item.thumbnail}}" class="item-img">
+            <div class="item-filter"></div>
+            <div class="item-content p-4 d-flex flex-column justify-content-center text-center">
+                <h3 class="item-title">{{item.title}}</h3>
+                <p class="item-description mb-0">{{item.description}}</p>
+            </div>
+            <div *ngIf="item?.footerText"
+                class="item-footer-container d-flex flex-column justify-content-end align-items-end">
+                <div class="item-footer p-1 small orbitron-font">{{item.footerText}}</div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="container" *ngIf="displayedItems?.length">
+    <div class="grid-container row-1" *ngFor="let itemGroup of displayedItems | groupArray: 6">
+        <div class="grid-item" *ngFor="let item of itemGroup"></div>
+    </div>
+</div>

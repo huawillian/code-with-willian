@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BackgroundParallaxService } from 'src/app/components/background-parallax/services/background-parallax.service';
+import { BackgroundParallaxService } from '../../components/background-parallax/services/background-parallax.service';
 
 @Component({
   selector: 'app-home',

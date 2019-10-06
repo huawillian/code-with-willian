@@ -20,7 +20,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.loaderService.updateLoader({
       type: LoaderType.Init,
-      animate: true
+      animate: false
     });
   }
 }

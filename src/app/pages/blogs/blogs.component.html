@@ -6,30 +6,17 @@
                 (click)="filter('All')">All</button>
             <button [ngClass]="{'active': filterCriteria === 'Tech'}" [disabled]="animate" class="btn btn-cyan"
                 (click)="filter('Tech')">Tech</button>
-            <button [ngClass]="{'active': filterCriteria === 'Music'}" [disabled]="animate"
-                class="btn btn-cyan" (click)="filter('Music')">Music</button>
-            <button [ngClass]="{'active': filterCriteria === 'Games'}" [disabled]="animate"
-                class="btn btn-cyan" (click)="filter('Games')">Games</button>
-            <button [ngClass]="{'active': filterCriteria === 'Other'}" [disabled]="animate"
-                class="btn btn-cyan" (click)="filter('Other')">Other</button>
+            <button [ngClass]="{'active': filterCriteria === 'Music'}" [disabled]="animate" class="btn btn-cyan"
+                (click)="filter('Music')">Music</button>
+            <button [ngClass]="{'active': filterCriteria === 'Games'}" [disabled]="animate" class="btn btn-cyan"
+                (click)="filter('Games')">Games</button>
+            <button [ngClass]="{'active': filterCriteria === 'Other'}" [disabled]="animate" class="btn btn-cyan"
+                (click)="filter('Other')">Other</button>
         </div>
     </div>
 </app-hero-banner>
 
 <div class="content pt-4 pb-4">
-    <div class="container d-flex flex-wrap items fade-in-delay-lg">
-        <div [ngClass]="{'show': item.show, 'anim': animate}" *ngFor="let item of items"
-            class="col-lg-4 col-md-6 col-sm-12 p-0 item-container">
-            <a [routerLink]="item.link" class="item-link text-center">
-                <div class="item">
-                    <img src="{{item.thumbnail}}" class="shadow" alt="..." tabindex="0">
-                    <div class="item-filter"></div>
-                    <div class="item-content d-flex justify-content-center align-items-center flex-column p-4">
-                        <h2 class="item-header">{{item.title}}</h2>
-                        <p class="pl-3 pr-3">{{item.description}}</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
+    <app-grid *ngIf="items?.length" [items]="items" [filterCriteria]="filterCriteria" [gridCssClass]="gridCssClass">
+    </app-grid>
 </div>
