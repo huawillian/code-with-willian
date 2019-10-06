@@ -12,6 +12,7 @@ export class ProjectsComponent implements OnInit {
   public items: any = [];
   public filterCriteria: string = "All";
   public gridCssClass = "green";
+  public filters = [];
 
   constructor(
     private backgroundParallaxService: BackgroundParallaxService,
@@ -23,8 +24,18 @@ export class ProjectsComponent implements OnInit {
       src: "/assets/blog-bg.jpg",
       filter: "rgba(30, 30, 30, 0.8)"
     });
+    
     this.articlesService.getArticles().subscribe(items => {
       this.items = items;
+      this.filters = Object.keys(
+        items.reduce((acc, item) => {
+          const tagsArr = item.tags.split(",").map(tag => tag.trim());
+          tagsArr.forEach(tag => {
+            acc[tag] = true;
+          });
+          return acc;
+        }, {})
+      );
     });
   }
 

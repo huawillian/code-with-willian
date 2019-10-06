@@ -1,10 +1,6 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-} from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { BackgroundParallaxService } from "../../components/background-parallax/services/background-parallax.service";
-import { ArticlesService } from '../../services/articles.service';
+import { ArticlesService } from "../../services/articles.service";
 
 @Component({
   selector: "app-code",
@@ -14,8 +10,9 @@ import { ArticlesService } from '../../services/articles.service';
 export class CodeComponent implements OnInit {
   @ViewChild("bgImg", { static: true }) bgImg;
   public items: any = [];
-  public filterCriteria: string = 'All';
-  public gridCssClass = 'orange';
+  public filterCriteria: string = "All";
+  public gridCssClass = "orange";
+  public filters = [];
 
   constructor(
     private backgroundParallaxService: BackgroundParallaxService,
@@ -28,8 +25,17 @@ export class CodeComponent implements OnInit {
       filter: "rgba(30, 30, 30, 0.8)"
     });
 
-    this.articlesService.getArticles().subscribe((items) => {
+    this.articlesService.getArticles().subscribe(items => {
       this.items = items;
+      this.filters = Object.keys(
+        items.reduce((acc, item) => {
+          const tagsArr = item.tags.split(",").map(tag => tag.trim());
+          tagsArr.forEach(tag => {
+            acc[tag] = true;
+          });
+          return acc;
+        }, {})
+      );
     });
   }
 

@@ -1,18 +1,10 @@
 <app-hero-banner>
     <div class="banner-content">
         <h1 class="orbitron-font fade-in-delay-sm">Projects</h1>
-        <div class="filter-btn-container mt-3 fade-in-delay-md">
-            <button [ngClass]="{'active': filterCriteria === 'All'}" [disabled]="animate" class="btn btn-green"
-                (click)="filter('All')">All</button>
-            <button [ngClass]="{'active': filterCriteria === 'Tech'}" [disabled]="animate" class="btn btn-green"
-                (click)="filter('Tech')">Tech</button>
-            <button [ngClass]="{'active': filterCriteria === 'Music'}" [disabled]="animate" class="btn btn-green"
-                (click)="filter('Music')">Music</button>
-            <button [ngClass]="{'active': filterCriteria === 'Games'}" [disabled]="animate" class="btn btn-green"
-                (click)="filter('Games')">Games</button>
-            <button [ngClass]="{'active': filterCriteria === 'Other'}" [disabled]="animate" class="btn btn-green"
-                (click)="filter('Other')">Other</button>
-        </div>
+        <div class="filter-btn-container m-3 fade-in-delay-md" *ngIf="filters?.length">
+                <button *ngFor="let tag of filters" [ngClass]="{'active': filterCriteria === tag}" [disabled]="filterCriteria === tag"
+                    class="btn btn-green mx-3 my-2" (click)="filter(tag)">{{tag}}</button>
+            </div>
     </div>
 </app-hero-banner>
 
