@@ -2,9 +2,13 @@
 @import "buttons";
 
 .resume-banner {
-  background: rgba(50, 50, 50, 0.9);
+  background: url("/assets/prism.jpg");
+  position: fixed;
+  z-index: 5;
+  bottom: 0;
+  width: 100%;
+
   color: $white;
-  overflow: hidden;
 
   a:not(.btn) {
     color: $white;
@@ -38,17 +42,6 @@
   margin-left: 1px;
 }
 
-.resume-banner:not(.show) {
-  animation: collapse 1000ms ease-in-out forwards;
-}
-
-@keyframes collapse {
-  from {
-    max-height: 500px;
-    display: block;
-  }
-  to {
-    max-height: 0;
-    display: none;
-  }
+.resume-banner-content {
+  background: rgba(255, 255, 255, 0.05);
 }

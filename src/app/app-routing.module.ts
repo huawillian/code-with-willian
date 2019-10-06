@@ -42,7 +42,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'blog',
+    path: 'blogs',
     component: BlogsComponent,
     resolve: {
       data: DefaultResolverService
@@ -56,14 +56,14 @@ const routes: Routes = [
     }
   },
   {
-    path: 'code/:id',
+    path: 'problem/:id',
     component: CodeDetailComponent,
     resolve: {
       data: DefaultResolverService
     }
   },
   {
-    path: 'projects/:id',
+    path: 'project/:id',
     component: ProjectDetailComponent,
     resolve: {
       data: DefaultResolverService

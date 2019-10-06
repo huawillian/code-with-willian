@@ -1,15 +1,17 @@
-<div [ngClass]="{'show': show}" class="resume-banner">
+<div *ngIf="show" class="resume-banner" [@fadeAnimation]="show">
     <div class="close-container mt-5" >
         <button *ngIf="show" (click)="closeResumeBanner()" class="btn btn-white" appLazyLoad>
             <img src="/assets/close.svg" alt="close">
         </button>
     </div>
-    <div class="container mt-5 mb-5" appLazyLoad>
-        <h3>LIKE WHAT YOU SEE?</h3>
-        <p>Thanks for checking out my website! I'm always looking for new ways to improve myself by
-            taking on challenging tasks and roles. If you have an exciting opportunity, I would definitely love to hear
-            about it. Just make sure to check out my <a routerLink="/about">portfolio</a> and resume first.</p>
-        <a type="button" href="https://drive.google.com/uc?export=download&id=1najTZeyr8iVGT5yWQCfsgzy_w4OR3zKA"
-            target="_top" class="btn btn-lg btn-white">Download Resume</a>
+    <div class="resume-banner-content pt-5 pb-5">
+        <div class="container" appLazyLoad>
+            <h3> LIKE WHAT YOU SEE? </h3>
+            <p> Thanks for checking out my website! I'm always looking for new ways to improve myself by
+                taking on challenging tasks and roles. If you have an exciting opportunity, I would love to hear
+                about it! Just make sure to check out my <a routerLink="/about" (click)="closeResumeBanner()">portfolio</a> and resume first.</p>
+            <a type="button" href="https://drive.google.com/uc?export=download&id=1najTZeyr8iVGT5yWQCfsgzy_w4OR3zKA"
+                target="_top" class="btn btn-lg btn-white" (click)="closeResumeBanner()">Download Resume</a>
+        </div>
     </div>
 </div>

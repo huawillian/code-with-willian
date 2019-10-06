@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
+import { ArticleType } from '../common/app.constants';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class ArticlesService {
 
   constructor() { }
 
-  getArticles() {
+  getArticles(articleType: ArticleType) {
     return of([
       {
         thumbnail:
@@ -17,7 +18,7 @@ export class ArticlesService {
         description:
           "AR-Mentor Goes Mobile: A Hacker’s Approach to ARM Development",
         tags: "All,Music,Games,Other",
-        link: "/test1",
+        link: "/project/test1",
         footerText: 'November 11, 2019'
       },
       {
