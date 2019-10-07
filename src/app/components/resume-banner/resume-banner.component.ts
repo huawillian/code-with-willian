@@ -35,7 +35,7 @@ export class ResumeBannerComponent implements OnInit {
     if(!window.localStorage.getItem('hideResumeBanner')) {
       setTimeout(() => {
         this.show = true;
-      }, 3000);
+      }, 15000);
     }
   }
 

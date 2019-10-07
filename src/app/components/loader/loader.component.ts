@@ -43,40 +43,49 @@ export class LoaderComponent implements OnInit {
   }
 
   public showLoader(withFade?: boolean) {
+    this.showLogo = false;
     this.fadeOut = false;
     this.fadeIn = withFade ? true : false;
     this.hide = false;
   }
 
   public initLoader(animate = true) {
-    if (this.smil && animate) {
-      setTimeout(() => {
-        this.showLogo = true;
-        this.animate = true;
-      }, 1000);
-
-      setTimeout(() => {
+    if(!window.sessionStorage.getItem('hideSplash')) {
+      if (this.smil && animate) {
+        setTimeout(() => {
+          this.showLogo = true;
+          this.animate = true;
+        }, 1000);
+  
+        setTimeout(() => {
+          this.toggleScrollLock(false);
+          this.hideLoader(true);
+          window.sessionStorage.setItem('hideSplash', 'true');
+          this.init = true;
+        }, 4300);
+  
+        setTimeout(() => {
+          this.animate = false;
+        }, 5000);
+      } else if (animate) {
+        setTimeout(() => {
+          this.showLogo = true;
+        }, 1000);
+  
+        setTimeout(() => {
+          this.toggleScrollLock(false);
+          this.hideLoader(true);
+          window.sessionStorage.setItem('hideSplash', 'true');
+          this.init = true;
+        }, 2500);
+      } else {
         this.toggleScrollLock(false);
-        this.hideLoader(true);
+        this.hideLoader();
+        window.sessionStorage.setItem('hideSplash', 'true');
         this.init = true;
-      }, 4300);
-
-      setTimeout(() => {
-        this.animate = false;
-      }, 5000);
-    } else if (animate) {
-      setTimeout(() => {
-        this.showLogo = true;
-      }, 1000);
-
-      setTimeout(() => {
-        this.toggleScrollLock(false);
-        this.hideLoader(true);
-        this.init = true;
-      }, 2500);
+      }
     } else {
       this.toggleScrollLock(false);
-      this.hideLoader();
       this.init = true;
     }
   };
