@@ -1,10 +1,24 @@
-import { Component, OnInit, ElementRef, HostListener, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  HostListener,
+  Input,
+  OnChanges,
+  SimpleChanges
+} from "@angular/core";
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate
+} from "@angular/animations";
 
 @Component({
-  selector: 'app-grid',
-  templateUrl: './grid.component.html',
-  styleUrls: ['./grid.component.scss'],
+  selector: "app-grid",
+  templateUrl: "./grid.component.html",
+  styleUrls: ["./grid.component.scss"],
   animations: [
     trigger("fadeAnimation", [
       state(
@@ -94,24 +108,23 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class GridComponent implements OnInit, OnChanges {
   @Input() filterCriteria: string;
   @Input() items: any;
-  @Input() gridCssClass : string;
+  @Input() gridCssClass: string;
   public displayedItems = [];
   public animate = false;
   public slots = [];
   public active = false;
 
-  constructor(private elementRef: ElementRef,) { }
+  constructor(private elementRef: ElementRef) {}
 
   ngOnInit() {
     this.filter(this.filterCriteria);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if(changes.filterCriteria) {
+    if (changes.filterCriteria) {
       this.filter(changes.filterCriteria.currentValue);
     }
   }
-
 
   updateSlots() {
     const grids = this.elementRef.nativeElement.querySelectorAll(".grid-item");
@@ -127,9 +140,10 @@ export class GridComponent implements OnInit, OnChanges {
   }
 
   render() {
-    const newDisplayedItems = this.items.filter(item =>
-      item.tags.includes(this.filterCriteria)
-    );
+    const newDisplayedItems =
+      this.filterCriteria === "All"
+        ? this.items
+        : this.items.filter(item => item.category === this.filterCriteria);
     if (newDisplayedItems.length > this.displayedItems.length) {
       this.displayedItems = newDisplayedItems;
     }
@@ -139,7 +153,10 @@ export class GridComponent implements OnInit, OnChanges {
 
       let counter = 0;
       this.items.forEach(item => {
-        if (item.tags.includes(this.filterCriteria)) {
+        if (
+          this.filterCriteria === "All" ||
+          item.category === this.filterCriteria
+        ) {
           item.slot = counter;
           item.show = true;
           counter++;

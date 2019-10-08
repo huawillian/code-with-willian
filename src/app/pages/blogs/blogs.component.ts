@@ -33,13 +33,9 @@ export class BlogsComponent implements OnInit {
 
   filtersFromItems(items) {
     const filtersObj = items.reduce((acc, item) => {
-      const tagsArr = item.tags.split(",").map(tag => tag.trim());
-      tagsArr.forEach(tag => {
-        acc[tag] = true;
-      });
+      acc[item.category] = true;
       return acc;
     }, {});
-    delete filtersObj["All"];
     const result = Object.keys(filtersObj);
     result.unshift("All");
     return result;

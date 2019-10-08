@@ -17,7 +17,7 @@ export class ArticlesService {
         title: "AR Training Renderer",
         description:
           "AR-Mentor Goes Mobile: A Hacker’s Approach to ARM Development",
-        tags: "All,Music,Games,Other",
+        category: "Tech",
         link: "/project/test1",
         footerText: 'November 11, 2019'
       },
@@ -26,7 +26,7 @@ export class ArticlesService {
           "https://raw.githubusercontent.com/huawillian/CodeWithWillian/master/src/codewithwillian-app/images/otaku-beatdown.png",
         title: "Otaku Beatdown",
         description: "Multiplayer Online Battle Arena Ninja Fighting Game",
-        tags: "All,Music,Games",
+        category: "Music",
         link: "/test2",
         footerText: 'November 11, 2019'
       },
@@ -35,7 +35,7 @@ export class ArticlesService {
           "https://timedotcom.files.wordpress.com/2015/05/google-cardboard-iphone-vr.jpg",
         title: "Barnland Security",
         description: "VR game using Unity3D and Cardboard SDK",
-        tags: "All,Tech,Music,Other",
+        category: "Games",
         link: "/test3",
         footerText: 'November 11, 2019'
       },
@@ -45,7 +45,7 @@ export class ArticlesService {
         title: "Taiko Capstone",
         description:
           "Automatic Transcription of Japanese Taiko Drumming Using the Microsoft Kinect ",
-        tags: "All,Tech,Games",
+        category: "Music",
         link: "/test4",
         footerText: 'November 11, 2019'
       },
@@ -55,7 +55,7 @@ export class ArticlesService {
         title: "AR Training Renderer",
         description:
           "AR-Mentor Goes Mobile: A Hacker’s Approach to ARM Development",
-        tags: "All,Music,Games,Other",
+        category: "Tech",
         link: "/test1",
         footerText: 'November 11, 2019'
       },
@@ -64,7 +64,7 @@ export class ArticlesService {
           "https://raw.githubusercontent.com/huawillian/CodeWithWillian/master/src/codewithwillian-app/images/otaku-beatdown.png",
         title: "Otaku Beatdown",
         description: "Multiplayer Online Battle Arena Ninja Fighting Game",
-        tags: "All,Music,Games",
+        category: "Other",
         link: "/test2",
         footerText: 'November 11, 2019'
       },
@@ -73,7 +73,7 @@ export class ArticlesService {
           "https://timedotcom.files.wordpress.com/2015/05/google-cardboard-iphone-vr.jpg",
         title: "Barnland Security",
         description: "VR game using Unity3D and Cardboard SDK",
-        tags: "All,Tech,Music,Other",
+        category: "Other",
         link: "/test3",
         footerText: 'November 11, 2019'
       },
@@ -83,7 +83,7 @@ export class ArticlesService {
         title: "Taiko Capstone",
         description:
           "Automatic Transcription of Japanese Taiko Drumming Using the Microsoft Kinect ",
-        tags: "All,Tech,Games",
+        category: "Tech",
         link: "/test4",
         footerText: 'November 11, 2019'
       },
@@ -92,7 +92,7 @@ export class ArticlesService {
           "https://timedotcom.files.wordpress.com/2015/05/google-cardboard-iphone-vr.jpg",
         title: "Barnland Security",
         description: "VR game using Unity3D and Cardboard SDK",
-        tags: "All,Tech,Music,Other",
+        category: "Games",
         link: "/test3",
         footerText: 'November 11, 2019'
       },
@@ -102,7 +102,7 @@ export class ArticlesService {
         title: "Taiko Capstone",
         description:
           "Automatic Transcription of Japanese Taiko Drumming Using the Microsoft Kinect ",
-        tags: "All,Tech,Games",
+        category: "Music",
         link: "/test4",
         footerText: 'November 11, 2019'
       },
@@ -111,7 +111,7 @@ export class ArticlesService {
           "https://timedotcom.files.wordpress.com/2015/05/google-cardboard-iphone-vr.jpg",
         title: "Barnland Security",
         description: "VR game using Unity3D and Cardboard SDK",
-        tags: "All,Tech,Music,Other",
+        category: "Other",
         link: "/test3",
         footerText: 'November 11, 2019'
       },
@@ -121,7 +121,7 @@ export class ArticlesService {
         title: "Taiko Capstone",
         description:
           "Automatic Transcription of Japanese Taiko Drumming Using the Microsoft Kinect ",
-        tags: "All,Tech,Games",
+        category: "Games",
         link: "/test4",
         footerText: 'November 11, 2019'
       },
@@ -131,7 +131,7 @@ export class ArticlesService {
         title: "Taiko Capstone",
         description:
           "Automatic Transcription of Japanese Taiko Drumming Using the Microsoft Kinect ",
-        tags: "All,Tech,Games",
+        category: "Other",
         link: "/test4",
         footerText: 'November 11, 2019'
       },
@@ -140,7 +140,7 @@ export class ArticlesService {
           "https://timedotcom.files.wordpress.com/2015/05/google-cardboard-iphone-vr.jpg",
         title: "Barnland Security",
         description: "VR game using Unity3D and Cardboard SDK",
-        tags: "All,Tech,Music,Other",
+        category: "Other",
         link: "/test3",
         footerText: 'November 11, 2019'
       },
@@ -150,7 +150,7 @@ export class ArticlesService {
         title: "Taiko Capstone",
         description:
           "Automatic Transcription of Japanese Taiko Drumming Using the Microsoft Kinect ",
-        tags: "All,Tech,Games",
+        category: "Games",
         link: "/test4",
         footerText: 'November 11, 2019'
       },
@@ -160,7 +160,7 @@ export class ArticlesService {
         title: "Taiko Capstone",
         description:
           "Automatic Transcription of Japanese Taiko Drumming Using the Microsoft Kinect ",
-        tags: "All,Tech,Games",
+        category: "Games",
         link: "/test4",
         footerText: 'November 11, 2019'
       }
