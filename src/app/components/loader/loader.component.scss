@@ -13,15 +13,6 @@
   transition: all 1000ms ease-in-out 0ms;
 }
 
-.splash.fade-out {
-  opacity: 0;
-  transition: all 500ms ease-in-out 500ms;
-}
-
-.splash.fade-in {
-  opacity: 0.98;
-}
-
 .splash-logo {
   height: 300px;
   width: 300px;
@@ -30,7 +21,6 @@
   position: absolute;
   left: 50%;
   top: 45%;
-  animation: glow 2000ms ease-in-out 3000ms infinite alternate;
 }
 
 .splash-text {
@@ -40,34 +30,27 @@
   position: absolute;
   left: 50%;
   top: 72%;
-  animation: glow 2000ms ease-in-out 3000ms infinite alternate;
 }
 
 .anim .splash-border {
   stroke-dasharray: 1000 1000;
   stroke-dashoffset: 1000;
-  animation: stroke 2500ms ease-in 0ms forwards;
+  animation: stroke 2500ms ease-in 1000ms forwards;
 }
 
 .anim .splash-1 {
   opacity: 0;
-  animation: fade 1500ms ease-in-out 500ms forwards;
+  animation: fade 1500ms ease-in-out 1500ms forwards;
 }
 
 .anim .splash-2 {
   opacity: 0;
-  animation: fade 1500ms ease-in-out 1000ms forwards;
+  animation: fade 1500ms ease-in-out 2000ms forwards;
 }
 
 .anim .splash-text {
   opacity: 0;
-  animation: fade 2000ms ease-in-out 500ms forwards;
-}
-
-.text-only {
-  .splash-logo {
-    display: none;
-  }
+  animation: fade 1000ms ease-in-out 2500ms forwards;
 }
 
 @keyframes stroke {
@@ -89,47 +72,17 @@
 
 // Loading Text Styles
 .splash-loading {
-  transform: translateX(-50%) translateY(150px);
+  transform: translateX(-50%);
   position: absolute;
   left: 50%;
   top: 50%;
-  animation: glow 2000ms ease-in-out 0ms infinite alternate;
-  transition: transform 500ms ease-in-out;
 }
 
 .splash-loading img {
   height: 30px;
 }
 
-.dot-1 {
-  animation: fade 500ms ease-in-out 0ms infinite alternate;
-}
-
-.dot-2 {
-  animation: fade 500ms ease-in-out 150ms infinite alternate;
-}
-
-.dot-3 {
-  animation: fade 500ms ease-in-out 300ms infinite alternate;
-}
-
-.text-only {
-  .splash-loading {
-    transform: translateX(-50%) translateY(-50%) scale(1.5);
-  }
-}
-
 // Animations
-@keyframes glow {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0.5;
-  }
-}
-
 @keyframes fade {
   from {
     opacity: 0;

@@ -1,13 +1,13 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { IntersectionService } from './services/intersection.service';
-import { LoaderService, LoaderType } from './components/loader/services/loader.service';
+import { LoaderService } from './components/loader/services/loader.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, AfterViewInit {
+export class AppComponent implements OnInit {
   title = 'code-with-willian';
   @ViewChild('loader', { static: true }) loaderRef;
 
@@ -15,17 +15,5 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.intersectionService.init();
-  }
-
-  ngAfterViewInit(): void {
-    this.loaderService.updateLoader({
-      type: LoaderType.Init,
-      animate: true
-    });
-
-    // this.loaderService.updateLoader({
-    //   type: LoaderType.Show,
-    //   animate: true
-    // });
   }
 }

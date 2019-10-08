@@ -1,13 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
-export interface LoaderConfig {
-  type: LoaderType,
-  animate: boolean 
-}
-
-export enum LoaderType {
-  Init,
+export enum LoaderAction {
   Show,
   Hide
 }
@@ -16,7 +10,7 @@ export enum LoaderType {
   providedIn: 'root'
 })
 export class LoaderService {
-  private loaderChangeObs = new Subject<LoaderConfig>();
+  private loaderChangeObs = new Subject<LoaderAction>();
 
   public get updates() {
     return this.loaderChangeObs.asObservable();
@@ -24,7 +18,7 @@ export class LoaderService {
 
   constructor() { }
 
-  updateLoader(config: LoaderConfig) {
-    this.loaderChangeObs.next(config);
+  updateLoader(action: LoaderAction) {
+    this.loaderChangeObs.next(action);
   }
 }

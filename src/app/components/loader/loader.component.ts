@@ -1,104 +1,128 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { LoaderService, LoaderType } from './services/loader.service';
+import { Component, OnInit, ViewEncapsulation } from "@angular/core";
+import { LoaderService, LoaderAction } from "./services/loader.service";
+import {
+  trigger,
+  style,
+  state,
+  transition,
+  animate,
+  sequence,
+  query,
+  group
+} from "@angular/animations";
 
 @Component({
-  selector: 'app-loader',
-  templateUrl: './loader.component.html',
-  styleUrls: ['./loader.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  selector: "app-loader",
+  templateUrl: "./loader.component.html",
+  styleUrls: ["./loader.component.scss"],
+  encapsulation: ViewEncapsulation.None,
+  animations: [
+    trigger("fadeAnimation", [
+      state(
+        "false",
+        style({
+          opacity: 1
+        })
+      ),
+      state(
+        "true",
+        style({
+          opacity: 0.98
+        })
+      ),
+      transition("void => false", [
+        style({
+          opacity: 1
+        })
+      ]),
+      transition(":enter", [
+        style({
+          opacity: 0
+        }),
+        animate(100)
+      ]),
+      transition(":leave", [
+        sequence([
+          animate(
+            300,
+            style({
+              opacity: "*"
+            })
+          ),
+          animate(
+            700,
+            style({
+              opacity: 0
+            })
+          )
+        ])
+      ])
+    ])
+  ]
 })
 export class LoaderComponent implements OnInit {
-  showLogo = false;
-  fadeOut = false;
-  animate = false;
   smil = false;
   hide = false;
-  fadeIn = false;
   init = false;
 
-  constructor(private loaderService: LoaderService) { }
+  constructor(private loaderService: LoaderService) {}
 
   ngOnInit(): void {
-    this.smil = window['Modernizr'].smil;
+    this.smil = window["Modernizr"].smil;
 
-    this.loaderService.updates.subscribe((config) => {
-      if(config.type === LoaderType.Init) {
-        this.initLoader(config.animate);
-      } else if(this.init === true) {
-        if(config.type === LoaderType.Show) {
-          this.showLoader(config.animate);
-        } else if(config.type === LoaderType.Hide){
-          this.hideLoader(config.animate);
-        }
+    this.loaderService.updates.subscribe(action => {
+      switch (action) {
+        case LoaderAction.Show:
+          this.showLoader();
+          break;
+        case LoaderAction.Hide:
+          this.hideLoader();
+          break;
+        default:
+          this.hideLoader();
+          break;
       }
     });
   }
 
-  public hideLoader(withFade?: boolean) {
-    this.fadeOut = withFade ? true : false;
-    this.fadeIn = false;
-    setTimeout(() => {
+  public hideLoader() {
+    if (this.init) {
       this.hide = true;
-    }, 1000);
-  }
-
-  public showLoader(withFade?: boolean) {
-    this.showLogo = false;
-    this.fadeOut = false;
-    this.fadeIn = withFade ? true : false;
-    this.hide = false;
-  }
-
-  public initLoader(animate = true) {
-    if(!window.sessionStorage.getItem('hideSplash')) {
-      if (this.smil && animate) {
-        setTimeout(() => {
-          this.showLogo = true;
-          this.animate = true;
-        }, 1000);
-  
-        setTimeout(() => {
-          this.toggleScrollLock(false);
-          this.hideLoader(true);
-          window.sessionStorage.setItem('hideSplash', 'true');
-          this.init = true;
-        }, 4300);
-  
-        setTimeout(() => {
-          this.animate = false;
-        }, 5000);
-      } else if (animate) {
-        setTimeout(() => {
-          this.showLogo = true;
-        }, 1000);
-  
-        setTimeout(() => {
-          this.toggleScrollLock(false);
-          this.hideLoader(true);
-          window.sessionStorage.setItem('hideSplash', 'true');
-          this.init = true;
-        }, 2500);
-      } else {
-        this.toggleScrollLock(false);
-        this.hideLoader();
-        window.sessionStorage.setItem('hideSplash', 'true');
-        this.init = true;
-      }
-    } else {
       this.toggleScrollLock(false);
-      this.init = true;
     }
-  };
+  }
+
+  public showLoader() {
+    this.init = window.sessionStorage.getItem("hideSplash") ? true : false;
+
+    if (this.init) {
+      this.hide = false;
+    } else {
+      this.hide = false;
+
+      if (this.smil) {
+        setTimeout(() => {
+          this.init = true;
+          this.hideLoader();
+          window.sessionStorage.setItem("hideSplash", "true");
+        }, 4300);
+      } else {
+        this.init = true;
+        this.hideLoader();
+        window.sessionStorage.setItem("hideSplash", "true");
+      }
+    }
+  }
 
   public toggleScrollLock(lock?: boolean) {
     if (lock !== undefined) {
       if (lock) {
-        document.body.classList.remove('loaded');
+        document.body.classList.remove("loaded");
       } else {
-        document.body.classList.add('loaded');
+        document.body.classList.add("loaded");
       }
     } else {
-      document.body.classList.toggle('loaded');
+      document.body.classList.toggle("loaded");
     }
   }
 }
