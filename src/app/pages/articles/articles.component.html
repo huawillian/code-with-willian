@@ -1,0 +1,21 @@
+<app-hero-banner>
+    <div class="banner-content">
+        <h1 class="orbitron-font fade-in-delay-sm">{{title}}</h1>
+        <div class="py-3 col-xs-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+            <div class="filter-btn-container fade-in-delay-md" *ngIf="filters?.length">
+                <button *ngFor="let tag of filters" [ngClass]="{'active': filterCriteria === tag}"
+                    [disabled]="filterCriteria === tag" class="btn btn-{{btnCssClass}} mx-3 my-2"
+                    (click)="filter(tag)">{{tag}}</button>
+            </div>
+        </div>
+    </div>
+</app-hero-banner>
+
+<div class="content pt-4 pb-4">
+    <div *ngIf="failed" class="text-center font-weight-bold container">
+        <p> Opps! Something went wrong<br>Please try again later . . .</p>
+    </div>
+    <app-grid *ngIf="items?.length && !failed" [routeBasePath]="routeBasePath" [items]="items" [filterCriteria]="filterCriteria"
+        [gridCssClass]="gridCssClass">
+    </app-grid>
+</div>

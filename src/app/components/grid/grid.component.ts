@@ -14,6 +14,12 @@ import {
   transition,
   animate
 } from "@angular/animations";
+import { QueryResponseItem, ArticlesQueryFields } from "../../common/app.constants";
+
+export interface GridItemDecorator {
+  show: boolean;
+  slot: number
+}
 
 @Component({
   selector: "app-grid",
@@ -107,12 +113,13 @@ import {
 })
 export class GridComponent implements OnInit, OnChanges {
   @Input() filterCriteria: string;
-  @Input() items: any;
+  @Input() items: Array<GridItemDecorator & QueryResponseItem<ArticlesQueryFields>>;
   @Input() gridCssClass: string;
-  public displayedItems = [];
-  public animate = false;
-  public slots = [];
-  public active = false;
+  @Input() routeBasePath: string;
+  displayedItems = [];
+  animate = false;
+  slots = [];
+  active = false;
 
   constructor(private elementRef: ElementRef) {}
 
@@ -143,7 +150,10 @@ export class GridComponent implements OnInit, OnChanges {
     const newDisplayedItems =
       this.filterCriteria === "All"
         ? this.items
-        : this.items.filter(item => item.category === this.filterCriteria);
+        : this.items.filter(
+            item =>
+              !!item.document.fields.categories.arrayValue.values.find(category => category.stringValue === this.filterCriteria)
+          );
     if (newDisplayedItems.length > this.displayedItems.length) {
       this.displayedItems = newDisplayedItems;
     }
@@ -155,7 +165,7 @@ export class GridComponent implements OnInit, OnChanges {
       this.items.forEach(item => {
         if (
           this.filterCriteria === "All" ||
-          item.category === this.filterCriteria
+          !!item.document.fields.categories.arrayValue.values.find(category => category.stringValue === this.filterCriteria)
         ) {
           item.slot = counter;
           item.show = true;
@@ -199,12 +209,12 @@ export class GridComponent implements OnInit, OnChanges {
     return i * 250 + "ms";
   }
 
-  @HostListener("window:resize", ["$event"])
+  @HostListener("window:resize", [])
   onResize() {
     this.updateSlots();
   }
 
-  @HostListener("mouseover", ["$event"])
+  @HostListener("mouseover", [])
   onMouseOver() {
     this.active = false;
   }

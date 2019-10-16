@@ -8,9 +8,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
-import { CodeComponent } from './pages/code/code.component';
-import { ProjectsComponent } from './pages/projects/projects.component';
-import { BlogsComponent } from './pages/blogs/blogs.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ProjectDetailComponent } from './pages/project-detail/project-detail.component';
 import { BlogDetailComponent } from './pages/blog-detail/blog-detail.component';
@@ -24,6 +21,9 @@ import { BackgroundParallaxComponent } from './components/background-parallax/ba
 import { HeroBannerComponent } from './components/hero-banner/hero-banner.component';
 import { GroupArrayPipe } from './pipes/group-array.pipe';
 import { GridComponent } from './components/grid/grid.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ArticlesComponent } from './pages/articles/articles.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -31,9 +31,6 @@ import { GridComponent } from './components/grid/grid.component';
     NavbarComponent,
     HomeComponent,
     AboutComponent,
-    CodeComponent,
-    ProjectsComponent,
-    BlogsComponent,
     ContactComponent,
     ProjectDetailComponent,
     BlogDetailComponent,
@@ -46,13 +43,16 @@ import { GridComponent } from './components/grid/grid.component';
     BackgroundParallaxComponent,
     HeroBannerComponent,
     GroupArrayPipe,
-    GridComponent
+    GridComponent,
+    ArticlesComponent
   ],
   imports: [
     BrowserModule,
+    RouterModule,
     CommonModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

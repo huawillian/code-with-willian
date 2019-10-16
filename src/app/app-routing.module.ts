@@ -2,15 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
-import { CodeComponent } from './pages/code/code.component';
-import { ProjectsComponent } from './pages/projects/projects.component';
-import { BlogsComponent } from './pages/blogs/blogs.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { CodeDetailComponent } from './pages/code-detail/code-detail.component';
 import { ProjectDetailComponent } from './pages/project-detail/project-detail.component';
 import { BlogDetailComponent } from './pages/blog-detail/blog-detail.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { DefaultResolverService } from './services/default-resolver.service';
+import { ThemeColor, ArticleType } from './common/app.constants';
+import { ArticlesComponent } from './pages/articles/articles.component';
 
 const routes: Routes = [
   {
@@ -29,25 +28,52 @@ const routes: Routes = [
   },
   {
     path: 'code',
-    component: CodeComponent,
+    component: ArticlesComponent,
     resolve: {
       data: DefaultResolverService
+    },
+    data: {
+      title: 'Coding Toy Problems',
+      btnCssClass: ThemeColor.GREEN,
+      gridCssClass: ThemeColor.GREEN,
+      routeBasePath: '/code/',
+      bgSrc: '/assets/blog-bg.jpg',
+      bgFilter: 'rgba(30, 30, 30, 0.8)',
+      articleType: ArticleType.CODE
     }
   },
   {
     path: 'projects',
-    component: ProjectsComponent,
+    component: ArticlesComponent,
     resolve: {
       data: DefaultResolverService
+    },
+    data: {
+      title: 'Projects',
+      btnCssClass: ThemeColor.ORANGE,
+      gridCssClass: ThemeColor.ORANGE,
+      routeBasePath: '/projects/',
+      bgSrc: '/assets/blog-bg.jpg',
+      bgFilter: 'rgba(30, 30, 30, 0.8)',
+      articleType: ArticleType.PROJECT
     }
   },
   {
-    path: 'blogs',
-    component: BlogsComponent,
+    path: 'blog',
+    component: ArticlesComponent,
     resolve: {
       data: DefaultResolverService
+    },
+    data: {
+      title: 'Blog',
+      btnCssClass: ThemeColor.CYAN,
+      gridCssClass: ThemeColor.CYAN,
+      routeBasePath: '/blog/',
+      bgSrc: '/assets/blog-bg.jpg',
+      bgFilter: 'rgba(30, 30, 30, 0.8)',
+      articleType: ArticleType.BLOG
     }
-  }, 
+  },
   {
     path: 'contact',
     component: ContactComponent,
@@ -56,14 +82,14 @@ const routes: Routes = [
     }
   },
   {
-    path: 'problem/:id',
+    path: 'code/:id',
     component: CodeDetailComponent,
     resolve: {
       data: DefaultResolverService
     }
   },
   {
-    path: 'project/:id',
+    path: 'projects/:id',
     component: ProjectDetailComponent,
     resolve: {
       data: DefaultResolverService
