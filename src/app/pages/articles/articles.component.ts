@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { BackgroundParallaxService } from "../../components/background-parallax/services/background-parallax.service";
 import { ArticlesService } from "../../services/articles.service";
 import {
@@ -8,13 +8,14 @@ import {
   ArticlesQueryFields
 } from "../../common/app.constants";
 import { ActivatedRoute } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: "app-articles",
   templateUrl: "./articles.component.html",
   styleUrls: ["./articles.component.scss"]
 })
-export class ArticlesComponent implements OnInit {
+export class ArticlesComponent implements OnInit, OnDestroy {
   items: Array<QueryResponseItem<ArticlesQueryFields>> = [];
   filterCriteria: string = "All";
   gridCssClass: ThemeColor;
@@ -23,6 +24,8 @@ export class ArticlesComponent implements OnInit {
   title: string;
   btnCssClass: ThemeColor;
   failed = false;
+
+  private $getArticlesSub: Subscription;
 
   constructor(
     private backgroundParallaxService: BackgroundParallaxService,
@@ -42,7 +45,7 @@ export class ArticlesComponent implements OnInit {
       filter: data.bgFilter
     });
 
-    this.articlesService
+    this.$getArticlesSub = this.articlesService
       .getArticles(data.articleType)
       .subscribe(items => {
         if(items && items.length && items[0].document) {
@@ -53,6 +56,12 @@ export class ArticlesComponent implements OnInit {
           this.failed = true;
         }
       });
+  }
+
+  ngOnDestroy(): void {
+    if(this.$getArticlesSub) {
+      this.$getArticlesSub.unsubscribe();
+    }
   }
 
   filtersFromItems(items: Array<QueryResponseItem<ArticlesQueryFields>>) {
