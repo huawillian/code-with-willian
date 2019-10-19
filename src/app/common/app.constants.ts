@@ -20,58 +20,59 @@ export interface ArticlesRouteData {
   articleType: ArticleType;
 }
 
-export interface QueryResponseItem<T> {
-  readTime: string;
-  document?: {
-    name: string;
-    fields?: T;
-    createTime: string;
-    updateTime: string;
-  };
+export interface GetArticlesResponse {
+  documents: GetArticlesResponseDocument[];
 }
 
-export interface ArticlesQueryFields {
-  info: {
-    stringValue: string;
-  };
-  type: {
-    stringValue: string;
-  };
-  categories: {
-    arrayValue: {
-      values: Array<{
-        stringValue: string;
-      }>;
+export interface GetArticlesResponseDocument {
+  name: string;
+  fields: {
+    body?: {
+      stringValue: string;
+    };
+    info?: {
+      stringValue: string;
+    };
+    categories?: {
+      arrayValue?: {
+        values: Array<{
+          stringValue: string;
+        }>;
+      };
+    };
+    title?: {
+      stringValue: string;
+    };
+    thumbnail?: {
+      stringValue: string;
+    };
+    description?: {
+      stringValue: string;
     };
   };
-  title: {
-    stringValue: string;
-  };
-  thumbnail: {
-    stringValue: string;
-  };
-  description: {
-    stringValue: string;
-  };
-  route: {
-    stringValue: string;
-  };
-}
-
-export interface ArticleDetailsQueryFields {
-  body: {
-    stringValue: string;
-  };
-  type: {
-    stringValue: string;
-  };
-  route: {
-    stringValue: string;
-  };
+  createTime: string;
+  updateTime: string;
 }
 
 export class AppConstants {
-  static FIRESTORE_BASE_ENDPOINT = "https://firestore.googleapis.com/v1/";
-  static FIRESTORE_QUERY_ENDPOINT =
-    "https://firestore.googleapis.com/v1/projects/code-with-willian/databases/(default)/documents:runQuery";
+  static FIRESTORE_BASE_ENDPOINT = "https://firestore.googleapis.com";
+
+  static FIRESTORE_DOCUMENTS_PATH =
+    "/v1/projects/code-with-willian/databases/(default)/documents";
+
+  static FIRESTORE_SNIPPET_FIELDPATHS = [
+    "info",
+    "categories",
+    "title",
+    "thumbnail",
+    "description"
+  ];
+
+  static FIRESTORE_MASK_QUERY_KEY = "mask.fieldPaths";
+
+  static FIRESTORE_ARTICLE_TYPE_MAPPING = {
+    [ArticleType.BLOG]: "/blogs",
+    [ArticleType.CODE]: "/code",
+    [ArticleType.PROJECT]: "/projects"
+  };
 }

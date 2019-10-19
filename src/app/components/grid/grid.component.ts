@@ -14,11 +14,12 @@ import {
   transition,
   animate
 } from "@angular/animations";
-import { QueryResponseItem, ArticlesQueryFields } from "../../common/app.constants";
+import { GetArticlesResponseDocument } from "../../common/app.constants";
 
 export interface GridItemDecorator {
   show: boolean;
-  slot: number
+  slot: number;
+  route: string;
 }
 
 @Component({
@@ -113,7 +114,7 @@ export interface GridItemDecorator {
 })
 export class GridComponent implements OnInit, OnChanges {
   @Input() filterCriteria: string;
-  @Input() items: Array<GridItemDecorator & QueryResponseItem<ArticlesQueryFields>>;
+  @Input() items: Array<GridItemDecorator & GetArticlesResponseDocument>;
   @Input() gridCssClass: string;
   @Input() routeBasePath: string;
   displayedItems = [];
@@ -152,7 +153,7 @@ export class GridComponent implements OnInit, OnChanges {
         ? this.items
         : this.items.filter(
             item =>
-              !!item.document.fields.categories.arrayValue.values.find(category => category.stringValue === this.filterCriteria)
+              !!item.fields.categories.arrayValue.values.find(category => category.stringValue === this.filterCriteria)
           );
     if (newDisplayedItems.length > this.displayedItems.length) {
       this.displayedItems = newDisplayedItems;
@@ -163,9 +164,10 @@ export class GridComponent implements OnInit, OnChanges {
 
       let counter = 0;
       this.items.forEach(item => {
+        item.route = this.routeBasePath + item.name.split("/").pop();
         if (
           this.filterCriteria === "All" ||
-          !!item.document.fields.categories.arrayValue.values.find(category => category.stringValue === this.filterCriteria)
+          !!item.fields.categories.arrayValue.values.find(category => category.stringValue === this.filterCriteria)
         ) {
           item.slot = counter;
           item.show = true;

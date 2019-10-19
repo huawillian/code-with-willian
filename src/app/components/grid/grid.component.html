@@ -2,16 +2,16 @@
     <div *ngFor="let item of items; index as i" class="item"
         [@fadeAnimation]="{ value: item.show, params: { delay: delay(i)}}"
         [@itemAnimation]="{value: animate, params: { width: withPx(item.slot, 'width'), height: withPx(item.slot, 'height'), transform: transform(item.slot, item.show) } }">
-        <a [routerLink]="routeBasePath + item.document.fields.route.stringValue" class="item-link" [ngClass]="{'active': active && item?.slot === 0}" appLazyLoad>
-            <img [src]="item.document.fields.thumbnail.stringValue" class="item-img">
+        <a [routerLink]="item.route" class="item-link" [ngClass]="{'active': active && item?.slot === 0}" appLazyLoad>
+            <img [src]="item.fields.thumbnail.stringValue" class="item-img">
             <div class="item-filter"></div>
             <div class="item-content p-4 d-flex flex-column justify-content-center text-center">
-                <h3 class="item-title">{{item.document.fields.title.stringValue}}</h3>
-                <p class="item-description mb-0">{{item.document.fields.description.stringValue}}</p>
+                <h3 class="item-title">{{item.fields.title.stringValue}}</h3>
+                <p class="item-description mb-0">{{item.fields.description.stringValue}}</p>
             </div>
-            <div *ngIf="item.document.fields?.info"
+            <div *ngIf="item.fields?.info"
                 class="item-footer-container d-flex flex-column justify-content-end align-items-end">
-                <div class="item-footer p-1 small orbitron-font">{{item.document.fields.info.stringValue}}</div>
+                <div class="item-footer p-1 small orbitron-font">{{item.fields.info.stringValue}}</div>
             </div>
         </a>
     </div>

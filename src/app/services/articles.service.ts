@@ -1,136 +1,107 @@
 import { Injectable } from "@angular/core";
-import { of, Observable, BehaviorSubject } from "rxjs";
+import { of, Observable } from "rxjs";
 import {
   ArticleType,
   AppConstants,
-  QueryResponseItem,
-  ArticlesQueryFields
+  GetArticlesResponseDocument,
+  GetArticlesResponse
 } from "../common/app.constants";
 import { environment } from "../../environments/environment";
 import { MockArticles } from "../common/mock.articles";
 import { HttpClient } from "@angular/common/http";
-import { filter, mergeMap } from "rxjs/operators";
+import { catchError, map } from "rxjs/operators";
 
-interface ArticlesCache {
-  project: Array<QueryResponseItem<ArticlesQueryFields>>;
-  code: Array<QueryResponseItem<ArticlesQueryFields>>;
-  blog: Array<QueryResponseItem<ArticlesQueryFields>>;
+export enum GetResponseWrapperStatus {
+  SUCCESS,
+  FAILURE
 }
 
-interface ArticlesLock {
-  project: boolean;
-  code: boolean;
-  blog: boolean;
+export interface GetArticlesResponseWrapper {
+  status: GetResponseWrapperStatus;
+  data: GetArticlesResponseDocument[];
 }
 
 @Injectable({
   providedIn: "root"
 })
 export class ArticlesService {
-  private $articles = new BehaviorSubject<ArticlesCache>(undefined);
-  private articlesCache: ArticlesCache = {
-    project: [],
-    code: [],
-    blog: []
+  private articlesCacheKey = {
+    [ArticleType.PROJECT]: "projects",
+    [ArticleType.BLOG]: "blogs",
+    [ArticleType.CODE]: "code"
   };
-  private articlesLock: ArticlesLock = {
-    project: false,
-    code: false,
-    blog: false
-  };
-  private articlesCacheKey = "articlesCache";
 
   constructor(private httpClient: HttpClient) {}
 
-  private isValidArticles(
-    articlesCache: ArticlesCache,
-    articleType: ArticleType,
-    skipDocumentCheck = true
-  ) {
+  private prepareArticlesEndpoint(articleType: ArticleType): string {
+    const queryParams = AppConstants.FIRESTORE_SNIPPET_FIELDPATHS.map(
+      fieldName => {
+        return `${AppConstants.FIRESTORE_MASK_QUERY_KEY}=${fieldName}`;
+      }
+    ).join("&");
+    const collectionPath =
+      AppConstants.FIRESTORE_ARTICLE_TYPE_MAPPING[articleType];
     return (
-      articlesCache &&
-      articlesCache[articleType] &&
-      articlesCache[articleType].length &&
-      (skipDocumentCheck || articlesCache[articleType][0].document)
+      AppConstants.FIRESTORE_BASE_ENDPOINT +
+      AppConstants.FIRESTORE_DOCUMENTS_PATH +
+      collectionPath +
+      "?" +
+      queryParams
     );
   }
 
   private fetchArticles(
     articleType: ArticleType
-  ): Observable<Array<QueryResponseItem<ArticlesQueryFields>>> {
-    if (!environment.production) {
-      const body = {
-        structuredQuery: {
-          where: {
-            fieldFilter: {
-              field: {
-                fieldPath: "type"
-              },
-              op: "EQUAL",
-              value: {
-                stringValue: articleType
-              }
-            }
-          },
-          from: [
-            {
-              collectionId: "articles"
-            }
-          ]
-        }
-      };
-
-      return this.httpClient.post<
-        Array<QueryResponseItem<ArticlesQueryFields>>
-      >(AppConstants.FIRESTORE_QUERY_ENDPOINT, body);
+  ): Observable<GetArticlesResponse> {
+    if (environment.production) {
+      const endpoint = this.prepareArticlesEndpoint(articleType);
+      return this.httpClient.get<GetArticlesResponse>(endpoint);
     } else {
-      return of(MockArticles.QUERY_RESPONSE);
+      return of(MockArticles.GET_ARTICLES_RESPONSE);
     }
+  }
+
+  private retrieveCachedArticles(
+    articleType: ArticleType
+  ): GetArticlesResponseDocument[] {
+    try {
+      return JSON.parse(
+        window.sessionStorage.getItem(this.articlesCacheKey[articleType])
+      );
+    } catch (e) {}
   }
 
   public getArticles(
     articleType: ArticleType
-  ): Observable<Array<QueryResponseItem<ArticlesQueryFields>>> {
-    return this.$articles.pipe(
-      mergeMap(items => {
-        // When cache is updated, return articles of the same type
-        if (this.isValidArticles(items, articleType, true)) {
-          return of(items[articleType]);
-        } else {
-          // If invalid articles, update cache from session storage and network fallback
-          // Lock articles if update logic is in progress of the same type
-          // Release lock when update logic is complete
-          if (!this.articlesLock[articleType]) {
-            this.articlesLock[articleType] = true;
-            let sessionStorageArticlesCache = window.sessionStorage.getItem(
-              this.articlesCacheKey
-            );
-            let cacheObj: ArticlesCache;
+  ): Observable<GetArticlesResponseWrapper> {
+    let articlesFromCache = this.retrieveCachedArticles(articleType);
 
-            if (sessionStorageArticlesCache) {
-              cacheObj = JSON.parse(sessionStorageArticlesCache);
-            }
-
-            if (this.isValidArticles(cacheObj, articleType, true)) {
-              this.articlesCache = cacheObj;
-              this.$articles.next(this.articlesCache);
-              this.articlesLock[articleType] = false;
-            } else {
-              this.fetchArticles(articleType).subscribe(data => {
-                this.articlesCache[articleType] = data;
-                window.sessionStorage.setItem(
-                  this.articlesCacheKey,
-                  JSON.stringify(this.articlesCache)
-                );
-                this.$articles.next(this.articlesCache);
-                this.articlesLock[articleType] = false;
-              });
-            }
-          }
-          return of(undefined);
-        }
-      }),
-      filter(items => !!items)
-    );
+    // TODO: Invalidate cache based on last updated time
+    if (articlesFromCache) {
+      return of({
+        status: GetResponseWrapperStatus.SUCCESS,
+        data: articlesFromCache
+      });
+    } else {
+      return this.fetchArticles(articleType).pipe(
+        map(data => {
+          window.sessionStorage.setItem(
+            this.articlesCacheKey[articleType],
+            JSON.stringify(data.documents)
+          );
+          return {
+            status: GetResponseWrapperStatus.SUCCESS,
+            data: data.documents
+          };
+        }),
+        catchError(err => {
+          console.log("Unable to fetch articles", articleType, err);
+          return of({
+            status: GetResponseWrapperStatus.FAILURE,
+            data: undefined
+          });
+        })
+      );
+    }
   }
 }

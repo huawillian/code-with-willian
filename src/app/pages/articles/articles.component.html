@@ -12,10 +12,13 @@
 </app-hero-banner>
 
 <div class="content pt-4 pb-4">
-    <div *ngIf="failed" class="text-center font-weight-bold container">
+    <div *ngIf="showError === true" class="text-center font-weight-bold container">
         <p> Opps! Something went wrong<br>Please try again later . . .</p>
     </div>
-    <app-grid *ngIf="items?.length && !failed" [routeBasePath]="routeBasePath" [items]="items" [filterCriteria]="filterCriteria"
-        [gridCssClass]="gridCssClass">
+    <div *ngIf="showError === false && items?.length === 0" class="text-center font-weight-bold container">
+        <p> No Results<br>Please try again later . . .</p>
+    </div>
+    <app-grid *ngIf="items?.length && showError === false" [routeBasePath]="routeBasePath" [items]="items"
+        [filterCriteria]="filterCriteria" [gridCssClass]="gridCssClass">
     </app-grid>
 </div>

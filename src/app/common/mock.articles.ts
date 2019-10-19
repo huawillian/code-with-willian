@@ -1,103 +1,14 @@
-import { QueryResponseItem, ArticlesQueryFields, ArticleDetailsQueryFields } from "./app.constants";
+import { GetArticlesResponse, GetArticlesResponseDocument } from "./app.constants";
 
 export class MockArticles {
-  static QUERY_RESPONSE: Array<QueryResponseItem<ArticlesQueryFields>> = [
-    {
-      document: {
+  static GET_ARTICLES_RESPONSE: GetArticlesResponse = {
+    documents: [
+      {
         name:
-          "projects/code-with-willian/databases/(default)/documents/articles/0eFqoDrwm9IMDaeBhgq6",
-        fields: {
-          info: {
-            stringValue: "DEMO AVAILABLE"
-          },
-          type: {
-            stringValue: "project"
-          },
-          categories: {
-            arrayValue: {
-              values: [
-                {
-                  stringValue: "AR/VR"
-                },
-                {
-                  stringValue: "Game"
-                },
-                {
-                  stringValue: "Android"
-                },
-                {
-                  stringValue: "Unity"
-                }
-              ]
-            }
-          },
-          title: {
-            stringValue: "Barnland Security"
-          },
-          thumbnail: {
-            stringValue:
-              "https://timedotcom.files.wordpress.com/2015/05/google-cardboard-iphone-vr.jpg"
-          },
-          description: {
-            stringValue: "VR game using Unity3D and Cardboard SDK"
-          },
-          route: {
-            stringValue: "barnland-security"
-          }
-        },
-        createTime: "2019-10-13T19:43:25.547336Z",
-        updateTime: "2019-10-16T17:19:12.446480Z"
-      },
-      readTime: "2019-10-16T17:25:08.348939Z"
-    },
-    {
-      document: {
-        name:
-          "projects/code-with-willian/databases/(default)/documents/articles/5zKHKQMMEwlZkojy9u2c",
-        fields: {
-          categories: {
-            arrayValue: {
-              values: [
-                {
-                  stringValue: "iOS"
-                }
-              ]
-            }
-          },
-          title: {
-            stringValue: "Bar Buddies"
-          },
-          thumbnail: {
-            stringValue: "https://i.ytimg.com/vi/2gwmTOdga24/hqdefault.jpg"
-          },
-          description: {
-            stringValue: "iOS Social App using XCode and Bluetooth"
-          },
-          route: {
-            stringValue: "bar-buddies"
-          },
-          info: {
-            stringValue: "CODE AVAILABLE"
-          },
-          type: {
-            stringValue: "project"
-          }
-        },
-        createTime: "2019-10-13T19:39:24.967968Z",
-        updateTime: "2019-10-16T17:24:50.127926Z"
-      },
-      readTime: "2019-10-16T17:25:08.348939Z"
-    },
-    {
-      document: {
-        name:
-          "projects/code-with-willian/databases/(default)/documents/articles/J7Rs5YMrN2xIwWJbJN0A",
+          "projects/code-with-willian/databases/(default)/documents/projects/a-new-game",
         fields: {
           info: {
             stringValue: "CANCELLED"
-          },
-          type: {
-            stringValue: "project"
           },
           categories: {
             arrayValue: {
@@ -120,69 +31,17 @@ export class MockArticles {
           },
           description: {
             stringValue: "2D Pixel-graphics RPG using Unity with friends"
-          },
-          route: {
-            stringValue: "a-new-game"
           }
         },
-        createTime: "2019-10-13T16:58:37.905323Z",
-        updateTime: "2019-10-16T16:52:42.136250Z"
+        createTime: "2019-10-18T03:22:51.187221Z",
+        updateTime: "2019-10-18T03:22:51.187221Z"
       },
-      readTime: "2019-10-16T17:25:08.348939Z"
-    },
-    {
-      document: {
+      {
         name:
-          "projects/code-with-willian/databases/(default)/documents/articles/MjnlBlsRJhP2ICCMhbCd",
-        fields: {
-          thumbnail: {
-            stringValue:
-              "http://static.techspot.com/articles-info/702/images/leap-motion-review.jpg"
-          },
-          description: {
-            stringValue:
-              "Windows interface using Leap Motion Controller and SDK"
-          },
-          route: {
-            stringValue: "hci-leap-motion-project"
-          },
-          info: {
-            stringValue: "LEAP MOTION"
-          },
-          type: {
-            stringValue: "project"
-          },
-          categories: {
-            arrayValue: {
-              values: [
-                {
-                  stringValue: "Research"
-                },
-                {
-                  stringValue: "Computer Vision"
-                }
-              ]
-            }
-          },
-          title: {
-            stringValue: "HCI Leap Motion Project"
-          }
-        },
-        createTime: "2019-10-13T19:47:51.511759Z",
-        updateTime: "2019-10-16T16:53:07.532681Z"
-      },
-      readTime: "2019-10-16T17:25:08.348939Z"
-    },
-    {
-      document: {
-        name:
-          "projects/code-with-willian/databases/(default)/documents/articles/SSFuFBOHEHpr1XPOYOaZ",
+          "projects/code-with-willian/databases/(default)/documents/projects/android-claw",
         fields: {
           info: {
-            stringValue: "UNITY WEB PLAYER"
-          },
-          type: {
-            stringValue: "project"
+            stringValue: "CODE AVAILABLE"
           },
           categories: {
             arrayValue: {
@@ -191,42 +50,29 @@ export class MockArticles {
                   stringValue: "Game"
                 },
                 {
-                  stringValue: "Unity"
+                  stringValue: "Android"
                 }
               ]
             }
           },
           title: {
-            stringValue: "Zombie Project"
+            stringValue: "Android Claw"
           },
           thumbnail: {
             stringValue:
-              "https://yt3.ggpht.com/-n9YqjJCKHak/AAAAAAAAAAI/AAAAAAAAAAA/FJmfOSwUIuc/s900-c-k-no-mo-rj-c0xffffff/photo.jpg"
+              "https://cdn1.pcadvisor.co.uk/cmsdata/features/3613985/android_800_thumb800.jpg"
           },
           description: {
-            stringValue:
-              "3D multiplayer zombie survival game using Unity and UNET"
-          },
-          route: {
-            stringValue: "zombie-project"
+            stringValue: "Simple Arcade game using Android SDK"
           }
         },
-        createTime: "2019-10-13T20:19:01.898343Z",
-        updateTime: "2019-10-16T16:53:27.164978Z"
+        createTime: "2019-10-18T03:22:51.485138Z",
+        updateTime: "2019-10-18T03:22:51.485138Z"
       },
-      readTime: "2019-10-16T17:25:08.348939Z"
-    },
-    {
-      document: {
+      {
         name:
-          "projects/code-with-willian/databases/(default)/documents/articles/YU18Vj0RAfeBCYlB2Au5",
+          "projects/code-with-willian/databases/(default)/documents/projects/ar-training-renderer",
         fields: {
-          info: {
-            stringValue: "EMBEDDED SYSTEMS"
-          },
-          type: {
-            stringValue: "project"
-          },
           categories: {
             arrayValue: {
               values: [
@@ -259,25 +105,19 @@ export class MockArticles {
             stringValue:
               "AR-Mentor Goes Mobile: A Hacker’s Approach to ARM Development"
           },
-          route: {
-            stringValue: "ar-training-renderer"
+          info: {
+            stringValue: "EMBEDDED SYSTEMS"
           }
         },
-        createTime: "2019-10-13T17:31:42.767130Z",
-        updateTime: "2019-10-16T16:54:38.382709Z"
+        createTime: "2019-10-18T03:22:51.358291Z",
+        updateTime: "2019-10-18T03:22:51.358291Z"
       },
-      readTime: "2019-10-16T17:25:08.348939Z"
-    },
-    {
-      document: {
+      {
         name:
-          "projects/code-with-willian/databases/(default)/documents/articles/Z0AOxSP9a6yhv1oMeBcp",
+          "projects/code-with-willian/databases/(default)/documents/projects/bakemono-blitz",
         fields: {
           info: {
             stringValue: "DEMO AVAILABLE"
-          },
-          type: {
-            stringValue: "project"
           },
           categories: {
             arrayValue: {
@@ -300,148 +140,94 @@ export class MockArticles {
           },
           description: {
             stringValue: "2D platformer runner game using Unity with classmates"
-          },
-          route: {
-            stringValue: "bakemono-blitz"
           }
         },
-        createTime: "2019-10-13T17:44:47.761181Z",
-        updateTime: "2019-10-16T16:54:50.988384Z"
+        createTime: "2019-10-18T03:22:51.386593Z",
+        updateTime: "2019-10-18T03:22:51.386593Z"
       },
-      readTime: "2019-10-16T17:25:08.348939Z"
-    },
-    {
-      document: {
+      {
         name:
-          "projects/code-with-willian/databases/(default)/documents/articles/go44MHX0SBYxhzaPBMPZ",
+          "projects/code-with-willian/databases/(default)/documents/projects/bar-buddies",
         fields: {
-          route: {
-            stringValue: "android-claw"
+          categories: {
+            arrayValue: {
+              values: [
+                {
+                  stringValue: "iOS"
+                }
+              ]
+            }
+          },
+          title: {
+            stringValue: "Bar Buddies"
+          },
+          thumbnail: {
+            stringValue: "https://i.ytimg.com/vi/2gwmTOdga24/hqdefault.jpg"
+          },
+          description: {
+            stringValue: "iOS Social App using XCode and Bluetooth"
           },
           info: {
             stringValue: "CODE AVAILABLE"
-          },
-          type: {
-            stringValue: "project"
+          }
+        },
+        createTime: "2019-10-18T03:22:51.209181Z",
+        updateTime: "2019-10-18T03:22:51.209181Z"
+      },
+      {
+        name:
+          "projects/code-with-willian/databases/(default)/documents/projects/barnland-security",
+        fields: {
+          info: {
+            stringValue: "DEMO AVAILABLE"
           },
           categories: {
             arrayValue: {
               values: [
+                {
+                  stringValue: "AR/VR"
+                },
                 {
                   stringValue: "Game"
                 },
                 {
                   stringValue: "Android"
-                }
-              ]
-            }
-          },
-          title: {
-            stringValue: "Android Claw"
-          },
-          thumbnail: {
-            stringValue:
-              "https://cdn1.pcadvisor.co.uk/cmsdata/features/3613985/android_800_thumb800.jpg"
-          },
-          description: {
-            stringValue: "Simple Arcade game using Android SDK"
-          }
-        },
-        createTime: "2019-10-13T17:41:34.205836Z",
-        updateTime: "2019-10-16T16:55:03.774575Z"
-      },
-      readTime: "2019-10-16T17:25:08.348939Z"
-    },
-    {
-      document: {
-        name:
-          "projects/code-with-willian/databases/(default)/documents/articles/mxKHtH7vI6cWYogsl1uf",
-        fields: {
-          thumbnail: {
-            stringValue:
-              "http://files.holdmyticket.com/image/upload/q_68,dn_72,f_auto/v6/uploads/flyers2/0ripaipo7fgr7i15f8by.jpg"
-          },
-          description: {
-            stringValue:
-              "Automatic Transcription of Japanese Taiko Drumming Using the Microsoft Kinect"
-          },
-          route: {
-            stringValue: "taiko-capstone"
-          },
-          info: {
-            stringValue: "PUBLISHED ON ICMA"
-          },
-          type: {
-            stringValue: "project"
-          },
-          categories: {
-            arrayValue: {
-              values: [
-                {
-                  stringValue: "Research"
                 },
                 {
-                  stringValue: "Computer Vision"
+                  stringValue: "Unity"
                 }
               ]
             }
           },
           title: {
-            stringValue: "Taiko Capstone"
+            stringValue: "Barnland Security"
+          },
+          thumbnail: {
+            stringValue:
+              "https://timedotcom.files.wordpress.com/2015/05/google-cardboard-iphone-vr.jpg"
+          },
+          description: {
+            stringValue: "VR game using Unity3D and Cardboard SDK"
           }
         },
-        createTime: "2019-10-13T20:10:18.628617Z",
-        updateTime: "2019-10-16T16:55:27.065895Z"
+        createTime: "2019-10-18T03:21:33.846204Z",
+        updateTime: "2019-10-18T03:21:33.846204Z"
       },
-      readTime: "2019-10-16T17:25:08.348939Z"
-    },
-    {
-      document: {
+      {
         name:
-          "projects/code-with-willian/databases/(default)/documents/articles/pqPgEHz4K663Bt3u91rA",
+          "projects/code-with-willian/databases/(default)/documents/projects/datamining-capstone",
         fields: {
           thumbnail: {
             stringValue:
-              "https://github.com/huawillian/CodeWithWillian/raw/master/src/codewithwillian-app/images/league-of-love.png"
+              "http://soshable.com/wp-content/uploads/2013/01/Tweet1.jpg"
           },
           description: {
-            stringValue: "Real-time Public Speaking Evaluation Tool"
-          },
-          route: {
-            stringValue: "why-are-they-so-angry"
+            stringValue:
+              "Threshold and Associative Based Classification for Social Spam Profile Detection on Twitter"
           },
           info: {
-            stringValue: "HACKATHON WINNER"
+            stringValue: "PUBLISHED ON IEEE"
           },
-          type: {
-            stringValue: "project"
-          },
-          categories: {
-            arrayValue: {
-              values: [
-                {
-                  stringValue: "Web"
-                },
-                {
-                  stringValue: "Computer Vision"
-                }
-              ]
-            }
-          },
-          title: {
-            stringValue: "Why Are They So Angry?"
-          }
-        },
-        createTime: "2019-10-13T20:14:38.837064Z",
-        updateTime: "2019-10-16T16:56:45.944426Z"
-      },
-      readTime: "2019-10-16T17:25:08.348939Z"
-    },
-    {
-      document: {
-        name:
-          "projects/code-with-willian/databases/(default)/documents/articles/w1saU0xqTwTuJ3fhJgp5",
-        fields: {
           categories: {
             arrayValue: {
               values: [
@@ -453,35 +239,52 @@ export class MockArticles {
           },
           title: {
             stringValue: "Datamining Capstone"
-          },
+          }
+        },
+        createTime: "2019-10-18T03:22:51.403692Z",
+        updateTime: "2019-10-18T03:22:51.403692Z"
+      },
+      {
+        name:
+          "projects/code-with-willian/databases/(default)/documents/projects/hci-leap-motion-project",
+        fields: {
           thumbnail: {
             stringValue:
-              "http://soshable.com/wp-content/uploads/2013/01/Tweet1.jpg"
+              "http://static.techspot.com/articles-info/702/images/leap-motion-review.jpg"
           },
           description: {
             stringValue:
-              "Threshold and Associative Based Classification for Social Spam Profile Detection on Twitter"
-          },
-          route: {
-            stringValue: "datamining-capstone"
+              "Windows interface using Leap Motion Controller and SDK"
           },
           info: {
-            stringValue: "PUBLISHED ON IEEE"
+            stringValue: "LEAP MOTION"
           },
-          type: {
-            stringValue: "project"
+          categories: {
+            arrayValue: {
+              values: [
+                {
+                  stringValue: "Research"
+                },
+                {
+                  stringValue: "Computer Vision"
+                }
+              ]
+            }
+          },
+          title: {
+            stringValue: "HCI Leap Motion Project"
           }
         },
-        createTime: "2019-10-13T20:07:31.234585Z",
-        updateTime: "2019-10-16T17:15:56.772498Z"
+        createTime: "2019-10-18T03:22:51.192526Z",
+        updateTime: "2019-10-18T03:22:51.192526Z"
       },
-      readTime: "2019-10-16T17:25:08.348939Z"
-    },
-    {
-      document: {
+      {
         name:
-          "projects/code-with-willian/databases/(default)/documents/articles/w9XiKkrRPUqBnAp6DwxV",
+          "projects/code-with-willian/databases/(default)/documents/projects/otaku-beatdown",
         fields: {
+          info: {
+            stringValue: "DEMO AVAILABLE"
+          },
           categories: {
             arrayValue: {
               values: [
@@ -506,33 +309,15 @@ export class MockArticles {
           },
           description: {
             stringValue: "Multiplayer Online Battle Arena Ninja Fighting Game"
-          },
-          route: {
-            stringValue: "otaku-beatdown"
-          },
-          info: {
-            stringValue: "DEMO AVAILABLE"
-          },
-          type: {
-            stringValue: "project"
           }
         },
-        createTime: "2019-10-13T19:59:44.953774Z",
-        updateTime: "2019-10-16T16:57:22.325165Z"
+        createTime: "2019-10-18T03:22:51.374760Z",
+        updateTime: "2019-10-18T03:22:51.374760Z"
       },
-      readTime: "2019-10-16T17:25:08.348939Z"
-    },
-    {
-      document: {
+      {
         name:
-          "projects/code-with-willian/databases/(default)/documents/articles/yMY1EN8FCDkAZ4w7sqS0",
+          "projects/code-with-willian/databases/(default)/documents/projects/project-moses",
         fields: {
-          info: {
-            stringValue: "HACKATHON"
-          },
-          type: {
-            stringValue: "project"
-          },
           categories: {
             arrayValue: {
               values: [
@@ -555,44 +340,152 @@ export class MockArticles {
           description: {
             stringValue: "Top-down space shooter game using OpenCV"
           },
-          route: {
-            stringValue: "project-moses"
+          info: {
+            stringValue: "HACKATHON"
           }
         },
-        createTime: "2019-10-13T20:03:44.334481Z",
-        updateTime: "2019-10-16T16:57:47.538177Z"
+        createTime: "2019-10-18T03:22:51.386836Z",
+        updateTime: "2019-10-18T03:22:51.386836Z"
       },
-      readTime: "2019-10-16T17:25:08.348939Z"
-    }
-  ];
-
-  static ARTICLE_DETAILS_RESPONSE: Array<QueryResponseItem<ArticleDetailsQueryFields>> = [
-    {
-      document: {
+      {
         name:
-          "projects/code-with-willian/databases/(default)/documents/article-details/tANLCXadTqRJJCZ5Di8Y",
+          "projects/code-with-willian/databases/(default)/documents/projects/taiko-capstone",
         fields: {
-          type: {
-            stringValue: "project"
-          },
-          route: {
-            stringValue: "ar-training-renderer"
-          },
-          body: {
+          description: {
             stringValue:
-              "<p>In this poster we elaborate on the steps taken to port the ARMentor rendering client to an Android ARM platform through unconventional means.</p> <p>View Poster: https://firebasestorage.googleapis.com/v0/b/polymer-website.appspot.com/o/AR-Mentor%20Goes%20Mobile-v7.pdf?alt=media&token=9368d4e8-6172-4a27-a8f1-d65bfb43fe2b</p> <p>I worked on this project during my internship at SRI International, Princeton, Summer of 2014. When I started working, the training renderer system used a Mac Mini. I ported the system to Android on the Odroid-XU. However, there were many things I had to do to ensure that all the features worked as it did on the Mac Mini.</p> <p>1) Rebuild the Android ARM Kernel - While the Mac Mini supported USB/Serial devices for the system's sensors, the Odroid did not natively support them. I needed to rebuild the kernel so the motion estimation libraries could use the sensors.</p> <p>2) CHROOT Hacking the Android ARM Shell - Instead of rebuilding the entire motion estimation libraries, I decided to CHROOT the Android shell into a Linux shell.</p> <p>3) Developing the Training Renderer for Android - The Mac mini build used .dlls. However, dlls do not work on the Android platform. Therefore, I needed to create plugins from the Android SDK such as Text to Speech and Video2D. Other plugins needed to be recompiled into Native Plugins in C++. This was done using the Android NDK (Native Development Kit).</p> <p>As a result, I successfully ported the system to an Android Odroid-XU device. While the performance was not optimal when compared to the more powerful Mac Mini, the system was a proof of concept, of which allowed for the entire system to be recompiled for Android months later.</p>"
+              "Automatic Transcription of Japanese Taiko Drumming Using the Microsoft Kinect"
+          },
+          info: {
+            stringValue: "PUBLISHED ON ICMA"
+          },
+          categories: {
+            arrayValue: {
+              values: [
+                {
+                  stringValue: "Research"
+                },
+                {
+                  stringValue: "Computer Vision"
+                }
+              ]
+            }
+          },
+          title: {
+            stringValue: "Taiko Capstone"
+          },
+          thumbnail: {
+            stringValue:
+              "http://files.holdmyticket.com/image/upload/q_68,dn_72,f_auto/v6/uploads/flyers2/0ripaipo7fgr7i15f8by.jpg"
           }
         },
-        createTime: "2019-10-13T17:36:47.626009Z",
-        updateTime: "2019-10-16T15:40:08.104831Z"
+        createTime: "2019-10-18T03:22:51.365306Z",
+        updateTime: "2019-10-18T03:22:51.365306Z"
       },
-      readTime: "2019-10-16T17:33:03.326235Z"
-    }
-  ];
+      {
+        name:
+          "projects/code-with-willian/databases/(default)/documents/projects/why-are-they-so-angry",
+        fields: {
+          title: {
+            stringValue: "Why Are They So Angry?"
+          },
+          thumbnail: {
+            stringValue:
+              "https://github.com/huawillian/CodeWithWillian/raw/master/src/codewithwillian-app/images/league-of-love.png"
+          },
+          description: {
+            stringValue: "Real-time Public Speaking Evaluation Tool"
+          },
+          info: {
+            stringValue: "HACKATHON WINNER"
+          },
+          categories: {
+            arrayValue: {
+              values: [
+                {
+                  stringValue: "Web"
+                },
+                {
+                  stringValue: "Computer Vision"
+                }
+              ]
+            }
+          }
+        },
+        createTime: "2019-10-18T03:22:51.385496Z",
+        updateTime: "2019-10-18T03:22:51.385496Z"
+      },
+      {
+        name:
+          "projects/code-with-willian/databases/(default)/documents/projects/zombie-project",
+        fields: {
+          categories: {
+            arrayValue: {
+              values: [
+                {
+                  stringValue: "Game"
+                },
+                {
+                  stringValue: "Unity"
+                }
+              ]
+            }
+          },
+          title: {
+            stringValue: "Zombie Project"
+          },
+          thumbnail: {
+            stringValue:
+              "https://yt3.ggpht.com/-n9YqjJCKHak/AAAAAAAAAAI/AAAAAAAAAAA/FJmfOSwUIuc/s900-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          },
+          description: {
+            stringValue:
+              "3D multiplayer zombie survival game using Unity and UNET"
+          },
+          info: {
+            stringValue: "UNITY WEB PLAYER"
+          }
+        },
+        createTime: "2019-10-18T03:22:51.269588Z",
+        updateTime: "2019-10-18T03:22:51.269588Z"
+      }
+    ]
+  };
 
-  static ARTICLE_FAILED_RESPONSE: Array<QueryResponseItem<undefined>> = [
-    {
-      readTime: "2019-10-16T20:39:24.605900Z"
-    }
-  ];
+  static GET_ARTICLE_DETAIL_RESPONSE: GetArticlesResponseDocument = {
+    name:
+      "projects/code-with-willian/databases/(default)/documents/projects/a-new-game",
+    fields: {
+      thumbnail: {
+        stringValue:
+          "http://orig04.deviantart.net/65a7/f/2015/345/1/6/pixel_art_rpg_mockup_by_benjirokun-d9jqob5.png"
+      },
+      description: {
+        stringValue: "2D Pixel-graphics RPG using Unity with friends"
+      },
+      body: {
+        stringValue:
+          "<p>Github: https://github.com/huawillian/A-New-Game-Project</p><p>I started this project with a few friends in Winter of 2016. At the time, we had one programmer (me), one graphics artist, and two concept artists. In two months, we had blueprints for the entire RPG realm, concept art for the characters, and a rough draft of the story. As the programmer, I had the basic navigation, movie modules, scenes, and player controls finished. Unfortunately, one member of the team had other ideas for the project and was not able to commit to the team meetings. We eventually put off the game's development and never got to giving this project a real name.</p>"
+      },
+      info: {
+        stringValue: "CANCELLED"
+      },
+      categories: {
+        arrayValue: {
+          values: [
+            {
+              stringValue: "Game"
+            },
+            {
+              stringValue: "Unity"
+            }
+          ]
+        }
+      },
+      title: {
+        stringValue: "A New Game"
+      }
+    },
+    createTime: "2019-10-18T03:22:51.187221Z",
+    updateTime: "2019-10-18T03:22:51.187221Z"
+  };
 }

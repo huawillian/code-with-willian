@@ -1,14 +1,16 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { BackgroundParallaxService } from "../../components/background-parallax/services/background-parallax.service";
-import { ArticlesService } from "../../services/articles.service";
+import {
+  ArticlesService,
+  GetResponseWrapperStatus
+} from "../../services/articles.service";
 import {
   ThemeColor,
-  QueryResponseItem,
-  ArticlesRouteData,
-  ArticlesQueryFields
+  GetArticlesResponseDocument,
+  ArticlesRouteData
 } from "../../common/app.constants";
-import { ActivatedRoute } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
+import { ActivatedRoute } from "@angular/router";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-articles",
@@ -16,16 +18,16 @@ import { Observable, Subscription } from 'rxjs';
   styleUrls: ["./articles.component.scss"]
 })
 export class ArticlesComponent implements OnInit, OnDestroy {
-  items: Array<QueryResponseItem<ArticlesQueryFields>> = [];
+  items: Array<GetArticlesResponseDocument> = [];
   filterCriteria: string = "All";
   gridCssClass: ThemeColor;
   filters = [];
   routeBasePath: string;
   title: string;
   btnCssClass: ThemeColor;
-  failed = false;
+  showError;
 
-  private $getArticlesSub: Subscription;
+  private articlesSubscription: Subscription;
 
   constructor(
     private backgroundParallaxService: BackgroundParallaxService,
@@ -45,28 +47,30 @@ export class ArticlesComponent implements OnInit, OnDestroy {
       filter: data.bgFilter
     });
 
-    this.$getArticlesSub = this.articlesService
+    this.articlesSubscription = this.articlesService
       .getArticles(data.articleType)
-      .subscribe(items => {
-        if(items && items.length && items[0].document) {
-          this.items = items;
-          this.filters = this.filtersFromItems(items);
-          this.failed = false;
+      .subscribe(response => {
+        if (response.status === GetResponseWrapperStatus.SUCCESS) {
+          this.items = response.data;
+          this.filters = this.filtersFromItems(response.data);
+          this.showError = false;
         } else {
-          this.failed = true;
+          this.items = [];
+          this.filters = this.filtersFromItems([]);
+          this.showError = true;
         }
       });
   }
 
   ngOnDestroy(): void {
-    if(this.$getArticlesSub) {
-      this.$getArticlesSub.unsubscribe();
+    if (this.articlesSubscription) {
+      this.articlesSubscription.unsubscribe();
     }
   }
 
-  filtersFromItems(items: Array<QueryResponseItem<ArticlesQueryFields>>) {
+  filtersFromItems(items: Array<GetArticlesResponseDocument>) {
     const filtersObj = items.reduce((acc, item) => {
-      item.document.fields.categories.arrayValue.values.forEach(category => {
+      item.fields.categories.arrayValue.values.forEach(category => {
         acc[category.stringValue] = true;
       });
       return acc;
