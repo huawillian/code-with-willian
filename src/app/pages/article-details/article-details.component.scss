@@ -32,29 +32,46 @@
 }
 
 .info {
-    color: $white;
-    height: 25px;
-    font-size: 15px;
+  color: $white;
+  height: 25px;
+  font-size: 15px;
 }
 
 .green {
-    .info {
-        background: $green;
-    }
+  .info, .tldr-container {
+    background: $green;
+  }
 }
 
 .orange {
-    .info {
-        background: $orange;
-    }
+  .info, .tldr-container {
+    background: $orange;
+  }
 }
 
 .cyan {
-    .info {
-        background: $cyan;
-    }
+  .info, .tldr-container {
+    background: $cyan;
+  }
 }
 
 .tags {
-    height: 25px;;
+  height: 25px;
+}
+
+.tldr-container {
+  color: $white;
+  border-radius: 2px;
+  line-height: 2rem;
+
+  h2 {
+    display: inline;
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+
+  p {
+    display: inline;
+    font-size: 1.25rem;
+  }
 }

@@ -56,6 +56,9 @@ export interface GetArticlesResponseDocument {
     description?: {
       stringValue: string;
     };
+    tldr?: {
+      stringValue: string;
+    };
   };
   createTime: string;
   updateTime: string;

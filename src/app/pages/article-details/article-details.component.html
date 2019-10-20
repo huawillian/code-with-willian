@@ -16,7 +16,7 @@
                 [ngStyle]="{'background-image': 'url(' + thumbnail + ')'}"></div>
             <div class="d-flex flex-wrap mb-1 fade-in-delay-md">
                 <h1 class="orbitron-font mr-2 mb-0">{{title}}</h1>
-                <div *ngIf="info" class="info orbitron-font py-1 px-2">{{info}}</div>
+                <div *ngIf="info" class="info orbitron-font py-1 px-2 shadow-sm">{{info}}</div>
             </div>
             <p *ngIf="description" class="orbitron-font lead mb-3 fade-in-delay-md">{{description}}</p>
             <div *ngIf="categories" class="fade-in-delay-md">
@@ -24,6 +24,10 @@
                 <span class="orbitron-font ml-1">{{categories}}</span>
             </div>
             <hr>
+            <div *ngIf="tldr" class="tldr-container shadow-sm my-4 p-3">
+                <h2 class="h5 mr-2">TLDR;</h2>
+                <p class="mb-0">{{tldr}}</p>
+            </div>
             <div class="fade-in-delay-lg" [innerHTML]="articleDetails?.fields?.body?.stringValue"></div>
         </div>
         <div *ngIf="failed === true" class="col-12 col-lg-10 offset-lg-1 text-center my-5">

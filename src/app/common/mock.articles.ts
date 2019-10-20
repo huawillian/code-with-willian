@@ -483,6 +483,9 @@ export class MockArticles {
       },
       title: {
         stringValue: "A New Game"
+      },
+      tldr: {
+        stringValue: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante."
       }
     },
     createTime: "2019-10-18T03:22:51.187221Z",

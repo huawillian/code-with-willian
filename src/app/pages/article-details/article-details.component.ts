@@ -20,6 +20,7 @@ export class ArticleDetailsComponent implements OnInit {
   categories: string;
   failed: boolean;
   routeBackTextNotFound: string;
+  tldr: string;
 
   constructor(private activatedRoute: ActivatedRoute) {}
 
@@ -41,6 +42,9 @@ export class ArticleDetailsComponent implements OnInit {
       this.categories = data.articleDetailsResponse.data.fields.categories.arrayValue.values
         .map(value => value.stringValue)
         .join(", ");
+      this.tldr = data.articleDetailsResponse.data.fields.tldr
+        ? data.articleDetailsResponse.data.fields.tldr.stringValue
+        : "";
       this.failed = false;
     } else {
       this.failed = true;
