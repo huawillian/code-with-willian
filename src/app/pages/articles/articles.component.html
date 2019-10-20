@@ -1,7 +1,7 @@
 <app-hero-banner>
     <div class="banner-content">
         <h1 class="orbitron-font fade-in-delay-sm">{{title}}</h1>
-        <div class="py-3 col-xs-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+        <div class="py-3 col-12 col-lg-10 offset-lg-1">
             <div class="filter-btn-container fade-in-delay-md" *ngIf="filters?.length">
                 <button *ngFor="let tag of filters" [ngClass]="{'active': filterCriteria === tag}"
                     [disabled]="filterCriteria === tag" class="btn btn-{{btnCssClass}} mx-3 my-2"
