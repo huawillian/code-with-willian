@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { ArticleDetailsRouteData } from "../../common/app.constants";
 import { ArticlesService } from "../../services/articles.service";
 import { Subscription } from "rxjs";
 
@@ -10,8 +9,6 @@ import { Subscription } from "rxjs";
   styleUrls: ["./article-details.component.scss"]
 })
 export class ArticleDetailsComponent implements OnInit {
-  @ViewChild("thumbnail", { static: true }) thumbnailRef;
-
   private articleDetailsSubscription: Subscription;
   articleDetails: any;
 
@@ -23,6 +20,8 @@ export class ArticleDetailsComponent implements OnInit {
   info: string;
   cssClass: string;
   categories: string;
+  failed: boolean;
+  routeBackTextNotFound: string;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -33,21 +32,26 @@ export class ArticleDetailsComponent implements OnInit {
     const data = this.activatedRoute.snapshot.data;
     this.routeBackPath = data.routeBackPath;
     this.routeBackText = data.routeBackText;
+    this.routeBackTextNotFound = data.routeBackTextNotFound;
     this.cssClass = data.themeColor;
 
     const articleId = this.activatedRoute.snapshot.paramMap.get("id");
     this.articleDetailsSubscription = this.articlesService
       .getArticleDetails(data.articleType, articleId)
       .subscribe(response => {
-        this.articleDetails = response.data;
-        this.title = response.data.fields.title.stringValue;
-        this.thumbnail = response.data.fields.thumbnail.stringValue;
-        this.thumbnailRef.nativeElement.style.backgroundImage = `url(${this.thumbnail})`;
-        this.description = response.data.fields.description.stringValue;
-        this.info = response.data.fields.info.stringValue;
-        this.categories = response.data.fields.categories.arrayValue.values
-          .map(value => value.stringValue)
-          .join(", ");
+        if(response.data) {
+          this.articleDetails = response.data;
+          this.title = response.data.fields.title.stringValue;
+          this.thumbnail = response.data.fields.thumbnail.stringValue;
+          this.description = response.data.fields.description.stringValue;
+          this.info = response.data.fields.info.stringValue;
+          this.categories = response.data.fields.categories.arrayValue.values
+            .map(value => value.stringValue)
+            .join(", ");
+          this.failed = false;
+        } else {
+          this.failed = true;
+        }
       });
   }
 

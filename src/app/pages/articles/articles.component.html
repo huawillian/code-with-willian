@@ -12,11 +12,13 @@
 </app-hero-banner>
 
 <div class="content pt-4 pb-4">
-    <div *ngIf="showError === true" class="text-center font-weight-bold container">
-        <p> Opps! Something went wrong<br>Please try again later . . .</p>
-    </div>
-    <div *ngIf="showError === false && items?.length === 0" class="text-center font-weight-bold container">
-        <p> No Results<br>Please try again later . . .</p>
+    <div *ngIf="showError === true || showError === false && items?.length === 0" class="col-12 col-lg-10 offset-lg-1 text-center my-5">
+        <h1 class="orbitron-font h2">
+            Opps! Something went wrong
+        </h1>
+        <p class="orbitron-font">
+            Please try again later . . .
+        </p>
     </div>
     <app-grid *ngIf="items?.length && showError === false" [routeBasePath]="routeBasePath" [items]="items"
         [filterCriteria]="filterCriteria" [gridCssClass]="gridCssClass">

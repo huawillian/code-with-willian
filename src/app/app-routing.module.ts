@@ -33,7 +33,7 @@ const routes: Routes = [
     }
   },
   {
-    path: "code",
+    path: "coding-toy-problems",
     component: ArticlesComponent,
     resolve: {
       data: DefaultResolverService
@@ -43,7 +43,7 @@ const routes: Routes = [
       bgFilter: "rgba(30, 30, 30, 0.8)",
       title: "Coding Toy Problems",
       themeColor: ThemeColor.GREEN,
-      routeBasePath: "/code/",
+      routeBasePath: "/coding-toy-problems/",
       articleType: ArticleType.CODE
     }
   },
@@ -63,7 +63,7 @@ const routes: Routes = [
     }
   },
   {
-    path: "blog",
+    path: "blogs",
     component: ArticlesComponent,
     resolve: {
       data: DefaultResolverService
@@ -71,14 +71,14 @@ const routes: Routes = [
     data: {
       bgSrc: "/assets/blog-bg.jpg",
       bgFilter: "rgba(30, 30, 30, 0.8)",
-      title: "Blog",
+      title: "Blogs",
       themeColor: ThemeColor.CYAN,
-      routeBasePath: "/blog/",
+      routeBasePath: "/blogs/",
       articleType: ArticleType.BLOG
     }
   },
   {
-    path: "code/:id",
+    path: "coding-toy-problems/:id",
     component: ArticleDetailsComponent,
     resolve: {
       data: DefaultResolverService
@@ -87,8 +87,9 @@ const routes: Routes = [
       themeColor: ThemeColor.GREEN,
       articleType: ArticleType.CODE,
       transparentNavbar: false,
-      routeBackPath: "/code",
-      routeBackText: "Code"
+      routeBackPath: "/coding-toy-problems",
+      routeBackText: "Coding Toy Problems",
+      routeBackTextNotFound: "coding toy problems"
     }
   },
   {
@@ -102,11 +103,12 @@ const routes: Routes = [
       articleType: ArticleType.PROJECT,
       transparentNavbar: false,
       routeBackPath: "/projects",
-      routeBackText: "Projects"
+      routeBackText: "Projects",
+      routeBackTextNotFound: "projects"
     }
   },
   {
-    path: "blog/:id",
+    path: "blogs/:id",
     component: ArticleDetailsComponent,
     resolve: {
       data: DefaultResolverService
@@ -115,8 +117,9 @@ const routes: Routes = [
       themeColor: ThemeColor.CYAN,
       articleType: ArticleType.BLOG,
       transparentNavbar: false,
-      routeBackPath: "/blog",
-      routeBackText: "Blog"
+      routeBackPath: "/blogs",
+      routeBackText: "Blogs",
+      routeBackTextNotFound: "blogs"
     }
   },
   {
@@ -133,9 +136,13 @@ const routes: Routes = [
   {
     path: "**",
     component: NotFoundComponent,
+    resolve: {
+      data: DefaultResolverService
+    },
     data: {
       bgSrc: "/assets/contact-bg.jpg",
-      bgFilter: "rgba(30, 30, 30, 0.8)"
+      bgFilter: "rgba(30, 30, 30, 0.8)",
+      transparentNavbar: false
     }
   }
 ];
