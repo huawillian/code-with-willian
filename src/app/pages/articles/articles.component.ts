@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { BackgroundParallaxService } from "../../components/background-parallax/services/background-parallax.service";
 import {
   ArticlesService,
   GetResponseWrapperStatus
@@ -30,7 +29,6 @@ export class ArticlesComponent implements OnInit, OnDestroy {
   private articlesSubscription: Subscription;
 
   constructor(
-    private backgroundParallaxService: BackgroundParallaxService,
     private articlesService: ArticlesService,
     private activatedRoute: ActivatedRoute
   ) {}
@@ -38,14 +36,9 @@ export class ArticlesComponent implements OnInit, OnDestroy {
   ngOnInit() {
     const data = this.activatedRoute.snapshot.data as ArticlesRouteData;
     this.title = data.title;
-    this.btnCssClass = data.btnCssClass;
-    this.gridCssClass = data.gridCssClass;
+    this.btnCssClass = data.themeColor;
+    this.gridCssClass = data.themeColor;
     this.routeBasePath = data.routeBasePath;
-
-    this.backgroundParallaxService.updateBackground({
-      src: data.bgSrc,
-      filter: data.bgFilter
-    });
 
     this.articlesSubscription = this.articlesService
       .getArticles(data.articleType)

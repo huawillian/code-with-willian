@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Subscription, fromEvent } from 'rxjs';
-import { BackgroundParallaxService } from './services/background-parallax.service';
+import { Router, ActivationStart } from '@angular/router';
 
 export interface BackgroundParallaxConfig {
   src: string;
@@ -23,13 +23,19 @@ export class BackgroundParallaxComponent implements OnInit, OnDestroy {
   imgSwitch = true;
   filterStyle: string;
 
-  constructor(private backgroundParallaxService: BackgroundParallaxService) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
-    this.backgroundParallaxService.updates.subscribe((config) => {
-      this.show(config);
+    this.router.events.subscribe(event => {
+      if (event instanceof ActivationStart) {
+        if (event.snapshot.data.bgSrc && event.snapshot.data.bgFilter) {
+          this.show({
+            src: event.snapshot.data.bgSrc,
+            filter: event.snapshot.data.bgFilter
+          });
+        }
+      }
     });
-
     this.handleScroll();
 
     this.scrollSubscription = fromEvent(window, 'scroll').subscribe(() => {

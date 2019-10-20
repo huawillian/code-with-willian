@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { BackgroundParallaxService } from '../../components/background-parallax/services/background-parallax.service';
 
 @Component({
   selector: 'app-home',
@@ -9,14 +8,9 @@ import { BackgroundParallaxService } from '../../components/background-parallax/
 export class HomeComponent implements OnInit {
   public codingExpanded: boolean = false;
 
-  constructor(private backgroundParallaxService: BackgroundParallaxService) { }
+  constructor() { }
 
-  ngOnInit() {
-    this.backgroundParallaxService.updateBackground({
-      src: '/assets/dev-bg.jpg',
-      filter: 'rgba(0, 0, 0, 0.7)'
-    });
-  }
+  ngOnInit() {}
 
   expandCode() {
     this.codingExpanded = true;

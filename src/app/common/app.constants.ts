@@ -12,11 +12,15 @@ export enum ArticleType {
 
 export interface ArticlesRouteData {
   title: string;
-  btnCssClass: ThemeColor;
-  gridCssClass: ThemeColor;
+  themeColor: ThemeColor;
   routeBasePath: string;
   bgSrc: string;
   bgFilter: string;
+  articleType: ArticleType;
+}
+
+export interface ArticleDetailsRouteData {
+  themeColor: ThemeColor;
   articleType: ArticleType;
 }
 

@@ -1,0 +1,60 @@
+@import "variables";
+
+.breadcrumbs-container {
+  background: url("/assets/prism.jpg");
+  color: $white-transparent;
+  position: fixed;
+  width: 100%;
+  z-index: 1029;
+  opacity: 0.95;
+
+  a {
+    font-weight: bold;
+    color: $white;
+    opacity: 0.75;
+  }
+}
+
+.breadcrumbs-inner-container {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.right-arrow {
+  height: 10px;
+}
+
+.thumbnail {
+  height: 400px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 2px;
+}
+
+.info {
+    color: $white;
+    height: 25px;
+    font-size: 15px;
+}
+
+.green {
+    .info {
+        background: $green;
+    }
+}
+
+.orange {
+    .info {
+        background: $orange;
+    }
+}
+
+.cyan {
+    .info {
+        background: $cyan;
+    }
+}
+
+.tags {
+    height: 25px;;
+}

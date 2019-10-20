@@ -1,32 +1,43 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
-import { Router } from '@angular/router';
-import { fromEvent } from 'rxjs';
+import { Component, OnInit, ElementRef } from "@angular/core";
+import { Router, NavigationStart, ActivationStart } from "@angular/router";
+import { fromEvent } from "rxjs";
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  selector: "app-navbar",
+  templateUrl: "./navbar.component.html",
+  styleUrls: ["./navbar.component.scss"]
 })
 export class NavbarComponent implements OnInit {
   public expanded: boolean = false;
   public showNavbarBg: boolean = false;
   private isRaf: boolean = false;
+  public alwaysShowNavbarBg: boolean = false;
 
-  constructor(private router: Router, private elementRef: ElementRef) { }
+  constructor(private router: Router, private elementRef: ElementRef) {}
 
   ngOnInit() {
-    this.router.events.subscribe(() => {
-      this.expanded = false;
+    this.router.events.subscribe(event => {
+      if (event instanceof ActivationStart) {
+        this.expanded = false;
+        if (event.snapshot.data.transparentNavbar === false) {
+          this.alwaysShowNavbarBg = true;
+        } else {
+          this.alwaysShowNavbarBg = false;
+        }
+      }
     });
 
-    fromEvent(window, 'click').subscribe((event) => {
-      if (this.expanded && !this.isChildElement(event.target, this.elementRef.nativeElement)) {
+    fromEvent(window, "click").subscribe(event => {
+      if (
+        this.expanded &&
+        !this.isChildElement(event.target, this.elementRef.nativeElement)
+      ) {
         this.expanded = false;
       }
     });
     this.handleScroll();
 
-    fromEvent(window, 'scroll').subscribe(() => {
+    fromEvent(window, "scroll").subscribe(() => {
       if (!this.isRaf) {
         this.isRaf = true;
         window.requestAnimationFrame(this.handleScroll.bind(this));
@@ -59,5 +70,4 @@ export class NavbarComponent implements OnInit {
   public toggle() {
     this.expanded = !this.expanded;
   }
-
 }

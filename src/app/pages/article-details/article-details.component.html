@@ -1,0 +1,27 @@
+<div class="breadcrumbs-container">
+    <div class="breadcrumbs-inner-container py-2">
+        <div class="container">
+            <a [routerLink]="routeBackPath" class="small">{{routeBackText}}</a>
+            <img class="right-arrow mx-3" src="/assets/right-arrow.svg" alt="">
+            <span class="small">{{title}}</span>
+        </div>
+    </div>
+</div>
+<div class="content pt-5 pb-4" [ngClass]="cssClass">
+    <div class="container">
+        <div class="col-12 col-lg-10 offset-lg-1">
+            <div class="row thumbnail my-3 shadow-sm" #thumbnail></div>
+            <div class="row d-flex flex-wrap mb-1">
+                <h1 class="orbitron-font mr-2 mb-0">{{title}}</h1>
+                <div class="info orbitron-font py-1 px-2">{{info}}</div>
+            </div>
+            <p class="row orbitron-font lead mb-3">{{description}}</p>
+            <div class="row">
+                <img class="tags mr-2" src="/assets/tags.svg" alt="">
+                <span class="orbitron-font ml-1">{{categories}}</span>
+            </div>
+            <hr class="row">
+            <div class="row" [innerHTML]="articleDetails?.fields?.body?.stringValue"></div>
+        </div>
+    </div>
+</div>

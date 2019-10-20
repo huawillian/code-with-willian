@@ -9,9 +9,6 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { ProjectDetailComponent } from './pages/project-detail/project-detail.component';
-import { BlogDetailComponent } from './pages/blog-detail/blog-detail.component';
-import { CodeDetailComponent } from './pages/code-detail/code-detail.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ResumeBannerComponent } from './components/resume-banner/resume-banner.component';
@@ -24,6 +21,7 @@ import { GridComponent } from './components/grid/grid.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ArticlesComponent } from './pages/articles/articles.component';
 import { RouterModule } from '@angular/router';
+import { ArticleDetailsComponent } from './pages/article-details/article-details.component';
 
 @NgModule({
   declarations: [
@@ -32,9 +30,6 @@ import { RouterModule } from '@angular/router';
     HomeComponent,
     AboutComponent,
     ContactComponent,
-    ProjectDetailComponent,
-    BlogDetailComponent,
-    CodeDetailComponent,
     NotFoundComponent,
     FooterComponent,
     ResumeBannerComponent,
@@ -44,7 +39,8 @@ import { RouterModule } from '@angular/router';
     HeroBannerComponent,
     GroupArrayPipe,
     GridComponent,
-    ArticlesComponent
+    ArticlesComponent,
+    ArticleDetailsComponent
   ],
   imports: [
     BrowserModule,
