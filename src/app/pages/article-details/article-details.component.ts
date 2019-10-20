@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { ArticlesService } from "../../services/articles.service";
 import { Subscription } from "rxjs";
 
 @Component({
@@ -9,7 +8,6 @@ import { Subscription } from "rxjs";
   styleUrls: ["./article-details.component.scss"]
 })
 export class ArticleDetailsComponent implements OnInit {
-  private articleDetailsSubscription: Subscription;
   articleDetails: any;
 
   routeBackPath: string;
@@ -23,10 +21,7 @@ export class ArticleDetailsComponent implements OnInit {
   failed: boolean;
   routeBackTextNotFound: string;
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private articlesService: ArticlesService
-  ) {}
+  constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
     const data = this.activatedRoute.snapshot.data;
@@ -35,29 +30,20 @@ export class ArticleDetailsComponent implements OnInit {
     this.routeBackTextNotFound = data.routeBackTextNotFound;
     this.cssClass = data.themeColor;
 
-    const articleId = this.activatedRoute.snapshot.paramMap.get("id");
-    this.articleDetailsSubscription = this.articlesService
-      .getArticleDetails(data.articleType, articleId)
-      .subscribe(response => {
-        if(response.data) {
-          this.articleDetails = response.data;
-          this.title = response.data.fields.title.stringValue;
-          this.thumbnail = response.data.fields.thumbnail.stringValue;
-          this.description = response.data.fields.description.stringValue;
-          this.info = response.data.fields.info.stringValue;
-          this.categories = response.data.fields.categories.arrayValue.values
-            .map(value => value.stringValue)
-            .join(", ");
-          this.failed = false;
-        } else {
-          this.failed = true;
-        }
-      });
-  }
-
-  ngOnDestroy(): void {
-    if (this.articleDetailsSubscription) {
-      this.articleDetailsSubscription.unsubscribe();
+    if (data.articleDetailsResponse.data) {
+      this.articleDetails = data.articleDetailsResponse.data;
+      this.title = data.articleDetailsResponse.data.fields.title.stringValue;
+      this.thumbnail =
+        data.articleDetailsResponse.data.fields.thumbnail.stringValue;
+      this.description =
+        data.articleDetailsResponse.data.fields.description.stringValue;
+      this.info = data.articleDetailsResponse.data.fields.info.stringValue;
+      this.categories = data.articleDetailsResponse.data.fields.categories.arrayValue.values
+        .map(value => value.stringValue)
+        .join(", ");
+      this.failed = false;
+    } else {
+      this.failed = true;
     }
   }
 }

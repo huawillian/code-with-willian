@@ -1,3 +1,5 @@
+import { GetArticlesResponseWrapper } from '../services/articles.service';
+
 export enum ThemeColor {
   ORANGE = "orange",
   CYAN = "cyan",
@@ -17,6 +19,7 @@ export interface ArticlesRouteData {
   bgSrc: string;
   bgFilter: string;
   articleType: ArticleType;
+  articlesResponse: GetArticlesResponseWrapper;
 }
 
 export interface ArticleDetailsRouteData {

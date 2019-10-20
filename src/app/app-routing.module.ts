@@ -8,6 +8,8 @@ import { DefaultResolverService } from "./services/default-resolver.service";
 import { ThemeColor, ArticleType } from "./common/app.constants";
 import { ArticlesComponent } from "./pages/articles/articles.component";
 import { ArticleDetailsComponent } from "./pages/article-details/article-details.component";
+import { ArticlesResolverService } from "./services/articles-resolver.service";
+import { ArticleDetailsResolverService } from "./services/article-details-resolver.service";
 
 const routes: Routes = [
   {
@@ -36,7 +38,7 @@ const routes: Routes = [
     path: "coding-toy-problems",
     component: ArticlesComponent,
     resolve: {
-      data: DefaultResolverService
+      articlesResponse: ArticlesResolverService
     },
     data: {
       bgSrc: "/assets/blog-bg.jpg",
@@ -51,7 +53,7 @@ const routes: Routes = [
     path: "projects",
     component: ArticlesComponent,
     resolve: {
-      data: DefaultResolverService
+      articlesResponse: ArticlesResolverService
     },
     data: {
       bgSrc: "/assets/blog-bg.jpg",
@@ -66,7 +68,7 @@ const routes: Routes = [
     path: "blogs",
     component: ArticlesComponent,
     resolve: {
-      data: DefaultResolverService
+      articlesResponse: ArticlesResolverService
     },
     data: {
       bgSrc: "/assets/blog-bg.jpg",
@@ -81,7 +83,7 @@ const routes: Routes = [
     path: "coding-toy-problems/:id",
     component: ArticleDetailsComponent,
     resolve: {
-      data: DefaultResolverService
+      articleDetailsResponse: ArticleDetailsResolverService
     },
     data: {
       themeColor: ThemeColor.GREEN,
@@ -96,7 +98,7 @@ const routes: Routes = [
     path: "projects/:id",
     component: ArticleDetailsComponent,
     resolve: {
-      data: DefaultResolverService
+      articleDetailsResponse: ArticleDetailsResolverService
     },
     data: {
       themeColor: ThemeColor.ORANGE,
@@ -111,7 +113,7 @@ const routes: Routes = [
     path: "blogs/:id",
     component: ArticleDetailsComponent,
     resolve: {
-      data: DefaultResolverService
+      articleDetailsResponse: ArticleDetailsResolverService
     },
     data: {
       themeColor: ThemeColor.CYAN,

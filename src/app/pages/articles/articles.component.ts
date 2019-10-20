@@ -1,6 +1,5 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import {
-  ArticlesService,
   GetResponseWrapperStatus
 } from "../../services/articles.service";
 import {
@@ -9,14 +8,13 @@ import {
   ArticlesRouteData
 } from "../../common/app.constants";
 import { ActivatedRoute } from "@angular/router";
-import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-articles",
   templateUrl: "./articles.component.html",
   styleUrls: ["./articles.component.scss"]
 })
-export class ArticlesComponent implements OnInit, OnDestroy {
+export class ArticlesComponent implements OnInit {
   items: Array<GetArticlesResponseDocument> = [];
   filterCriteria: string = "All";
   gridCssClass: ThemeColor;
@@ -26,10 +24,8 @@ export class ArticlesComponent implements OnInit, OnDestroy {
   btnCssClass: ThemeColor;
   showError;
 
-  private articlesSubscription: Subscription;
 
   constructor(
-    private articlesService: ArticlesService,
     private activatedRoute: ActivatedRoute
   ) {}
 
@@ -40,24 +36,14 @@ export class ArticlesComponent implements OnInit, OnDestroy {
     this.gridCssClass = data.themeColor;
     this.routeBasePath = data.routeBasePath;
 
-    this.articlesSubscription = this.articlesService
-      .getArticles(data.articleType)
-      .subscribe(response => {
-        if (response.status === GetResponseWrapperStatus.SUCCESS) {
-          this.items = response.data;
-          this.filters = this.filtersFromItems(response.data);
-          this.showError = false;
-        } else {
-          this.items = [];
-          this.filters = this.filtersFromItems([]);
-          this.showError = true;
-        }
-      });
-  }
-
-  ngOnDestroy(): void {
-    if (this.articlesSubscription) {
-      this.articlesSubscription.unsubscribe();
+    if (data.articlesResponse.status === GetResponseWrapperStatus.SUCCESS) {
+      this.items = data.articlesResponse.data;
+      this.filters = this.filtersFromItems(data.articlesResponse.data);
+      this.showError = false;
+    } else {
+      this.items = [];
+      this.filters = this.filtersFromItems([]);
+      this.showError = true;
     }
   }
 
