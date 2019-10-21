@@ -1,6 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { Subscription } from "rxjs";
+import { AppConstants } from "../../common/app.constants";
+
+interface linkItem {
+  iconSrc: string;
+  linkType: string;
+  url: string;
+}
 
 @Component({
   selector: "app-article-details",
@@ -21,6 +27,7 @@ export class ArticleDetailsComponent implements OnInit {
   failed: boolean;
   routeBackTextNotFound: string;
   tldr: string;
+  links: linkItem[];
 
   constructor(private activatedRoute: ActivatedRoute) {}
 
@@ -45,6 +52,20 @@ export class ArticleDetailsComponent implements OnInit {
       this.tldr = data.articleDetailsResponse.data.fields.tldr
         ? data.articleDetailsResponse.data.fields.tldr.stringValue
         : "";
+      this.links = data.articleDetailsResponse.data.fields.links
+        ? data.articleDetailsResponse.data.fields.links.arrayValue.values.map(
+            linkResponse => {
+              return {
+                linkType: linkResponse.mapValue.fields.linkType.stringValue,
+                iconSrc:
+                  AppConstants.FIRESTORE_LINK_TYPE_ICON_SRC_MAPPING[
+                    linkResponse.mapValue.fields.linkType.stringValue
+                  ] || AppConstants.FIRESTORE_FALLBACK_ICON_SRC,
+                url: linkResponse.mapValue.fields.url.stringValue
+              };
+            }
+          )
+        : [];
       this.failed = false;
     } else {
       this.failed = true;

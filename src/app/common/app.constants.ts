@@ -1,4 +1,4 @@
-import { GetArticlesResponseWrapper } from '../services/articles.service';
+import { GetArticlesResponseWrapper } from "../services/articles.service";
 
 export enum ThemeColor {
   ORANGE = "orange",
@@ -25,6 +25,19 @@ export interface ArticlesRouteData {
 export interface ArticleDetailsRouteData {
   themeColor: ThemeColor;
   articleType: ArticleType;
+}
+
+export interface ArticleDetailLinkItem {
+  mapValue: {
+    fields: {
+      linkType: {
+        stringValue: string;
+      };
+      url: {
+        stringValue: string;
+      };
+    };
+  };
 }
 
 export interface GetArticlesResponse {
@@ -59,6 +72,11 @@ export interface GetArticlesResponseDocument {
     tldr?: {
       stringValue: string;
     };
+    links?: {
+      arrayValue: {
+        values: ArticleDetailLinkItem[];
+      };
+    };
   };
   createTime: string;
   updateTime: string;
@@ -85,4 +103,15 @@ export class AppConstants {
     [ArticleType.CODE]: "/code",
     [ArticleType.PROJECT]: "/projects"
   };
+
+  static FIRESTORE_LINK_TYPE_ICON_SRC_MAPPING = {
+    github: "/assets/github.svg",
+    soundcloud: "/assets/soundcloud-logo.svg",
+    html: "/assets/html.svg",
+    apk: "/assets/apk.svg",
+    pc: "/assets/pc.svg",
+    link: "/assets/link.svg"
+  };
+
+  static FIRESTORE_FALLBACK_ICON_SRC = "/assets/cube.svg";
 }

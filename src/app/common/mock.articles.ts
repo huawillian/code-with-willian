@@ -1,4 +1,7 @@
-import { GetArticlesResponse, GetArticlesResponseDocument } from "./app.constants";
+import {
+  GetArticlesResponse,
+  GetArticlesResponseDocument
+} from "./app.constants";
 
 export class MockArticles {
   static GET_ARTICLES_RESPONSE: GetArticlesResponse = {
@@ -485,7 +488,92 @@ export class MockArticles {
         stringValue: "A New Game"
       },
       tldr: {
-        stringValue: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante."
+        stringValue:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante."
+      },
+      links: {
+        arrayValue: {
+          values: [
+            {
+              mapValue: {
+                fields: {
+                  linkType: {
+                    stringValue: "github"
+                  },
+                  url: {
+                    stringValue:
+                      "https://github.com/huawillian/A-New-Game-Project"
+                  }
+                }
+              }
+            },
+            {
+              mapValue: {
+                fields: {
+                  linkType: {
+                    stringValue: "html"
+                  },
+                  url: {
+                    stringValue:
+                      "https://code-with-willian.web.app/"
+                  }
+                }
+              }
+            },
+            {
+              mapValue: {
+                fields: {
+                  linkType: {
+                    stringValue: "soundcloud"
+                  },
+                  url: {
+                    stringValue:
+                      "https://soundcloud.com/willian-hua"
+                  }
+                }
+              }
+            },
+            {
+              mapValue: {
+                fields: {
+                  linkType: {
+                    stringValue: "apk"
+                  },
+                  url: {
+                    stringValue:
+                      "https://drive.google.com/open?id=0B_ePbu-n2EAmUjl3cnRsT3J2anM"
+                  }
+                }
+              }
+            },
+            {
+              mapValue: {
+                fields: {
+                  linkType: {
+                    stringValue: "pc"
+                  },
+                  url: {
+                    stringValue:
+                      "https://drive.google.com/open?id=0B_ePbu-n2EAmel9qWVdXYjlGcVE"
+                  }
+                }
+              }
+            },
+            {
+              mapValue: {
+                fields: {
+                  linkType: {
+                    stringValue: "link"
+                  },
+                  url: {
+                    stringValue:
+                      "https://www.flaticon.com/search?word=location"
+                  }
+                }
+              }
+            }
+          ]
+        }
       }
     },
     createTime: "2019-10-18T03:22:51.187221Z",

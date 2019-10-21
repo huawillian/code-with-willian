@@ -38,19 +38,19 @@
 }
 
 .green {
-  .info, .tldr-container {
+  .info, .tldr-container, .links-container {
     background: $green;
   }
 }
 
 .orange {
-  .info, .tldr-container {
+  .info, .tldr-container, .links-container {
     background: $orange;
   }
 }
 
 .cyan {
-  .info, .tldr-container {
+  .info, .tldr-container, .links-container {
     background: $cyan;
   }
 }
@@ -73,5 +73,27 @@
   p {
     display: inline;
     font-size: 1.25rem;
+  }
+}
+
+.links-container {
+  color: $white;
+  border-radius: 2px;
+  line-height: 2rem;
+
+  h2 {
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+
+  .link-logo {
+    height: 22px;
+    width: 22px;
+    margin-top: -4px;
+  }
+
+  a {
+    color: $white;
+    word-break: break-all;
   }
 }
