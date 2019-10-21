@@ -24,12 +24,12 @@
                 <span class="orbitron-font ml-1">{{categories}}</span>
             </div>
             <hr>
-            <div *ngIf="tldr" class="tldr-container shadow-sm mb-4 mt-2 p-3">
+            <div *ngIf="tldr" class="tldr-container shadow-sm mb-4 mt-2 p-3 fade-in-delay-md">
                 <h2 class="h5 mr-2">TLDR;</h2>
                 <p class="mb-0">{{tldr}}</p>
             </div>
             <div class="fade-in-delay-lg" [innerHTML]="articleDetails?.fields?.body?.stringValue"></div>
-            <div *ngIf="links" class="links-container shadow-sm my-4 p-3">
+            <div *ngIf="links?.length" class="links-container shadow-sm my-4 p-3 fade-in-delay-md">
                 <h2 class="h5">Additional Links</h2>
                 <div *ngFor="let link of links" class="mb-2">
                     <img class="link-logo mr-2" [src]="link.iconSrc" [alt]="link.linkType">
