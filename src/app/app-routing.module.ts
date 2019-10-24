@@ -1,20 +1,15 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { HomeComponent } from "./pages/home/home.component";
-import { AboutComponent } from "./pages/about/about.component";
-import { ContactComponent } from "./pages/contact/contact.component";
-import { NotFoundComponent } from "./pages/not-found/not-found.component";
 import { DefaultResolverService } from "./services/default-resolver.service";
 import { ThemeColor, ArticleType } from "./common/app.constants";
-import { ArticlesComponent } from "./pages/articles/articles.component";
-import { ArticleDetailsComponent } from "./pages/article-details/article-details.component";
 import { ArticlesResolverService } from "./services/articles-resolver.service";
 import { ArticleDetailsResolverService } from "./services/article-details-resolver.service";
 
 const routes: Routes = [
   {
     path: "",
-    component: HomeComponent,
+    loadChildren: () =>
+      import("./pages/home/home.module").then(mod => mod.HomeModule),
     resolve: {
       data: DefaultResolverService
     },
@@ -25,7 +20,8 @@ const routes: Routes = [
   },
   {
     path: "about",
-    component: AboutComponent,
+    loadChildren: () =>
+      import("./pages/about/about.module").then(mod => mod.AboutModule),
     resolve: {
       data: DefaultResolverService
     },
@@ -36,7 +32,10 @@ const routes: Routes = [
   },
   {
     path: "coding-toy-problems",
-    component: ArticlesComponent,
+    loadChildren: () =>
+      import("./pages/articles/articles.module").then(
+        mod => mod.ArticlesModule
+      ),
     resolve: {
       articlesResponse: ArticlesResolverService
     },
@@ -51,7 +50,10 @@ const routes: Routes = [
   },
   {
     path: "projects",
-    component: ArticlesComponent,
+    loadChildren: () =>
+      import("./pages/articles/articles.module").then(
+        mod => mod.ArticlesModule
+      ),
     resolve: {
       articlesResponse: ArticlesResolverService
     },
@@ -66,7 +68,10 @@ const routes: Routes = [
   },
   {
     path: "blogs",
-    component: ArticlesComponent,
+    loadChildren: () =>
+      import("./pages/articles/articles.module").then(
+        mod => mod.ArticlesModule
+      ),
     resolve: {
       articlesResponse: ArticlesResolverService
     },
@@ -81,7 +86,10 @@ const routes: Routes = [
   },
   {
     path: "coding-toy-problems/:id",
-    component: ArticleDetailsComponent,
+    loadChildren: () =>
+      import("./pages/article-details/article-details.module").then(
+        mod => mod.ArticleDetailsModule
+      ),
     resolve: {
       articleDetailsResponse: ArticleDetailsResolverService
     },
@@ -96,7 +104,10 @@ const routes: Routes = [
   },
   {
     path: "projects/:id",
-    component: ArticleDetailsComponent,
+    loadChildren: () =>
+      import("./pages/article-details/article-details.module").then(
+        mod => mod.ArticleDetailsModule
+      ),
     resolve: {
       articleDetailsResponse: ArticleDetailsResolverService
     },
@@ -111,7 +122,10 @@ const routes: Routes = [
   },
   {
     path: "blogs/:id",
-    component: ArticleDetailsComponent,
+    loadChildren: () =>
+      import("./pages/article-details/article-details.module").then(
+        mod => mod.ArticleDetailsModule
+      ),
     resolve: {
       articleDetailsResponse: ArticleDetailsResolverService
     },
@@ -126,7 +140,8 @@ const routes: Routes = [
   },
   {
     path: "contact",
-    component: ContactComponent,
+    loadChildren: () =>
+      import("./pages/contact/contact.module").then(mod => mod.ContactModule),
     resolve: {
       data: DefaultResolverService
     },
@@ -137,7 +152,10 @@ const routes: Routes = [
   },
   {
     path: "**",
-    component: NotFoundComponent,
+    loadChildren: () =>
+      import("./pages/not-found/not-found.module").then(
+        mod => mod.NotFoundModule
+      ),
     resolve: {
       data: DefaultResolverService
     },
