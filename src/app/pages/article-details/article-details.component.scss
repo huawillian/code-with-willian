@@ -31,6 +31,12 @@
   border-radius: 2px;
 }
 
+@media screen and (max-width: 767.8px) {
+  .thumbnail {
+    height: 250px;
+  }
+}
+
 .info {
   color: $white;
   height: 25px;
@@ -38,19 +44,25 @@
 }
 
 .green {
-  .info, .tldr-container, .links-container {
+  .info,
+  .tldr-container,
+  .links-container {
     background: $green;
   }
 }
 
 .orange {
-  .info, .tldr-container, .links-container {
+  .info,
+  .tldr-container,
+  .links-container {
     background: $orange;
   }
 }
 
 .cyan {
-  .info, .tldr-container, .links-container {
+  .info,
+  .tldr-container,
+  .links-container {
     background: $cyan;
   }
 }

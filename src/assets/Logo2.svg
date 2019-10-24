@@ -1,1 +1,63 @@
-<svg version="1.1" viewBox="0.0 0.0 384.0 384.0" fill="none" stroke="none" stroke-linecap="square" stroke-miterlimit="10" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><clipPath id="p.0"><path d="m0 0l384.0 0l0 384.0l-384.0 0l0 -384.0z" clip-rule="nonzero"/></clipPath><g clip-path="url(#p.0)"><path fill="#000000" fill-opacity="0.0" d="m0 0l384.0 0l0 384.0l-384.0 0z" fill-rule="evenodd"/><g filter="url(#shadowFilter-p.1)"><use xlink:href="#p.1" transform="matrix(1.0 0.0 0.0 1.0 0.0 2.0)"/></g><defs><filter id="shadowFilter-p.1" filterUnits="userSpaceOnUse"><feGaussianBlur in="SourceAlpha" stdDeviation="2.0" result="blur"/><feComponentTransfer in="blur" color-interpolation-filters="sRGB"><feFuncR type="linear" slope="0" intercept="0.0"/><feFuncG type="linear" slope="0" intercept="0.0"/><feFuncB type="linear" slope="0" intercept="0.0"/><feFuncA type="linear" slope="0.5" intercept="0"/></feComponentTransfer></filter></defs><g id="p.1"><path fill="#000000" fill-opacity="0.0" d="m192.0 24.0l-144.0 91.0l0 154.0l144.0 91.0l144.0 -91.0l0 -154.0z" fill-rule="evenodd"/><path stroke="#efefef" stroke-width="24.0" stroke-linejoin="round" stroke-linecap="butt" d="m192.0 24.0l-144.0 91.0l0 154.0l144.0 91.0l144.0 -91.0l0 -154.0z" fill-rule="evenodd"/></g><g filter="url(#shadowFilter-p.2)"><use xlink:href="#p.2" transform="matrix(1.0 0.0 0.0 1.0 0.0 2.0)"/></g><defs><filter id="shadowFilter-p.2" filterUnits="userSpaceOnUse"><feGaussianBlur in="SourceAlpha" stdDeviation="2.0" result="blur"/><feComponentTransfer in="blur" color-interpolation-filters="sRGB"><feFuncR type="linear" slope="0" intercept="0.0"/><feFuncG type="linear" slope="0" intercept="0.0"/><feFuncB type="linear" slope="0" intercept="0.0"/><feFuncA type="linear" slope="0.5" intercept="0"/></feComponentTransfer></filter></defs><g id="p.2"><path fill="#efefef" d="m188.96004 88.0l19.039963 19.219673l-57.279327 58.20501l57.119873 58.312775l-18.719284 19.221466l-76.24134 -77.53424z" fill-rule="evenodd"/><path stroke="#efefef" stroke-width="1.0" stroke-linejoin="round" stroke-linecap="butt" d="m188.96004 88.0l19.039963 19.219673l-57.279327 58.20501l57.119873 58.312775l-18.719284 19.221466l-76.24134 -77.53424z" fill-rule="evenodd"/></g><g filter="url(#shadowFilter-p.3)"><use xlink:href="#p.3" transform="matrix(1.0 0.0 0.0 1.0 0.0 2.0)"/></g><defs><filter id="shadowFilter-p.3" filterUnits="userSpaceOnUse"><feGaussianBlur in="SourceAlpha" stdDeviation="2.0" result="blur"/><feComponentTransfer in="blur" color-interpolation-filters="sRGB"><feFuncR type="linear" slope="0" intercept="0.0"/><feFuncG type="linear" slope="0" intercept="0.0"/><feFuncB type="linear" slope="0" intercept="0.0"/><feFuncA type="linear" slope="0.5" intercept="0"/></feComponentTransfer></filter></defs><g id="p.3"><path fill="#efefef" d="m195.91988 141.04108l-19.039948 19.219666l57.279327 58.205017l-57.11989 58.312775l18.7193 19.221466l76.24133 -77.53424z" fill-rule="evenodd"/><path stroke="#efefef" stroke-width="1.0" stroke-linejoin="round" stroke-linecap="butt" d="m195.91988 141.04108l-19.039948 19.219666l57.279327 58.205017l-57.11989 58.312775l18.7193 19.221466l76.24133 -77.53424z" fill-rule="evenodd"/></g></g></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg fill="none" stroke-linecap="square" stroke-miterlimit="10" version="1.1" viewBox="0 0 384 384" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<clipPath id="g">
+<path d="m0 0h384v384h-384v-384z"/>
+</clipPath>
+<g clip-path="url(#g)">
+<path d="m0 0h384v384h-384z" fill="#000" fill-opacity="0" fill-rule="evenodd"/>
+<g filter="url(#c)">
+<use transform="translate(0 2)" xlink:href="#f"/>
+</g>
+<defs>
+<filter id="c" filterUnits="userSpaceOnUse">
+<feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="2.0"/>
+<feComponentTransfer color-interpolation-filters="sRGB" in="blur">
+<feFuncR slope="0" type="linear"/>
+<feFuncG slope="0" type="linear"/>
+<feFuncB slope="0" type="linear"/>
+<feFuncA slope="0.5" type="linear"/>
+</feComponentTransfer>
+</filter>
+</defs>
+<g id="f">
+<path d="m192 24-144 91v154l144 91 144-91v-154z" fill="#000" fill-opacity="0" fill-rule="evenodd"/>
+<path d="m192 24-144 91v154l144 91 144-91v-154z" fill-rule="evenodd" stroke="#efefef" stroke-linecap="butt" stroke-linejoin="round" stroke-width="24"/>
+</g>
+<g filter="url(#b)">
+<use transform="translate(0 2)" xlink:href="#e"/>
+</g>
+<defs>
+<filter id="b" filterUnits="userSpaceOnUse">
+<feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="2.0"/>
+<feComponentTransfer color-interpolation-filters="sRGB" in="blur">
+<feFuncR slope="0" type="linear"/>
+<feFuncG slope="0" type="linear"/>
+<feFuncB slope="0" type="linear"/>
+<feFuncA slope="0.5" type="linear"/>
+</feComponentTransfer>
+</filter>
+</defs>
+<g id="e">
+<path d="m188.96 88 19.04 19.22-57.279 58.205 57.12 58.313-18.719 19.221-76.241-77.534z" fill="#efefef" fill-rule="evenodd"/>
+<path d="m188.96 88 19.04 19.22-57.279 58.205 57.12 58.313-18.719 19.221-76.241-77.534z" fill-rule="evenodd" stroke="#efefef" stroke-linecap="butt" stroke-linejoin="round"/>
+</g>
+<g filter="url(#a)">
+<use transform="translate(0 2)" xlink:href="#d"/>
+</g>
+<defs>
+<filter id="a" filterUnits="userSpaceOnUse">
+<feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="2.0"/>
+<feComponentTransfer color-interpolation-filters="sRGB" in="blur">
+<feFuncR slope="0" type="linear"/>
+<feFuncG slope="0" type="linear"/>
+<feFuncB slope="0" type="linear"/>
+<feFuncA slope="0.5" type="linear"/>
+</feComponentTransfer>
+</filter>
+</defs>
+<g id="d">
+<path d="m195.92 141.04-19.04 19.22 57.279 58.205-57.12 58.313 18.719 19.221 76.241-77.534z" fill="#efefef" fill-rule="evenodd"/>
+<path d="m195.92 141.04-19.04 19.22 57.279 58.205-57.12 58.313 18.719 19.221 76.241-77.534z" fill-rule="evenodd" stroke="#efefef" stroke-linecap="butt" stroke-linejoin="round"/>
+</g>
+</g>
+</svg>

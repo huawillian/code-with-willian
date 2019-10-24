@@ -60,6 +60,16 @@ export class ArticleDetailsComponent implements OnInit {
     this.show = true;
   }
 
+  showExample() {
+    this.example = Prism.highlight(
+      this.example,
+      Prism.languages.javascript,
+      "javascript"
+    );
+
+    setTimeout(() => Prism.highlightAll(), 0);
+  }
+
   ngOnInit() {
     const data = this.activatedRoute.snapshot.data;
     this.routeBackPath = data.routeBackPath;
@@ -122,6 +132,8 @@ export class ArticleDetailsComponent implements OnInit {
         ? data.articleDetailsResponse.data.fields.explanation.stringValue
         : "";
       this.failed = false;
+
+      this.showExample();
     } else {
       this.failed = true;
     }

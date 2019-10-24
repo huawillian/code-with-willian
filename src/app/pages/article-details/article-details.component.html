@@ -24,11 +24,11 @@
                 <span class="orbitron-font ml-1">{{categories}}</span>
             </div>
             <hr>
-            <div *ngIf="tldr" class="tldr-container shadow-sm mb-4 mt-2 p-3 fade-in-delay-md">
+            <div *ngIf="tldr && isCode === false" class="tldr-container shadow-sm mb-4 mt-2 p-3 fade-in-delay-md">
                 <h2 class="h5 mr-2">TLDR;</h2>
                 <p class="mb-0">{{tldr}}</p>
             </div>
-            <div *ngIf="articleDetails?.fields?.body" class="fade-in-delay-lg"
+            <div *ngIf="articleDetails?.fields?.body && isCode === false" class="fade-in-delay-lg"
                 [innerHTML]="articleDetails.fields.body.stringValue"></div>
             <div *ngIf="isCode === true" class="fade-in-delay-lg">
                 <h3 class="mb-3">Problem</h3>

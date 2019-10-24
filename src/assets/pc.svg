@@ -1,9 +1,9 @@
-<?xml version="1.0"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 475.082 475.082" style="enable-background:new 0 0 475.082 475.082;" xml:space="preserve" class=""><g><g>
-	<g>
-		<polygon points="0,409.705 194.716,436.541 194.716,250.677 0,250.677   " data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/>
-		<polygon points="0,226.692 194.716,226.692 194.716,38.544 0,65.38   " data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/>
-		<polygon points="216.129,439.398 475.082,475.082 475.082,250.677 475.082,250.674 216.129,250.674   " data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/>
-		<polygon points="216.132,35.688 216.132,226.692 475.082,226.692 475.082,0   " data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg class="" width="512px" height="512px" enable-background="new 0 0 475.082 475.082" version="1.1" viewBox="0 0 475.08 475.08" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+	<g fill="#fff">
+		<polygon class="active-path" points="0 409.7 194.72 436.54 194.72 250.68 0 250.68" data-old_color="#000000" data-original="#000000"/>
+		<polygon class="active-path" points="0 226.69 194.72 226.69 194.72 38.544 0 65.38" data-old_color="#000000" data-original="#000000"/>
+		<polygon class="active-path" points="216.13 439.4 475.08 475.08 475.08 250.68 475.08 250.67 216.13 250.67" data-old_color="#000000" data-original="#000000"/>
+		<polygon class="active-path" points="216.13 35.688 216.13 226.69 475.08 226.69 475.08 0" data-old_color="#000000" data-original="#000000"/>
 	</g>
-</g></g> </svg>
+ </svg>

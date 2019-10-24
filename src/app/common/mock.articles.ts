@@ -456,18 +456,44 @@ export class MockArticles {
 
   static GET_ARTICLE_DETAIL_RESPONSE: GetArticlesResponseDocument = {
     name:
-      "projects/code-with-willian/databases/(default)/documents/code/placeholderCode",
+      "projects/code-with-willian/databases/(default)/documents/projects/a-new-game",
     fields: {
-      explanation: {
+      thumbnail: {
         stringValue:
-          "<p> There are only 3 treasures in this island: [1, 0], [1, 3], and [3, 2]. The first treasure is not connected to any other treasures through landmasses. The second and third treasures are connected by landmasses: [2, 3] and [3, 3]. </p>"
+          "http://orig04.deviantart.net/65a7/f/2015/345/1/6/pixel_art_rpg_mockup_by_benjirokun-d9jqob5.png"
+      },
+      description: {
+        stringValue: "2D Pixel-graphics RPG using Unity with friends"
       },
       body: {
         stringValue:
-          "<p>Github: https://github.com/huawillian/Barnland-Security-VR</p> <p>WebGL: https://barnland-security-vr-test.firebaseapp.com/</p> <p>Android (.apk): https://drive.google.com/open?id=0B_ePbu-n2EAmZkVMWjExM1FITG8</p> <p>Android Cardboard (.apk): https://drive.google.com/open?id=0B_ePbu-n2EAmUjl3cnRsT3J2anM</p> <p>I developed Barnland Security to learn how to create VR games using Cardboard SDK, Firebase SDK for Unity, and also to improve the following Blender skills: (1) 3d Object Creation (2) 3d Object Rigging (3) 3D Animations (4) Texturing 3D Objects.</p> <p>Aliens in UFOs roam around the barn beaming up animals. The player moves around and catches the animals to save them. There are also powerups the player can get such as the bomb that stuns aliens and tractor that speeds up the player.</p> <p>I added a leaderboard for highscores using Firebase. After creating the VR version, I created a non-VR version. A year later, I created a WebGL build so everyone can play the game on the internet.</p>"
+          "<p>Github: https://github.com/huawillian/A-New-Game-Project</p><p>I started this project with a few friends in Winter of 2016. At the time, we had one programmer (me), one graphics artist, and two concept artists. In two months, we had blueprints for the entire RPG realm, concept art for the characters, and a rough draft of the story. As the programmer, I had the basic navigation, movie modules, scenes, and player controls finished. Unfortunately, one member of the team had other ideas for the project and was not able to commit to the team meetings. We eventually put off the game's development and never got to giving this project a real name.</p>"
       },
       info: {
-        stringValue: "DEMO AVAILABLE"
+        stringValue: "CANCELLED"
+      },
+      categories: {
+        arrayValue: {
+          values: [
+            {
+              stringValue: "Game"
+            },
+            {
+              stringValue: "Unity"
+            }
+          ]
+        }
+      },
+      title: {
+        stringValue: "A New Game"
+      },
+      tldr: {
+        stringValue:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante."
+      },
+      example: {
+        stringValue:
+          "function toyProblemFn(treasureMap) {\\n     /* Insert Solution */\\n }\\n  const input = [\\n     ['L', 'L', 'O', 'O'],\\n     ['T', 'L', 'O', 'T'],\\n     ['L', 'O', 'O', 'L'],\\n     ['L', 'O', 'T', 'L']\\n ];\\n \\n /* Should Output: [\\n     ['L', 'L', 'O', 'O'],\\n     ['T', 'L', 'O', 'T'],\\n     ['L', 'O', 'O', 'L'],\\n     ['L', 'O', 'T', 'L']\\n ]\\n */\\n console.log(toyProblemFn(input));\\n"
       },
       solution: {
         stringValue:
@@ -477,40 +503,93 @@ export class MockArticles {
         stringValue:
           "<p _ngcontent-atv-c6=\\\"\\\">You bought an ancient map of the surrounding islands and the locations of the hidden treasures on each of those islands. However, you only have enough supplies to travel to and from one of these islands. Your goals is to find the island with the most amount of treasure. </p><p _ngcontent-atv-c6=\\\"\\\"> The map is a 2 dimensional matrix where each item can either be 'W', 'L', or 'T', which stands for water, landmass, and buried treasure respectively. A cluster of landmasses is considered an island if they are connected to each other by being immediately adjacent to each other or through other connected land masses. Buried treasure are also landmasses. The output should be a list of the indexes representing the island with the most connected treasures. </p>"
       },
-      categories: {
+      explanation: {
+        stringValue:
+          "<p> There are only 3 treasures in this island: [1, 0], [1, 3], and [3, 2]. The first treasure is not connected to any other treasures through landmasses. The second and third treasures are connected by landmasses: [2, 3] and [3, 3]. </p>"
+      },
+      links: {
         arrayValue: {
           values: [
             {
-              stringValue: "AR/VR"
+              mapValue: {
+                fields: {
+                  linkType: {
+                    stringValue: "github"
+                  },
+                  url: {
+                    stringValue:
+                      "https://github.com/huawillian/A-New-Game-Project"
+                  }
+                }
+              }
             },
             {
-              stringValue: "Game"
+              mapValue: {
+                fields: {
+                  linkType: {
+                    stringValue: "html"
+                  },
+                  url: {
+                    stringValue: "https://code-with-willian.web.app/"
+                  }
+                }
+              }
             },
             {
-              stringValue: "Android"
+              mapValue: {
+                fields: {
+                  linkType: {
+                    stringValue: "soundcloud"
+                  },
+                  url: {
+                    stringValue: "https://soundcloud.com/willian-hua"
+                  }
+                }
+              }
             },
             {
-              stringValue: "Unity"
+              mapValue: {
+                fields: {
+                  linkType: {
+                    stringValue: "apk"
+                  },
+                  url: {
+                    stringValue:
+                      "https://drive.google.com/open?id=0B_ePbu-n2EAmUjl3cnRsT3J2anM"
+                  }
+                }
+              }
+            },
+            {
+              mapValue: {
+                fields: {
+                  linkType: {
+                    stringValue: "pc"
+                  },
+                  url: {
+                    stringValue:
+                      "https://drive.google.com/open?id=0B_ePbu-n2EAmel9qWVdXYjlGcVE"
+                  }
+                }
+              }
+            },
+            {
+              mapValue: {
+                fields: {
+                  linkType: {
+                    stringValue: "link"
+                  },
+                  url: {
+                    stringValue: "https://www.flaticon.com/search?word=location"
+                  }
+                }
+              }
             }
           ]
         }
-      },
-      title: {
-        stringValue: "Barnland Security"
-      },
-      thumbnail: {
-        stringValue:
-          "https://timedotcom.files.wordpress.com/2015/05/google-cardboard-iphone-vr.jpg"
-      },
-      description: {
-        stringValue: "VR game using Unity3D and Cardboard SDK"
-      },
-      example: {
-        stringValue:
-          "function toyProblemFn(treasureMap) {\\n     /* Insert Solution */\\n }\\n  const input = [\\n     ['L', 'L', 'O', 'O'],\\n     ['T', 'L', 'O', 'T'],\\n     ['L', 'O', 'O', 'L'],\\n     ['L', 'O', 'T', 'L']\\n ];\\n \\n /* Should Output: [\\n     ['L', 'L', 'O', 'O'],\\n     ['T', 'L', 'O', 'T'],\\n     ['L', 'O', 'O', 'L'],\\n     ['L', 'O', 'T', 'L']\\n ]\\n */\\n console.log(toyProblemFn(input));\\n"
       }
     },
-    createTime: "2019-10-18T03:34:16.877452Z",
-    updateTime: "2019-10-24T02:49:49.773178Z"
+    createTime: "2019-10-18T03:22:51.187221Z",
+    updateTime: "2019-10-18T03:22:51.187221Z"
   };
 }
