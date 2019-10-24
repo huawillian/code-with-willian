@@ -76,3 +76,56 @@
 .btn-white.active {
   box-shadow: 0 0 0 0.2rem $white-transparent;
 }
+
+.btn-inverse {
+  &.btn-orange {
+    border: $orange-transparent solid 2px;
+    color: $white;
+    background: $orange !important;
+  }
+
+  &.btn-green {
+    border: $green-transparent solid 2px;
+    color: $white;
+    background: $green !important;
+  }
+
+  &.btn-cyan {
+    border: $cyan-transparent solid 2px;
+    color: $white;
+    background: $cyan !important;
+  }
+
+  &.btn-orange:focus,
+  &.btn-orange:hover {
+    border: $orange solid 2px;
+    color: $orange;
+    background: transparent !important;
+  }
+
+  &.btn-orange:focus {
+    box-shadow: 0 0 0 0.2rem $orange-transparent;
+  }
+
+  &.btn-green:focus,
+  &.btn-green:hover {
+    border: $green solid 2px;
+    color: $green;
+    background: transparent !important;
+  }
+
+  &.btn-green:focus {
+    box-shadow: 0 0 0 0.2rem $green-transparent;
+  }
+
+  &.btn-cyan:focus,
+  &.btn-cyan:hover {
+    border: $cyan solid 2px;
+    color: $cyan;
+    background: transparent !important;
+  }
+
+  &.btn-cyan:focus {
+    box-shadow: 0 0 0 0.2rem $cyan-transparent;
+  }
+}

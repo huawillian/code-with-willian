@@ -77,6 +77,18 @@ export interface GetArticlesResponseDocument {
         values: ArticleDetailLinkItem[];
       };
     };
+    problem?: {
+      stringValue: string;
+    };
+    example?: {
+      stringValue: string;
+    };
+    solution?: {
+      stringValue: string;
+    };
+    explanation?: {
+      stringValue: string;
+    }
   };
   createTime: string;
   updateTime: string;

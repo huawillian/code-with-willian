@@ -28,8 +28,30 @@
                 <h2 class="h5 mr-2">TLDR;</h2>
                 <p class="mb-0">{{tldr}}</p>
             </div>
-            <div class="fade-in-delay-lg" [innerHTML]="articleDetails?.fields?.body?.stringValue"></div>
-            <div *ngIf="links?.length" class="links-container shadow-sm my-4 p-3 fade-in-delay-md">
+            <div *ngIf="articleDetails?.fields?.body" class="fade-in-delay-lg"
+                [innerHTML]="articleDetails.fields.body.stringValue"></div>
+            <div *ngIf="isCode === true" class="fade-in-delay-lg">
+                <h3 class="mb-3">Problem</h3>
+                <div [innerHTML]="problem"></div>
+            </div>
+            <div *ngIf="show === false && isCode === true" class="fade-in-delay-lg">
+                <h3 class="my-3">Example</h3>
+                <pre class="line-numbers"><code class="language-js" [innerHTML]="example"></code></pre>
+            </div>
+            <div *ngIf="show === false && isCode === true" class="my-3 row fade-in-delay-sm">
+                <div class="col-12">
+                    <button class="btn btn-lg btn-green btn-inverse" (click)="showSolution()">Show Solution</button>
+                </div>
+            </div>
+            <div *ngIf="show === true && isCode === true" class="fade-in-delay-sm">
+                <h3 class="my-3">Solution</h3>
+                <pre class="line-numbers"><code class="language-js" [innerHTML]="solution"></code></pre>
+            </div>
+            <div *ngIf="show === true && isCode === true" class="fade-in-delay-md">
+                <h3 class="my-3">Explanation</h3>
+                <div [innerHTML]="explanation"></div>
+            </div>
+            <div *ngIf="links?.length && show === true" class="links-container shadow-sm my-4 p-3 fade-in-delay-lg">
                 <h2 class="h5">Additional Links</h2>
                 <div *ngFor="let link of links" class="mb-2">
                     <img class="link-logo mr-2" [src]="link.iconSrc" [alt]="link.linkType">

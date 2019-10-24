@@ -1,6 +1,16 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { AppConstants } from "../../common/app.constants";
+import { AppConstants, ArticleType } from "../../common/app.constants";
+
+import "clipboard";
+
+import "prismjs";
+import "prismjs/plugins/toolbar/prism-toolbar";
+import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard";
+import "prismjs/plugins/line-numbers/prism-line-numbers";
+import "prismjs/components/prism-javascript";
+
+declare var Prism: any;
 
 interface linkItem {
   iconSrc: string;
@@ -28,8 +38,27 @@ export class ArticleDetailsComponent implements OnInit {
   routeBackTextNotFound: string;
   tldr: string;
   links: linkItem[];
+  problem: string;
+  example: string;
+  solution: string;
+  solutionHTML: string;
+  explanation: string;
+  show: boolean;
+  isCode: boolean;
 
   constructor(private activatedRoute: ActivatedRoute) {}
+
+  showSolution() {
+    this.solution = Prism.highlight(
+      this.solution,
+      Prism.languages.javascript,
+      "javascript"
+    );
+
+    setTimeout(() => Prism.highlightAll(), 0);
+
+    this.show = true;
+  }
 
   ngOnInit() {
     const data = this.activatedRoute.snapshot.data;
@@ -37,6 +66,14 @@ export class ArticleDetailsComponent implements OnInit {
     this.routeBackText = data.routeBackText;
     this.routeBackTextNotFound = data.routeBackTextNotFound;
     this.cssClass = data.themeColor;
+
+    if (data.articleType === ArticleType.CODE) {
+      this.isCode = true;
+      this.show = false;
+    } else {
+      this.isCode = false;
+      this.show = true;
+    }
 
     if (data.articleDetailsResponse.data) {
       this.articleDetails = data.articleDetailsResponse.data;
@@ -66,6 +103,24 @@ export class ArticleDetailsComponent implements OnInit {
             }
           )
         : [];
+      this.problem = data.articleDetailsResponse.data.fields.problem
+        ? data.articleDetailsResponse.data.fields.problem.stringValue
+        : "";
+      this.example = data.articleDetailsResponse.data.fields.example
+        ? data.articleDetailsResponse.data.fields.example.stringValue.replace(
+            /\\n/g,
+            "\n"
+          )
+        : "";
+      this.solution = data.articleDetailsResponse.data.fields.solution
+        ? data.articleDetailsResponse.data.fields.solution.stringValue.replace(
+            /\\n/g,
+            "\n"
+          )
+        : "";
+      this.explanation = data.articleDetailsResponse.data.fields.explanation
+        ? data.articleDetailsResponse.data.fields.explanation.stringValue
+        : "";
       this.failed = false;
     } else {
       this.failed = true;
