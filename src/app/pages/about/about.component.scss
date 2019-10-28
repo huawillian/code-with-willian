@@ -1,5 +1,17 @@
 @import "variables";
 
+.text-orange {
+  color: $orange;
+}
+
+.text-green {
+  color: $green;
+}
+
+.text-cyan {
+  color: $cyan;
+}
+
 .banner-content {
   .profile-img {
     border-radius: 50%;
@@ -58,4 +70,26 @@
     color: white;
     background: rgba(15, 15, 15, 0.75);
   }
+}
+
+.section-3 {
+  background: url(/assets/computer.png);
+  background-position: 100px 200px;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  .label {
+    font-weight: bolder;
+    font-size: 2em;
+    text-shadow: 1px 1px 3px $dark-gray-transparent;
+  }
+
+  .description {
+    border-radius: 2px;
+    background: rgba(255,255,255,0.96);
+  }
+}
+
+.white-bg {
+  background: white;
 }
