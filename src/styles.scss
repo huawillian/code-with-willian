@@ -39,6 +39,7 @@
 
 body {
   background: $dark-gray;
+  overflow-x: hidden;
 }
 
 body:not(.loaded) {
