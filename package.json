@@ -23,7 +23,7 @@
     "classlist.js": "^1.1.20150312",
     "clipboard": "^2.0.4",
     "core-js": "^3.2.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "prismjs": "^1.17.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
